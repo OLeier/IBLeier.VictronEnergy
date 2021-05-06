@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Monitor.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Username" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vrm.app@ib-leier.net</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">lwQcfQ8XaQzQNYUIsGR6</Value>
+    </Setting>
+    <Setting Name="TimerInterval" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="LowVoltage" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">24.2</Value>
+    </Setting>
+    <Setting Name="VoltageStep" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

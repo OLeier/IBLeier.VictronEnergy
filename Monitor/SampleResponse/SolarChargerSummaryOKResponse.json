@@ -1,0 +1,224 @@
+﻿{
+  "success": true,
+  "records": {
+    "data": {
+      "hasOldData": true,
+      "secondsAgo": {
+        "value": "32203",
+        "valueFormattedWithUnit": "8h, 56m and 43s"
+      },
+      "81": {
+        "code": "ScV",
+        "idDataAttribute": "81",
+        "secondsAgo": "32203",
+        "secondsToNextLog": "60",
+        "value": "22.67",
+        "valueFloat": "22.67",
+        "dataType": "float",
+        "dbusServiceType": "solarcharger",
+        "dbusPath": "\\/Dc\\/0\\/Voltage",
+        "instance": 288,
+        "valueString": null,
+        "valueEnum": null,
+        "nameEnum": null,
+        "isValid": "0",
+        "isKeyIdDataAttribute": "0",
+        "formatValueOnly": "%.2F",
+        "formatWithUnit": "%.2F V",
+        "dataAttributeName": "Voltage",
+        "rawValue": "22.67",
+        "formattedValue": "22.67 V",
+        "valueFormattedValueOnly": "22.67",
+        "valueFormattedWithUnit": "22.67 V",
+        "hasOldData": true
+      },
+      "85": {
+        "code": "ScS",
+        "idDataAttribute": "85",
+        "secondsAgo": "32203",
+        "secondsToNextLog": "60",
+        "value": "Bulk",
+        "valueFloat": null,
+        "dataType": "enum",
+        "dbusServiceType": "solarcharger",
+        "dbusPath": "\\/State",
+        "instance": 288,
+        "valueString": null,
+        "valueEnum": "3",
+        "nameEnum": "Bulk",
+        "isValid": "0",
+        "isKeyIdDataAttribute": "1",
+        "formatValueOnly": "%s",
+        "formatWithUnit": "%s",
+        "dataAttributeName": "Charge state",
+        "rawValue": "Bulk",
+        "formattedValue": "Bulk",
+        "valueFormattedValueOnly": "Bulk",
+        "valueFormattedWithUnit": "Bulk",
+        "hasOldData": true,
+        "dataAttributeEnumValues": [
+          {
+            "nameEnum": "Off",
+            "valueEnum": 0
+          },
+          {
+            "nameEnum": "Fault",
+            "valueEnum": 2
+          },
+          {
+            "nameEnum": "Bulk",
+            "valueEnum": 3
+          },
+          {
+            "nameEnum": "Absorption",
+            "valueEnum": 4
+          },
+          {
+            "nameEnum": "Float",
+            "valueEnum": 5
+          },
+          {
+            "nameEnum": "Storage",
+            "valueEnum": 6
+          },
+          {
+            "nameEnum": "Equalize",
+            "valueEnum": 7
+          },
+          {
+            "nameEnum": "Off",
+            "valueEnum": 245
+          },
+          {
+            "nameEnum": "Equalize",
+            "valueEnum": 247
+          },
+          {
+            "nameEnum": "Ext. Control",
+            "valueEnum": 252
+          }
+        ]
+      },
+      "94": {
+        "code": "YT",
+        "idDataAttribute": "94",
+        "secondsAgo": "32203",
+        "secondsToNextLog": "60",
+        "value": "0.08",
+        "valueFloat": "0.08",
+        "dataType": "float",
+        "dbusServiceType": "solarcharger",
+        "dbusPath": "\\/History\\/Daily\\/0\\/Yield",
+        "instance": 288,
+        "valueString": null,
+        "valueEnum": null,
+        "nameEnum": null,
+        "isValid": "0",
+        "isKeyIdDataAttribute": "0",
+        "formatValueOnly": "%.2F",
+        "formatWithUnit": "%.2F kWh",
+        "dataAttributeName": "Yield today",
+        "rawValue": "0.08",
+        "formattedValue": "0.08 kWh",
+        "valueFormattedValueOnly": "0.08",
+        "valueFormattedWithUnit": "0.08 kWh",
+        "hasOldData": true
+      },
+      "96": {
+        "code": "YY",
+        "idDataAttribute": "96",
+        "secondsAgo": "32203",
+        "secondsToNextLog": "60",
+        "value": "0.25",
+        "valueFloat": "0.25",
+        "dataType": "float",
+        "dbusServiceType": "solarcharger",
+        "dbusPath": "\\/History\\/Daily\\/1\\/Yield",
+        "instance": 288,
+        "valueString": null,
+        "valueEnum": null,
+        "nameEnum": null,
+        "isValid": "0",
+        "isKeyIdDataAttribute": "0",
+        "formatValueOnly": "%.2F",
+        "formatWithUnit": "%.2F kWh",
+        "dataAttributeName": "Yield yesterday",
+        "rawValue": "0.25",
+        "formattedValue": "0.25 kWh",
+        "valueFormattedValueOnly": "0.25",
+        "valueFormattedWithUnit": "0.25 kWh",
+        "hasOldData": true
+      },
+      "107": {
+        "code": "ScW",
+        "idDataAttribute": "107",
+        "secondsAgo": "32203",
+        "secondsToNextLog": "60",
+        "value": "-52.141",
+        "valueFloat": "-52.141",
+        "dataType": "float",
+        "dbusServiceType": null,
+        "dbusPath": null,
+        "instance": 288,
+        "valueString": null,
+        "valueEnum": null,
+        "nameEnum": null,
+        "isValid": "0",
+        "isKeyIdDataAttribute": "0",
+        "formatValueOnly": "%.0F",
+        "formatWithUnit": "%.0F W",
+        "dataAttributeName": "Battery watts",
+        "rawValue": "-52.141",
+        "formattedValue": "-52 W",
+        "valueFormattedValueOnly": "-52",
+        "valueFormattedWithUnit": "-52 W",
+        "hasOldData": true
+      }
+    },
+    "meta": {
+      "81": {
+        "code": "ScV",
+        "description": "Voltage",
+        "formatValueOnly": "%.2F",
+        "formatWithUnit": "%.2F V"
+      },
+      "83": {
+        "code": "ScT",
+        "description": "Battery temperature",
+        "formatValueOnly": "%.1F",
+        "formatWithUnit": "%.1F C"
+      },
+      "85": {
+        "code": "ScS",
+        "description": "Charge state",
+        "formatValueOnly": "%s",
+        "formatWithUnit": "%s"
+      },
+      "90": {
+        "code": "SRelay",
+        "description": "Relay on the charger",
+        "formatValueOnly": "%s",
+        "formatWithUnit": "%s"
+      },
+      "94": {
+        "code": "YT",
+        "description": "Yield today",
+        "formatValueOnly": "%.2F",
+        "formatWithUnit": "%.2F kWh"
+      },
+      "96": {
+        "code": "YY",
+        "description": "Yield yesterday",
+        "formatValueOnly": "%.2F",
+        "formatWithUnit": "%.2F kWh"
+      },
+      "107": {
+        "code": "ScW",
+        "description": "Battery watts",
+        "formatValueOnly": "%.0F",
+        "formatWithUnit": "%.0F W"
+      }
+    },
+    "attributeOrder": [ 107, 85, 83, 81, 94, 96, 90 ]
+  }
+}

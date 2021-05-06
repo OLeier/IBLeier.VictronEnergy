@@ -1,0 +1,467 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "VrmApi",
+    "description": "Victron Remote Management API.",
+    "version": "2.0.0"
+  },
+  "host": "vrmapi.victronenergy.com",
+  "basePath": "/v2",
+  "schemes": [ "https" ],
+
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "operationId": "login",
+        "summary": "Returns a token.",
+        "description": "X-Authorization: Bearer {token}.",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "credential",
+            "required": true,
+            "description": "The credential for login",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "john@example.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "secret-passw0rd"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNjNzAxZjM4ZjU3ZmZjNTNlMzc4ZjJiOGQyNDY5NGM4In0.eyJ1aWQiOiI5OTQxNyIsInRva2VuX3R5cGUiOiJkZWZhdWx0IiwiaXNzIjoidnJtYXBpLnZpY3Ryb25lbmVyZ3kuY29tIiwiYXVkIjoiaHR0cHM6XC9cL3ZybWFwaS52aWN0cm9uZW5lcmd5LmNvbVwvIiwiaWF0IjoxNjA1NzExMDE3LCJleHAiOjE2MDU3OTc0MTcsImp0aSI6IjNjNzAxZjM4ZjU3ZmZjNTNlMzc4ZjJiOGQyNDY5NGM4In0.Ghc6uj_wM1sy3y1zzkDJCmbDeL9gae8tJx4u_897HqCGhHUMoACaHFSSTnLWuNR7L1nMnOEgqoFzn38HxTmCwTt1xXO2g5-5ubohmGMFgbNK5QyPCCXwCGAqFO24aTvyeU9T6GvkXyZ6cWtsM-bu1SMtQ_7t_wyrfgfxSmkfykuwEPdjR4Fsf0oPtvs3GDz80OHMju6SBVEK037-OJLPO8N699OUl1UozGdGIaefaLEuzRq5vJcq0y0z8j7g9fycXwmc4PfjoVpWvcdbiqD7lKVVVkRWBL8Jqutq3Zwu9IlDk4olwcI-DSVCq6miCT-vksT-OzlEJL7AQD8Gx4aQ3w"
+                },
+                "idUser": {
+                  "type": "integer",
+                  "example": "99417"
+                }
+              },
+              "required": [
+                "token",
+                "idUser"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "operationId": "logout",
+        "summary": "Will blacklist the token at the server side for further use.",
+        "description": "X-Authorization: Bearer {token}.",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Authorization",
+            "required": true,
+            "description": "X-Authorization: Bearer {token}.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/{idUser}/installations": {
+      "get": {
+        "operationId": "installations",
+        "summary": "Get all installations/sites of a given user.",
+        "description": "(Restricted) admins can retrieve installations of all users, dealers can only retrieve installations for the users that are linked to them, normal users can only retrieve their own installations/sites.",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Authorization",
+            "required": true,
+            "description": "X-Authorization: Bearer {token}.",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "idUser",
+            "required": true,
+            "type": "integer",
+            "description": "The id of the user."
+          },
+          {
+            "in": "query",
+            "name": "extended",
+            "type": "integer",
+            "required": false,
+            "description": "for extended values"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "records"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "idSite": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "accessLevel": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "owner": {
+                        "type": "boolean"
+                      },
+                      "is_admin": {
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "idUser": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "pvMax": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "timezone": {
+                        "type": "string"
+                      },
+                      "phonenumber": {
+                        "type": "string",
+                        "format": "nullable"
+                      },
+                      "notes": {
+                        "type": "string",
+                        "format": "nullable"
+                      },
+                      "geofence": {
+                        "type": "string",
+                        "format": "nullable"
+                      },
+                      "geofenceEnabled": {
+                        "type": "boolean"
+                      },
+                      "hasMains": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "hasGenerator": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "noDataAlarmTimeout": {
+                        "type": "string",
+                        "format": "nullable"
+                      },
+                      "alarmMonitoring": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "invalidVRMAuthTokenUsedInLogRequest": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "invalidMqttPasswordSentAt": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "syscreated": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "shared": {
+                        "type": "boolean"
+                      },
+                      "device_icon": {
+                        "type": "string"
+                      },
+                      "alarm": {
+                        "type": "boolean"
+                      },
+                      "last_timestamp": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "tags": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "idTag": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "automatic": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "current_time": {
+                        "type": "string"
+                      },
+                      "timezone_offset": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "images": {
+                        "type": "boolean"
+                      },
+                      "view_permissions": {
+                        "type": "object",
+                        "properties": {
+                          "update_settings": {
+                            "type": "boolean"
+                          },
+                          "settings": {
+                            "type": "boolean"
+                          },
+                          "diagnostics": {
+                            "type": "boolean"
+                          },
+                          "share": {
+                            "type": "boolean"
+                          },
+                          "vnc": {
+                            "type": "boolean"
+                          },
+                          "mqtt_rpc": {
+                            "type": "boolean"
+                          },
+                          "vebus": {
+                            "type": "boolean"
+                          },
+                          "twoway": {
+                            "type": "boolean"
+                          },
+                          "exact_location": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "extended": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "idDataAttribute": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "code": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "formatWithUnit": {
+                              "type": "string"
+                            },
+                            "dataType": {
+                              "type": "string"
+                            },
+                            "textValue": {
+                              "type": "string",
+                              "format": "nullable"
+                            },
+                            "instance": {
+                              "type": "string"
+                            },
+                            "dbusServiceType": {
+                              "type": "string"
+                            },
+                            "dbusPath": {
+                              "type": "string"
+                            },
+                            "rawValue": {
+                              "type": "string"
+                            },
+                            "formattedValue": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "demo_mode": {
+                        "type": "boolean"
+                      },
+                      "mqtt_webhost": {
+                        "type": "string"
+                      },
+                      "high_workload": {
+                        "type": "boolean"
+                      },
+                      "current_alarms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "nullable"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/installations/{idSite}/system-overview": {
+      "get": {
+        "operationId": "system-overview",
+        "summary": "Retrieve connected devices (e.g. to get device instance).",
+        "description": "Retrieve connected devices (e.g. to get device instance).",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Authorization",
+            "required": true,
+            "description": "X-Authorization: Bearer {token}.",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "idSite",
+            "required": true,
+            "type": "integer",
+            "description": "The id of the site."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "records": {
+                  "type": "object",
+                  "properties": {
+                    "devices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "unconfigured_devices": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/installations/{idSite}/widgets/SolarChargerSummary": {
+      "get": {
+        "operationId": "SolarChargerSummary",
+        "summary": "Summary data.",
+        "description": "Returns latest recorded values for the Solar Charger Summary for for instance 255.",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Authorization",
+            "required": true,
+            "description": "X-Authorization: Bearer {token}.",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "idSite",
+            "required": true,
+            "type": "integer",
+            "description": "The id of the site."
+          },
+          {
+            "in": "query",
+            "name": "instance",
+            "required": true,
+            "type": "integer",
+            "description": "The id of the instance."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "records": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "meta": {
+                      "type": "object",
+                      "additionalProperties": {}
+                    },
+                    "attributeOrder": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+﻿{
+  "success": true,
+  "records": [
+    {
+      "idSite": 70876,
+      "accessLevel": 0,
+      "owner": true,
+      "is_admin": false,
+      "name": "RasPi",
+      "identifier": "b827eb27e008",
+      "idUser": 99417,
+      "pvMax": 0,
+      "timezone": "UTC",
+      "phonenumber": null,
+      "notes": null,
+      "geofence": null,
+      "geofenceEnabled": false,
+      "hasMains": 0,
+      "hasGenerator": 0,
+      "noDataAlarmTimeout": null,
+      "alarmMonitoring": 1,
+      "invalidVRMAuthTokenUsedInLogRequest": 0,
+      "invalidMqttPasswordSentAt": 0,
+      "syscreated": 1599133383,
+      "shared": false,
+      "device_icon": "battery"
+    }
+  ]
+}

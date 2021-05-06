@@ -1,0 +1,139 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Diagnostics;
+using System.Threading;
+
+namespace ModbusTcp.Tests
+{
+	[TestClass()]
+	public class ModbusTcpAdapterTests
+	{
+		/// <summary>
+		/// FillTest - start EasyModbusServerSimulator.exe before.
+		/// </summary>
+		[TestMethod()]
+		public void FillTestLocalhost()
+		{
+			int[] fields = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1 };
+			SolarChargerData data = new SolarChargerData(1);
+			data.Fields = fields;
+
+			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
+			{
+				int returnValue = adapter.Connect("localhost", 502);
+				Assert.AreEqual(0, returnValue, "returnValue");
+
+				int count = adapter.Write(data);
+				Assert.AreEqual(0, count, "count");
+
+				count = adapter.Fill(data);
+				Assert.AreEqual(0, count, "count");
+			}
+			Assert.IsNotNull(data.Fields, "data.Fields");
+			Assert.AreEqual(data.Quantity, data.Fields.Length, "data.Fields.Length");
+
+			for (int i = 0; i < fields.Length; i++)
+			{
+				Assert.AreEqual(fields[i], data.Fields[i], "data.Fields[" + i + "]");
+			}
+		}
+
+		/// <summary>
+		/// FillTest - start EasyModbusServerSimulator.exe before.
+		/// </summary>
+		[TestMethod()]
+		public void FillTestVenus()
+		{
+			SolarChargerData data = new SolarChargerData(239);
+
+			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
+			{
+				int returnValue = adapter.Connect("venus", 502);
+				Assert.AreEqual(0, returnValue, "returnValue");
+
+				int count = adapter.Fill(data);
+				Assert.AreEqual(0, count, "count");
+			}
+			Assert.IsNotNull(data.Fields, "data.Fields");
+			Assert.AreEqual(data.Quantity, data.Fields.Length, "data.Fields.Length");
+		}
+
+		[TestMethod()]
+		public void ChargerOnOffTestVenus()
+		{
+			Console.WriteLine("Console-ChargerOnOffTestVenus");
+			Trace.WriteLine("Trace-ChargerOnOffTestVenus");
+
+			SolarChargerData scData = new SolarChargerData(239);
+			ChargerOnOffData coData = new ChargerOnOffData(239);
+
+			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
+			{
+				int returnValue = adapter.Connect("venus", 502);
+				Assert.AreEqual(0, returnValue, "returnValue");
+
+				int count = adapter.Fill(scData);
+				Assert.AreEqual(0, count, "count-1");
+				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
+				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+
+				coData.Fields = new int[1];
+				coData.ChargerOnOff = 4;  // Off
+				count = adapter.Write(coData);
+				Assert.AreEqual(0, count, "count-2");
+
+				Thread.Sleep(1000);
+				Trace.WriteLine("***");
+
+				count = adapter.Fill(scData);
+				Assert.AreEqual(0, count, "count-3");
+				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
+				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+
+				Thread.Sleep(1000);
+				Trace.WriteLine("***");
+
+				count = adapter.Fill(scData);
+				Assert.AreEqual(0, count, "count-4");
+				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
+				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+
+				coData.ChargerOnOff = 1;  // On
+				count = adapter.Write(coData);
+				Assert.AreEqual(0, count, "count-5");
+
+				Thread.Sleep(1000);
+				Trace.WriteLine("***");
+
+				count = adapter.Fill(scData);
+				Assert.AreEqual(0, count, "count-6");
+				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
+				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+
+				Thread.Sleep(1000);
+				Trace.WriteLine("***");
+
+				count = adapter.Fill(scData);
+				Assert.AreEqual(0, count, "count-7");
+				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
+				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+
+				Thread.Sleep(1000);
+				Trace.WriteLine("***");
+
+				count = adapter.Fill(scData);
+				Assert.AreEqual(0, count, "count-8");
+				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
+				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+			}
+		}
+
+		[TestMethod()]
+		public void AddressTest()
+		{
+			SolarChargerData data = new SolarChargerData(239);
+			Assert.AreEqual(771, data.StartingAddress, "StartingAddress");
+			Assert.AreEqual(791 - 771 + 1, data.Quantity, "Quantity");
+		}
+	}
+}

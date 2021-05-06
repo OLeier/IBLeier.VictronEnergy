@@ -1,0 +1,311 @@
+﻿{
+  "success": true,
+  "records": [
+    {
+      "idSite": 70876,
+      "accessLevel": 0,
+      "owner": true,
+      "is_admin": false,
+      "name": "RasPi",
+      "identifier": "b827eb27e008",
+      "idUser": 99417,
+      "pvMax": 0,
+      "timezone": "Europe\\/Berlin",
+      "phonenumber": null,
+      "notes": null,
+      "geofence": null,
+      "geofenceEnabled": false,
+      "hasMains": 0,
+      "hasGenerator": 0,
+      "noDataAlarmTimeout": null,
+      "alarmMonitoring": 1,
+      "invalidVRMAuthTokenUsedInLogRequest": 0,
+      "invalidMqttPasswordSentAt": 0,
+      "syscreated": 1599133383,
+      "shared": false,
+      "device_icon": "battery",
+      "alarm": true,
+      "last_timestamp": 1605698396,
+      "tags": [
+        {
+          "idTag": 39,
+          "name": "alarm",
+          "automatic": true
+        }
+      ],
+      "current_time": "22:35",
+      "timezone_offset": 3600,
+      "images": false,
+      "view_permissions": {
+        "update_settings": false,
+        "settings": true,
+        "diagnostics": false,
+        "share": false,
+        "vnc": false,
+        "mqtt_rpc": false,
+        "vebus": false,
+        "twoway": false,
+        "exact_location": true
+      },
+      "extended": [
+        {
+          "idDataAttribute": 143,
+          "code": "bv",
+          "description": "Voltage",
+          "formatWithUnit": "%.2F V",
+          "dataType": "float",
+          "textValue": null,
+          "instance": "0",
+          "dbusServiceType": "system",
+          "dbusPath": "\\/Dc\\/Battery\\/Voltage",
+          "rawValue": "22.67",
+          "formattedValue": "22.67 V"
+        },
+        {
+          "idDataAttribute": 147,
+          "code": "bc",
+          "description": "Current",
+          "formatWithUnit": "%.2F A",
+          "dataType": "float",
+          "textValue": null,
+          "instance": "0",
+          "dbusServiceType": "system",
+          "dbusPath": "\\/Dc\\/Battery\\/Current",
+          "rawValue": "-2.3",
+          "formattedValue": "-2.30 A"
+        },
+        {
+          "idDataAttribute": 250,
+          "code": "tw",
+          "description": "Two way communication",
+          "formatWithUnit": "%s",
+          "dataType": "enum",
+          "textValue": "Off",
+          "instance": "0",
+          "dbusServiceType": "settings",
+          "dbusPath": "\\/Settings\\/Services\\/MqttVrm",
+          "rawValue": "0",
+          "formattedValue": "Off",
+          "dataAttributeEnumValues": [
+            {
+              "nameEnum": "Off",
+              "valueEnum": 0
+            },
+            {
+              "nameEnum": "On",
+              "valueEnum": 1
+            }
+          ]
+        },
+        {
+          "idDataAttribute": 251,
+          "code": "si1",
+          "description": "AC Input 1 ",
+          "formatWithUnit": "%s",
+          "dataType": "enum",
+          "textValue": "Not available",
+          "instance": "0",
+          "dbusServiceType": "settings",
+          "dbusPath": "\\/Settings\\/SystemSetup\\/AcInput1",
+          "rawValue": "0",
+          "formattedValue": "Not available",
+          "dataAttributeEnumValues": [
+            {
+              "nameEnum": "Not available",
+              "valueEnum": 0
+            },
+            {
+              "nameEnum": "Grid",
+              "valueEnum": 1
+            },
+            {
+              "nameEnum": "Generator",
+              "valueEnum": 2
+            },
+            {
+              "nameEnum": "Shore power",
+              "valueEnum": 3
+            }
+          ]
+        },
+        {
+          "idDataAttribute": 252,
+          "code": "si2",
+          "description": "AC Input 2",
+          "formatWithUnit": "%s",
+          "dataType": "enum",
+          "textValue": "Not available",
+          "instance": "0",
+          "dbusServiceType": "settings",
+          "dbusPath": "\\/Settings\\/SystemSetup\\/AcInput2",
+          "rawValue": "0",
+          "formattedValue": "Not available",
+          "dataAttributeEnumValues": [
+            {
+              "nameEnum": "Not available",
+              "valueEnum": 0
+            },
+            {
+              "nameEnum": "Grid",
+              "valueEnum": 1
+            },
+            {
+              "nameEnum": "Generator",
+              "valueEnum": 2
+            },
+            {
+              "nameEnum": "Shore power",
+              "valueEnum": 3
+            }
+          ]
+        },
+        {
+          "idDataAttribute": 453,
+          "code": "cp",
+          "description": "Capabilities",
+          "formatWithUnit": "%s",
+          "dataType": "enum",
+          "textValue": null,
+          "instance": "0",
+          "dbusServiceType": null,
+          "dbusPath": null,
+          "rawValue": "15",
+          "formattedValue": "15",
+          "dataAttributeEnumValues": [
+            {
+              "nameEnum": "MQTT-RPC",
+              "valueEnum": 1
+            },
+            {
+              "nameEnum": "MQTT-RPC new firmware update command",
+              "valueEnum": 2
+            },
+            {
+              "nameEnum": "VNC-SSH authentication",
+              "valueEnum": 4
+            },
+            {
+              "nameEnum": "VregLink",
+              "valueEnum": 8
+            }
+          ]
+        },
+        {
+          "idDataAttribute": 469,
+          "code": "sca",
+          "description": "ESS Scheduled Charging",
+          "formatWithUnit": "%s",
+          "dataType": "enum",
+          "textValue": "Not active",
+          "instance": "0",
+          "dbusServiceType": null,
+          "dbusPath": null,
+          "rawValue": "0",
+          "formattedValue": "Not active",
+          "dataAttributeEnumValues": [
+            {
+              "nameEnum": "Not active",
+              "valueEnum": 0
+            },
+            {
+              "nameEnum": "Active",
+              "valueEnum": 1
+            }
+          ]
+        },
+        {
+          "idDataAttribute": 577,
+          "code": "rtt",
+          "description": "D-Bus Round-trip time",
+          "formatWithUnit": "%.0F ms",
+          "dataType": "float",
+          "textValue": null,
+          "instance": "0",
+          "dbusServiceType": null,
+          "dbusPath": null,
+          "rawValue": "1",
+          "formattedValue": "1 ms"
+        },
+        {
+          "rawValue": null,
+          "formatWithUnit": "",
+          "dataAttributes": [],
+          "code": "consumption",
+          "description": "Consumption",
+          "textValue": null,
+          "formattedValue": "",
+          "idDataAttribute": null
+        },
+        {
+          "rawValue": 40.806,
+          "formatWithUnit": "%.0F W",
+          "dataAttributes": [
+            {
+              "instance": 0,
+              "dbusServiceType": "system",
+              "dbusPath": "\\/Dc\\/Pv\\/Power"
+            }
+          ],
+          "idDataAttribute": null,
+          "code": "solar_yield",
+          "description": "Solar_yield",
+          "textValue": null,
+          "formattedValue": "41 W"
+        },
+        {
+          "rawValue": null,
+          "formatWithUnit": "",
+          "dataAttributes": [],
+          "code": "from_to_grid",
+          "description": "From_to_grid",
+          "textValue": null,
+          "formattedValue": "",
+          "idDataAttribute": null
+        },
+        {
+          "rawValue": null,
+          "formatWithUnit": "",
+          "dataAttributes": [],
+          "code": "generator",
+          "description": "Generator",
+          "textValue": null,
+          "formattedValue": "",
+          "idDataAttribute": null
+        },
+        {
+          "rawValue": null,
+          "formatWithUnit": "",
+          "dataAttributes": [],
+          "code": "ac_in",
+          "description": "Ac_in",
+          "textValue": null,
+          "formattedValue": "",
+          "idDataAttribute": null
+        },
+        {
+          "rawValue": null,
+          "formatWithUnit": "",
+          "dataAttributes": [],
+          "code": "ac_out",
+          "description": "Ac_out",
+          "textValue": null,
+          "formattedValue": "",
+          "idDataAttribute": null
+        },
+        {
+          "code": "soc_status",
+          "description": "SOC Status",
+          "rawValue": 0,
+          "formattedValue": "Discharging",
+          "textValue": "Discharging",
+          "idDataAttribute": null
+        }
+      ],
+      "demo_mode": false,
+      "mqtt_webhost": "webmqtt48.victronenergy.com",
+      "high_workload": false,
+      "current_alarms": [ "Solar Charger [288] - Voltage" ],
+      "avatar_url": null
+    }
+  ]
+}

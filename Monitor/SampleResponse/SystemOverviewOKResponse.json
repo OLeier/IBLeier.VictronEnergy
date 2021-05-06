@@ -1,0 +1,46 @@
+﻿{
+  "success": true,
+  "records": {
+    "devices": [
+      {
+        "name": "Gateway",
+        "customName": null,
+        "productCode": "",
+        "idSite": 70876,
+        "productName": "Generic Venus Device (rpi or other)",
+        "firmwareVersion": "v2.60",
+        "remoteOnLan": "",
+        "autoUpdate": "Check",
+        "updateTo": "Official release",
+        "lastConnection": 1605698396,
+        "class": "device-gateway device-icon-generic-venus-device--rpi-or-other-",
+        "loggingInterval": 60,
+        "identifier": "b827eb27e008",
+        "lastPowerUpOrRestart": 1605696056,
+        "vncSshAuth": true,
+        "vncStatus": "Disabled",
+        "vncPort": 0,
+        "twoWayCommunication": false,
+        "remoteSupportEnabled": false,
+        "remoteSupportPort": 0,
+        "remoteSupport": "disabled",
+        "machineSerialNumber": null,
+        "settings": []
+      },
+      {
+        "name": "Solar Charger",
+        "customName": "",
+        "productCode": "",
+        "idSite": 70876,
+        "productName": "SmartSolar Charger MPPT 75\\/10",
+        "firmwareVersion": "v1.54",
+        "lastConnection": 1605698396,
+        "class": "device-solar-charger device-icon-smartsolar-charger-mppt-75-10",
+        "instance": 288,
+        "idDeviceType": 4,
+        "settings": []
+      }
+    ],
+    "unconfigured_devices": false
+  }
+}

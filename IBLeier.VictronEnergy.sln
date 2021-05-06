@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitor", "Monitor\Monitor.csproj", "{1DA8118B-70AB-40C4-9AB9-41A1B4B8D0AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorTests", "MonitorTests\MonitorTests.csproj", "{488FA2F2-B37D-428D-AF06-D836323A1618}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{71B0F0CB-6A55-43A4-ABD9-7991585D4EB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModbusTcp", "ModbusTcp\ModbusTcp.csproj", "{C19FA9E1-A2B6-4CA6-81D9-D904E52339B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModbusTcpTests", "ModbusTcpTests\ModbusTcpTests.csproj", "{5B0C628E-AB86-426D-AC7F-1B5A1AD5E732}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DA8118B-70AB-40C4-9AB9-41A1B4B8D0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA8118B-70AB-40C4-9AB9-41A1B4B8D0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA8118B-70AB-40C4-9AB9-41A1B4B8D0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA8118B-70AB-40C4-9AB9-41A1B4B8D0AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{488FA2F2-B37D-428D-AF06-D836323A1618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488FA2F2-B37D-428D-AF06-D836323A1618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488FA2F2-B37D-428D-AF06-D836323A1618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488FA2F2-B37D-428D-AF06-D836323A1618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19FA9E1-A2B6-4CA6-81D9-D904E52339B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19FA9E1-A2B6-4CA6-81D9-D904E52339B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19FA9E1-A2B6-4CA6-81D9-D904E52339B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19FA9E1-A2B6-4CA6-81D9-D904E52339B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B0C628E-AB86-426D-AC7F-1B5A1AD5E732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B0C628E-AB86-426D-AC7F-1B5A1AD5E732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B0C628E-AB86-426D-AC7F-1B5A1AD5E732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B0C628E-AB86-426D-AC7F-1B5A1AD5E732}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{488FA2F2-B37D-428D-AF06-D836323A1618} = {71B0F0CB-6A55-43A4-ABD9-7991585D4EB0}
+		{5B0C628E-AB86-426D-AC7F-1B5A1AD5E732} = {71B0F0CB-6A55-43A4-ABD9-7991585D4EB0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E64BC8D-C6E5-497F-AD2A-25C3FBF1C40E}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ModbusTcp\\ModbusTcp.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = ModbusTcp\\
+		SccProjectUniqueName2 = ModbusTcpTests\\ModbusTcpTests.csproj
+		SccProjectTopLevelParentUniqueName2 = IBLeier.VictronEnergy.sln
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = ModbusTcpTests\\
+		SccProjectUniqueName3 = Monitor\\Monitor.csproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Monitor\\
+		SccProjectUniqueName4 = MonitorTests\\MonitorTests.csproj
+		SccProjectTopLevelParentUniqueName4 = IBLeier.VictronEnergy.sln
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = MonitorTests\\
+	EndGlobalSection
+EndGlobal
