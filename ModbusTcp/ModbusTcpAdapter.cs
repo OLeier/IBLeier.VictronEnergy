@@ -37,14 +37,14 @@ namespace ModbusTcp
 			Console.ReadKey(true);
 		}
 
-		public int Connect(string ipAddress, int port)
+		public string Connect(string ipAddress, int port)
 		{
 			if (this.modbusClient.Connected)
 			{
 				this.modbusClient.Disconnect();
 			}
 
-			int returnValue = 0;
+			string returnValue = null;
 			try
 			{
 				this.modbusClient.Connect(ipAddress, port);
@@ -52,7 +52,7 @@ namespace ModbusTcp
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
-				returnValue = -1;
+				returnValue = ex.Message;
 			}
 			return returnValue;
 		}

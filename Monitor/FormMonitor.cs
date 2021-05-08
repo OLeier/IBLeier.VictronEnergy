@@ -1,4 +1,5 @@
-﻿using ModbusTcp;
+﻿using IBLeier.VictronEnergy.Monitor;
+using ModbusTcp;
 using Monitor.Properties;
 using Monitor.VrmApi.Models;
 using System;
@@ -196,17 +197,21 @@ namespace Monitor
 
 			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
 			{
-				int returnValue = adapter.Connect("venus", 502);
-				if (returnValue < 0)
+				string returnValue = adapter.Connect("venus", 502);
+				if (!string.IsNullOrEmpty(returnValue))
 				{
 					this.timer2.Stop();
+					Logging.Log("FormMonitor.Timer2_Tick-Error", returnValue);
 					return;
 				}
 
 				int count = adapter.Fill(scData);
-				Trace.Write("step: " + this.step + ", count: " + count);
-				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
-				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
+				string message = null;
+				message += "step: " + this.step + ", count: " + count;
+				message += "PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ";
+				message += "Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode;
+				Trace.WriteLine(message);
+				Logging.Log("FormMonitor.Timer2_Tick-Fill", message);
 
 				// 1. Charger is On and working
 				if (this.step == 1 && scData.ChargerOnOff == 1 && scData.ChargeState != 0)
@@ -218,12 +223,14 @@ namespace Monitor
 						// Switch Off
 						coData.ChargerOnOff = 4;
 						count = adapter.Write(coData);
+						Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch Off: " + count);
 						this.step++;
 					}
 					else
 					{
 						// stop timer 2
 						this.timer2.Stop();
+						Logging.Log("FormMonitor.Timer2_Tick", "Stop");
 					}
 				}
 
@@ -233,6 +240,7 @@ namespace Monitor
 					// Switch On
 					coData.ChargerOnOff = 1;
 					count = adapter.Write(coData);
+					Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch On: " + count);
 					this.step++;
 				}
 
@@ -241,6 +249,7 @@ namespace Monitor
 				{
 					// stop timer 2
 					this.timer2.Stop();
+					Logging.Log("FormMonitor.Timer2_Tick", "Stop");
 				}
 			}
 		}

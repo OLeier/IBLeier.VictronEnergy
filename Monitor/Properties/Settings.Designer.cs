@@ -67,5 +67,14 @@ namespace Monitor.Properties {
                 return ((double)(this["VoltageStep"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:\\Logs\\SolarMonitor_{0:yyyy-MM-dd}.txt")]
+        public string LoggingFile {
+            get {
+                return ((string)(this["LoggingFile"]));
+            }
+        }
     }
 }

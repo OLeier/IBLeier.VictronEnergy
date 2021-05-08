@@ -58,7 +58,7 @@
 
 		const double Scalefactor100 = 100;
 		const double Scalefactor10 = 10;
-		const double Scalefactor1 = 1;
+		//const double Scalefactor1 = 1;
 
 		public int[] Fields { get; set; }
 

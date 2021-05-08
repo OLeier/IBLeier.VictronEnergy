@@ -15,13 +15,15 @@ namespace ModbusTcp.Tests
 		public void FillTestLocalhost()
 		{
 			int[] fields = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1 };
-			SolarChargerData data = new SolarChargerData(1);
-			data.Fields = fields;
+			SolarChargerData data = new SolarChargerData(1)
+			{
+				Fields = fields
+			};
 
 			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
 			{
-				int returnValue = adapter.Connect("localhost", 502);
-				Assert.AreEqual(0, returnValue, "returnValue");
+				string returnValue = adapter.Connect("localhost", 502);
+				Assert.IsTrue(string.IsNullOrEmpty(returnValue), "returnValue");
 
 				int count = adapter.Write(data);
 				Assert.AreEqual(0, count, "count");
@@ -48,8 +50,8 @@ namespace ModbusTcp.Tests
 
 			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
 			{
-				int returnValue = adapter.Connect("venus", 502);
-				Assert.AreEqual(0, returnValue, "returnValue");
+				string returnValue = adapter.Connect("venus", 502);
+				Assert.IsTrue(string.IsNullOrEmpty(returnValue), "returnValue");
 
 				int count = adapter.Fill(data);
 				Assert.AreEqual(0, count, "count");
@@ -69,8 +71,8 @@ namespace ModbusTcp.Tests
 
 			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
 			{
-				int returnValue = adapter.Connect("venus", 502);
-				Assert.AreEqual(0, returnValue, "returnValue");
+				string returnValue = adapter.Connect("venus", 502);
+				Assert.IsTrue(string.IsNullOrEmpty(returnValue), "returnValue");
 
 				int count = adapter.Fill(scData);
 				Assert.AreEqual(0, count, "count-1");
