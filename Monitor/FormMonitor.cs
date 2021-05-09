@@ -25,6 +25,7 @@ namespace Monitor
 #else
 			this.timer1.Interval = Settings.Default.TimerInterval * 1000;
 #endif
+			this.timer2.Interval = Settings.Default.ModbusTimerInterval * 1000;
 		}
 
 		int count = 0;
@@ -200,7 +201,7 @@ namespace Monitor
 
 			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
 			{
-				string returnValue = adapter.Connect("venus", 502);
+				string returnValue = adapter.Connect(Settings.Default.ModbusIpAddress, 502);
 				if (!string.IsNullOrEmpty(returnValue))
 				{
 					this.timer2.Stop();

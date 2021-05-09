@@ -34,7 +34,7 @@ namespace Monitor.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("lwQcfQ8XaQzQNYUIsGR6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("lwQcf-Password-IsGR6")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
@@ -74,6 +74,24 @@ namespace Monitor.Properties {
         public string LoggingFile {
             get {
                 return ((string)(this["LoggingFile"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("venus")]
+        public string ModbusIpAddress {
+            get {
+                return ((string)(this["ModbusIpAddress"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int ModbusTimerInterval {
+            get {
+                return ((int)(this["ModbusTimerInterval"]));
             }
         }
     }
