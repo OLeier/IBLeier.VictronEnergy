@@ -110,11 +110,11 @@
 		/// ChargeState: 0=Off;2=Fault;3=Bulk;4=Absorption;5=Float;6=Storage;7=Equalize;11=Other (Hub-1);252=External control
 		/// 245=Aufwachen: 0 - 245 - 3
 		/// </summary>
-		public int ChargeState
+		public ChargeStateCode ChargeState
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.ChargeState];
+				return (ChargeStateCode)this.Fields[(int)FieldIndex.ChargeState];
 			}
 		}
 
@@ -303,11 +303,11 @@
 		/// <summary>
 		/// MppOperationMode: 0=Off;1=Voltage/current limited;2=MPPT active;255=Not available
 		/// </summary>
-		public int MppOperationMode
+		public MppOperationModeCode MppOperationMode
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.MppOperationMode];
+				return (MppOperationModeCode)this.Fields[(int)FieldIndex.MppOperationMode];
 			}
 		}
 	}
