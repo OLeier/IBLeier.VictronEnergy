@@ -163,12 +163,15 @@ namespace Monitor
 			long lastTimestamp = site.LastTimestamp.Value;
 			DateTime lt = DateTimeOffset.FromUnixTimeSeconds(lastTimestamp).LocalDateTime;
 			this.dataGridView1.Rows.Add("last_timestamp", lt.ToString());
-			if (this.lastTimestamp != lastTimestamp)
+			if (this.lastTimestamp != lastTimestamp && !this.timer2.Enabled)
 			{
+#if DEBUG
 				this.dailyInit = this.lastTimestampDate != lt.Date;
+#endif
 				this.lastTimestamp = lastTimestamp;
 				this.lastTimestampDate = lt.Date;
 				this.step = 1;
+				Logging.Log("FormMonitor.Fill", "Start, " + lt + ", " + (DateTime.Now - lt));
 				this.timer2.Start();
 			}
 
@@ -202,12 +205,13 @@ namespace Monitor
 				{
 					this.timer2.Stop();
 					Logging.Log("FormMonitor.Timer2_Tick-Error", returnValue);
+					this.step = 0;
 					return;
 				}
 
 				int count = adapter.Fill(scData);
 				string message = null;
-				message += "step: " + this.step + ", count: " + count;
+				message += "step: " + this.step + ", count: " + count + ", dailyInit: " + this.dailyInit + " - ";
 				message += "PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ";
 				message += "Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode;
 				Trace.WriteLine(message);
@@ -224,24 +228,25 @@ namespace Monitor
 						coData.ChargerOnOff = 4;
 						count = adapter.Write(coData);
 						Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch Off: " + count);
-						this.step++;
+						this.step = 2;
 					}
 					else
 					{
 						// stop timer 2
 						this.timer2.Stop();
-						Logging.Log("FormMonitor.Timer2_Tick", "Stop");
+						Logging.Log("FormMonitor.Timer2_Tick", "Stop1");
+						this.step = 0;
 					}
 				}
 
 				// 2. Charger is Off and not working
-				if (this.step == 2 && scData.ChargerOnOff == 4 && scData.ChargeState == 0)
+				if (this.step != 3 && scData.ChargerOnOff == 4 && scData.ChargeState == 0)
 				{
 					// Switch On
 					coData.ChargerOnOff = 1;
 					count = adapter.Write(coData);
 					Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch On: " + count);
-					this.step++;
+					this.step = 3;
 				}
 
 				// 3. Charger is On. working isn't necessary
@@ -249,7 +254,8 @@ namespace Monitor
 				{
 					// stop timer 2
 					this.timer2.Stop();
-					Logging.Log("FormMonitor.Timer2_Tick", "Stop");
+					Logging.Log("FormMonitor.Timer2_Tick", "Stop2");
+					this.step = 0;
 				}
 			}
 		}
