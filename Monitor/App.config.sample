@@ -14,7 +14,7 @@
                 <value>vrm.app@ib-leier.net</value>
             </setting>
             <setting name="Password" serializeAs="String">
-                <value>lwQcfQ8XaQzQNYUIsGR6</value>
+                <value>lwQcf-Password-IsGR6</value>
             </setting>
             <setting name="TimerInterval" serializeAs="String">
                 <value>20</value>
