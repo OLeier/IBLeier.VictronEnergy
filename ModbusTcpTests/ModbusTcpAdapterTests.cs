@@ -80,7 +80,7 @@ namespace ModbusTcp.Tests
 				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
 
 				coData.Fields = new int[1];
-				coData.ChargerOnOff = 4;  // Off
+				coData.ChargerOnOff = ChargerOnOffCode.Off;  // Off
 				count = adapter.Write(coData);
 				Assert.AreEqual(0, count, "count-2");
 
@@ -100,7 +100,7 @@ namespace ModbusTcp.Tests
 				Trace.Write("PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ");
 				Trace.WriteLine("Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode);
 
-				coData.ChargerOnOff = 1;  // On
+				coData.ChargerOnOff = ChargerOnOffCode.On;  // On
 				count = adapter.Write(coData);
 				Assert.AreEqual(0, count, "count-5");
 

@@ -219,14 +219,14 @@ namespace Monitor
 				Logging.Log("FormMonitor.Timer2_Tick-Fill", message);
 
 				// 1. Charger is On and working
-				if (this.step == 1 && scData.ChargerOnOff == 1 && scData.ChargeState != 0)
+				if (this.step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On && scData.ChargeState != 0)
 				{
 					if (scData.PvCurrent < 0.1 || scData.PvPower < 0.1 || this.dailyInit)
 					{
 						this.dailyInit = false;
 
 						// Switch Off
-						coData.ChargerOnOff = 4;
+						coData.ChargerOnOff = ChargerOnOffCode.Off;
 						count = adapter.Write(coData);
 						Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch Off: " + count);
 						this.step = 2;
@@ -241,17 +241,17 @@ namespace Monitor
 				}
 
 				// 2. Charger is Off and not working
-				if (this.step != 3 && scData.ChargerOnOff == 4 && scData.ChargeState == 0)
+				if (this.step != 3 && scData.ChargerOnOff == ChargerOnOffCode.Off && scData.ChargeState == 0)
 				{
 					// Switch On
-					coData.ChargerOnOff = 1;
+					coData.ChargerOnOff = ChargerOnOffCode.On;
 					count = adapter.Write(coData);
 					Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch On: " + count);
 					this.step = 3;
 				}
 
 				// 3. Charger is On. working isn't necessary
-				if (this.step == 3 && scData.ChargerOnOff == 1)
+				if (this.step == 3 && scData.ChargerOnOff == ChargerOnOffCode.On)
 				{
 					// stop timer 2
 					this.timer2.Stop();

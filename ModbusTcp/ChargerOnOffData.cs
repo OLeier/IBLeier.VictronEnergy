@@ -33,15 +33,15 @@
 		/// <summary>
 		/// ChargerOnOff: 1=On;4=Off
 		/// </summary>
-		public int ChargerOnOff
+		public ChargerOnOffCode ChargerOnOff
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.ChargerOnOff];
+				return (ChargerOnOffCode)this.Fields[(int)FieldIndex.ChargerOnOff];
 			}
 			set
 			{
-				this.Fields[(int)FieldIndex.ChargerOnOff] = value;
+				this.Fields[(int)FieldIndex.ChargerOnOff] = (int)value;
 			}
 		}
 	}

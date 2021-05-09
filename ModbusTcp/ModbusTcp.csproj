@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChargerOnOffData.cs" />
+    <Compile Include="DataCodes.cs" />
     <Compile Include="IData.cs" />
     <Compile Include="ModbusTcpAdapter.cs" />
     <Compile Include="SolarChargerData.cs" />
