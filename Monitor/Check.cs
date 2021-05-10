@@ -1,7 +1,7 @@
 ﻿using Monitor.Properties;
 using System.Windows.Forms;
 
-namespace Monitor
+namespace IBLeier.VictronEnergy.Monitor
 {
 	public class Check
 	{

@@ -128,7 +128,9 @@ namespace Monitor
 		}
 
 		private long lastTimestamp;
+#if DEBUG
 		private DateTime lastTimestampDate;
+#endif
 
 		private double Fill(InstallationsOKResponse installationsOKResponse)
 		{
@@ -168,9 +170,9 @@ namespace Monitor
 			{
 #if DEBUG
 				this.dailyInit = this.lastTimestampDate != lt.Date;
+				this.lastTimestampDate = lt.Date;
 #endif
 				this.lastTimestamp = lastTimestamp;
-				this.lastTimestampDate = lt.Date;
 				this.step = 1;
 				Logging.Log("FormMonitor.Fill", "Start, " + lt + ", " + (DateTime.Now - lt));
 				this.timer2.Start();
@@ -219,9 +221,9 @@ namespace Monitor
 				Logging.Log("FormMonitor.Timer2_Tick-Fill", message);
 
 				// 1. Charger is On and working
-				if (this.step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On && scData.ChargeState != ChargeStateCode.Off)
+				if (this.step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On)
 				{
-					if (scData.PvCurrent < 0.1 || scData.PvPower < 0.1 || this.dailyInit)
+					if (scData.ChargeState != ChargeStateCode.Off && (scData.PvCurrent < 0.1 || scData.PvPower < 0.1 || this.dailyInit))
 					{
 						this.dailyInit = false;
 
@@ -240,8 +242,8 @@ namespace Monitor
 					}
 				}
 
-				// 2. Charger is Off and not working
-				if (this.step != 3 && scData.ChargerOnOff == ChargerOnOffCode.Off && scData.ChargeState == ChargeStateCode.Off)
+				// 2. Charger is Off /* and not working */
+				if (this.step != 3 && scData.ChargerOnOff == ChargerOnOffCode.Off /* && scData.ChargeState == ChargeStateCode.Off */)
 				{
 					// Switch On
 					coData.ChargerOnOff = ChargerOnOffCode.On;

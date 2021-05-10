@@ -5,7 +5,7 @@ using Monitor.VrmApi.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace Monitor
+namespace IBLeier.VictronEnergy.Monitor
 {
 	public class VrmController
 	{
