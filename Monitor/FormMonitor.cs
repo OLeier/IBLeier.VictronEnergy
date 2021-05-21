@@ -132,11 +132,6 @@ namespace Monitor
 			} while (ex != null);
 		}
 
-		private long lastTimestamp;
-#if DEBUG
-		private DateTime lastTimestampDate;
-#endif
-
 		private double Fill(InstallationsOKResponse installationsOKResponse)
 		{
 			double bv = 0;
@@ -171,17 +166,7 @@ namespace Monitor
 			long lastTimestamp = site.LastTimestamp.Value;
 			DateTime lt = DateTimeOffset.FromUnixTimeSeconds(lastTimestamp).LocalDateTime;
 			this.dataGridView1.Rows.Add("last_timestamp", lt.ToString());
-			if (this.lastTimestamp != lastTimestamp && !this.timer2.Enabled)
-			{
-#if DEBUG
-				this.dailyInit = this.lastTimestampDate != lt.Date;
-				this.lastTimestampDate = lt.Date;
-#endif
-				this.lastTimestamp = lastTimestamp;
-				this.step = 1;
-				Logging.Log("FormMonitor.Fill", "Start, " + lt + ", " + (DateTime.Now - lt));
-				this.timer2.Start();
-			}
+			this.StartTimer2(lt);
 
 			string currentTime = site.CurrentTime;
 			this.dataGridView1.Rows.Add("current_time", currentTime);
@@ -189,6 +174,26 @@ namespace Monitor
 			this.dataGridView1.Rows.Add("count", ++count);
 
 			return bv;
+		}
+
+		private DateTime lastTimestamp;
+#if DEBUG
+		private DateTime lastTimestampDate;
+#endif
+
+		private void StartTimer2(DateTime lt)
+		{
+			if (this.lastTimestamp != lt && !this.timer2.Enabled)
+			{
+#if DEBUG
+				this.dailyInit = this.lastTimestampDate != lt.Date;
+				this.lastTimestampDate = lt.Date;
+#endif
+				this.lastTimestamp = lt;
+				this.step = 1;
+				Logging.Log("FormMonitor.StartTimer2", "Start, " + lt + ", " + (DateTime.Now - lt));
+				this.timer2.Start();
+			}
 		}
 
 		private void FormMonitor_FormClosed(object sender, FormClosedEventArgs e)
