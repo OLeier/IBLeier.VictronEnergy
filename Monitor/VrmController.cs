@@ -2,7 +2,6 @@
 using Monitor.Properties;
 using Monitor.VrmApi;
 using Monitor.VrmApi.Models;
-using System;
 using System.Threading.Tasks;
 
 namespace IBLeier.VictronEnergy.Monitor
@@ -28,12 +27,12 @@ namespace IBLeier.VictronEnergy.Monitor
 					Password = Settings.Default.Password
 				};
 				LoginOKResponse loginOKResponse = client.Login(credential);
-				Console.WriteLine("Login: " + loginOKResponse.Token);
+				//Console.WriteLine("Login: " + loginOKResponse.Token);
 
 				string xAuthorization = "Bearer " + loginOKResponse.Token;
 
 				InstallationsOKResponse installationsOKResponse = client.Installations(xAuthorization, loginOKResponse.IdUser, extended: 1);
-				Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
+				//Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
 
 				//var site = installationsOKResponse.Records.First();
 
@@ -53,7 +52,7 @@ namespace IBLeier.VictronEnergy.Monitor
 				//Console.WriteLine("solarChargerSummaryOKResponse: " + solarChargerSummaryOKResponse.Success.Value + ", " + solarChargerSummaryOKResponse.Records.Meta.Count);
 
 				client.Logout(xAuthorization);
-				Console.WriteLine("Logout");
+				//Console.WriteLine("Logout");
 
 				return installationsOKResponse;
 			}

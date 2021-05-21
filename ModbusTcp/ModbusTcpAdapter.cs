@@ -67,8 +67,8 @@ namespace ModbusTcp
 				this.modbusClient.WriteMultipleRegisters(data.StartingAddress, data.Fields);
 
 				// Console Output
-				for (int i = 0; i < data.Fields.Length; i++)
-					Console.WriteLine("Value of WriteRegisters " + (i + 1) + " " + data.Fields[i].ToString());
+				//for (int i = 0; i < data.Fields.Length; i++)
+				//	Console.WriteLine("Value of WriteRegisters " + (i + 1) + " " + data.Fields[i].ToString());
 			}
 			catch (Exception ex)
 			{
@@ -94,8 +94,8 @@ namespace ModbusTcp
 				data.Fields = readHoldingRegisters;
 
 				// Console Output
-				for (int i = 0; i < readHoldingRegisters.Length; i++)
-					Console.WriteLine("Value of HoldingRegisters " + (i + 1) + " " + readHoldingRegisters[i].ToString());
+				//for (int i = 0; i < readHoldingRegisters.Length; i++)
+				//	Console.WriteLine("Value of HoldingRegisters " + (i + 1) + " " + readHoldingRegisters[i].ToString());
 				//modbusClient.Disconnect();											//Disconnect from Server
 			}
 			catch (Exception ex)

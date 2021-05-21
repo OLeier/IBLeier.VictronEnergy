@@ -38,6 +38,7 @@ namespace Monitor
 			}
 			catch (Exception ex)
 			{
+				Logging.Log("FormMonitor_Load", ex.ToString());
 				MessageBox.Show(ex.ToString(), "FormMonitor_Load", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -50,6 +51,7 @@ namespace Monitor
 			}
 			catch (Exception ex)
 			{
+				Logging.Log("Timer1_Tick", ex.ToString());
 				MessageBox.Show(ex.ToString(), "Timer1_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -62,6 +64,7 @@ namespace Monitor
 			}
 			catch (Exception ex)
 			{
+				Logging.Log("Timer2_Tick", ex.ToString());
 				MessageBox.Show(ex.ToString(), "Timer2_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -80,6 +83,7 @@ namespace Monitor
 			}
 			catch (Exception ex)
 			{
+				Logging.Log("Timer1_Tick-async", ex.ToString());
 				this.Fill(ex);
 
 				string name = ex.GetType().Name;
@@ -119,6 +123,7 @@ namespace Monitor
 			Exception ex = exception;
 			do
 			{
+				Logging.Log("Fill-exception", ex.ToString());
 				description = ex.GetType().Name;
 				formattedValue = ex.Message;
 				this.dataGridView1.Rows.Insert(0, description, formattedValue);
@@ -190,7 +195,7 @@ namespace Monitor
 		{
 			this.timer1.Stop();
 			this.timer2.Stop();
-			Console.WriteLine("FormMonitor_FormClosed: Stop.");
+			Logging.Log("FormMonitor_FormClosed", "Stop.");
 		}
 
 		private int step;
