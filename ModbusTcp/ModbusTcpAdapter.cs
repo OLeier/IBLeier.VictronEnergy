@@ -10,6 +10,7 @@ namespace ModbusTcp
 	/// Used EasyModbus.dll from
 	/// http://easymodbustcp.net/en/licenseinfo
 	/// https://sourceforge.net/projects/easymodbustcp/
+	/// https://github.com/rossmann-engineering/EasyModbusTCP.NET
 	/// </remarks>
 	public class ModbusTcpAdapter : IDisposable
 	{
