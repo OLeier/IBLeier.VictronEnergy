@@ -1,5 +1,5 @@
-﻿using IBLeier.VictronEnergy.Monitor;
-using ModbusTcp;
+﻿using IBLeier.VictronEnergy.ModbusTcp;
+using IBLeier.VictronEnergy.Monitor;
 using Monitor.Properties;
 using Monitor.VrmApi.Models;
 using System;

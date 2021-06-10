@@ -1,7 +1,6 @@
-﻿using EasyModbus;
-using System;
+﻿using System;
 
-namespace ModbusTcp
+namespace IBLeier.VictronEnergy.ModbusTcp
 {
 	/// <summary>
 	/// ModbusTcpAdapter
@@ -19,10 +18,10 @@ namespace ModbusTcp
 		/// <summary>
 		/// CodeSample from http://easymodbustcp.net/codesampleseasymodbustcp-net.
 		/// </summary>
-		public void CodeSample()
+		public static void CodeSample()
 		{
-			ModbusClient modbusClient = new ModbusClient("190.201.100.100", 502);   //Ip-Address and Port of Modbus-TCP-Server
-			modbusClient.Connect();                                                 //Connect to Server
+			ModbusClient modbusClient = new ModbusClient();   //Ip-Address and Port of Modbus-TCP-Server
+			modbusClient.Connect("190.201.100.100", 502);                                                 //Connect to Server
 			modbusClient.WriteMultipleCoils(4, new bool[] { true, true, true, true, true, true, true, true, true, true });  //Write Coils starting with Address 5
 			bool[] readCoils = modbusClient.ReadCoils(9, 10);                       //Read 10 Coils from Server, starting with address 10
 			int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 10);  //Read 10 Holding Registers from Server, starting with Address 1
@@ -142,7 +141,7 @@ namespace ModbusTcp
 			// Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in Dispose(bool disposing) weiter oben ein.
 			this.Dispose(true);
 			// TODO: Auskommentierung der folgenden Zeile aufheben, wenn der Finalizer weiter oben überschrieben wird.
-			// GC.SuppressFinalize(this);
+			GC.SuppressFinalize(this);
 		}
 		#endregion
 	}

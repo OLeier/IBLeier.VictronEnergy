@@ -1,4 +1,4 @@
-﻿namespace ModbusTcp
+﻿namespace IBLeier.VictronEnergy.ModbusTcp
 {
 	public enum ChargerOnOffCode
 	{

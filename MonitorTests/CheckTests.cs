@@ -9,7 +9,7 @@ namespace Monitor.Tests
 		[TestMethod()]
 		public void CheckVoltageTest()
 		{
-			double bv = 24.81;
+			double bv = 26.01;
 			Check check = Check.CheckVoltage(bv);
 			Assert.IsNull(check, bv.ToString());
 
