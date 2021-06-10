@@ -36,5 +36,17 @@ https://www.victronenergy.com/live/open_source:start
 - Abrufen der aktuellen Werte via Modbus-TCP
 - Abschalten des Reglers bei niedriger Solar Leistung
 
+## Historie
+
+### v1.0 (Master_V1)
+Alle Projekte hatten als Ziel das .NET Framework 4.8.
+Damit war die Nutzung von EasyModbus (https://github.com/rossmann-engineering/EasyModbusTCP.NET) möglich.
+
+### v2.0 (Master)
+Die ModbusTcp Dll wurde zur Nutzung von Xamarin auf .NET Standard geändert.
+Dafür musste auch das Modbus Paket auf NModbus (https://github.com/NModbus/NModbus) geändert werden.
+
 ## Quellen
 https://github.com/OLeier/IBLeier.VictronEnergy
+
+## Fortsetzung folgt

@@ -10,6 +10,7 @@ namespace IBLeier.VictronEnergy.ModbusTcp
 	/// http://easymodbustcp.net/en/licenseinfo
 	/// https://sourceforge.net/projects/easymodbustcp/
 	/// https://github.com/rossmann-engineering/EasyModbusTCP.NET
+	/// ersetzt durch NModbus, siehe <see cref="ModbusClient"/>.
 	/// </remarks>
 	public class ModbusTcpAdapter : IDisposable
 	{
