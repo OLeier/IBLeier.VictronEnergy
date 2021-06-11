@@ -127,7 +127,7 @@ namespace IBLeier.VictronEnergy.ModbusTcp
 			int[] retval = new int[result.Length];
 			for (int i = 0; i < result.Length; i++)
 			{
-				retval[i] = (short)result[i];	// convert first to signed, then to int
+				retval[i] = (short)result[i];   // convert first to signed, then to int
 			}
 			return retval;
 		}

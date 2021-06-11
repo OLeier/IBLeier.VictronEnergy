@@ -9,10 +9,10 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard1.4</TargetFramework>
-		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+		<!--<ProduceReferenceAssembly>true</ProduceReferenceAssembly>-->
 		<AssemblyName>IBLeier.VictronEnergy.ModbusTcp</AssemblyName>
 		<RootNamespace>IBLeier.VictronEnergy.ModbusTcp</RootNamespace>
-		<Version>2.0.0.0</Version>
+		<Version>2.0.1.0</Version>
 		<Authors>IBLeier</Authors>
 		<Copyright>MIT - IBLeier - 2021</Copyright>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
