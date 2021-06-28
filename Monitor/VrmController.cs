@@ -18,6 +18,8 @@ namespace IBLeier.VictronEnergy.Monitor
 
 		public static InstallationsOKResponse GetInstallations()
 		{
+			Logging.Log("VrmController_GetInstallations", "Begin");
+
 			ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
 			using (VrmApiClient client = new VrmApiClient(credentials))
 			{
@@ -54,6 +56,7 @@ namespace IBLeier.VictronEnergy.Monitor
 				client.Logout(xAuthorization);
 				//Console.WriteLine("Logout");
 
+				Logging.Log("VrmController_GetInstallations", "End");
 				return installationsOKResponse;
 			}
 		}

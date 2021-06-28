@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Monitor
@@ -116,6 +117,7 @@ namespace Monitor
 
 		private void Fill(Exception exception)
 		{
+			//Logging.Log("Fill-Exception", "Begin");
 			string description = DateTime.Now.ToLongTimeString();
 			string formattedValue = null;
 			this.dataGridView1.Rows.Insert(0, description, formattedValue);
@@ -130,10 +132,12 @@ namespace Monitor
 
 				ex = ex.InnerException;
 			} while (ex != null);
+			//Logging.Log("Fill-Exception", "End");
 		}
 
 		private double Fill(InstallationsOKResponse installationsOKResponse)
 		{
+			//Logging.Log("Fill-InstallationsOKResponse", "Begin");
 			double bv = 0;
 			var site = installationsOKResponse.Records.First();
 
@@ -173,6 +177,7 @@ namespace Monitor
 
 			this.dataGridView1.Rows.Add("count", ++count);
 
+			//Logging.Log("Fill-InstallationsOKResponse", "End-" + bv);
 			return bv;
 		}
 
@@ -196,9 +201,26 @@ namespace Monitor
 			}
 		}
 
-		private void FormMonitor_FormClosed(object sender, FormClosedEventArgs e)
+		private async void FormMonitor_FormClosed(object sender, FormClosedEventArgs e)
 		{
+			int i = 0;
+			while (!this.timer1.Enabled && i < 6)
+			{
+				Logging.Log("FormMonitor_FormClosed-timer1", this.timer1.Enabled.ToString());
+				//Thread.Sleep(300);
+				await Task.Delay(300);
+				i++;
+			};
 			this.timer1.Stop();
+
+			i = 0;
+			while (!this.timer2.Enabled && i < 6)
+			{
+				Logging.Log("FormMonitor_FormClosed-timer2", this.timer2.Enabled.ToString());
+				//Thread.Sleep(300);
+				await Task.Delay(300);
+				i++;
+			};
 			this.timer2.Stop();
 			Logging.Log("FormMonitor_FormClosed", "Stop.");
 		}
