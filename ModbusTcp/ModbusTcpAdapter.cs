@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace IBLeier.VictronEnergy.ModbusTcp
 {
@@ -145,5 +146,78 @@ namespace IBLeier.VictronEnergy.ModbusTcp
 			GC.SuppressFinalize(this);
 		}
 		#endregion
+
+		public int Step { get; set; }
+
+		public string ReturnValue { get; private set; }
+
+		public Task<SolarChargerData> SwitchChargerOnOffAsync(string modbusIpAddress, int step, bool dailyInit)
+		{
+			return Task.Run(() =>
+			{
+				return this.SwitchChargerOnOff(modbusIpAddress, step, dailyInit);
+			});
+		}
+
+		public SolarChargerData SwitchChargerOnOff(string modbusIpAddress, int step, bool dailyInit)
+		{
+			this.Step = step;
+
+			SolarChargerData scData = new SolarChargerData(239);
+			ChargerOnOffData coData = new ChargerOnOffData(239);
+
+			this.ReturnValue = this.Connect(modbusIpAddress, 502);
+			if (!string.IsNullOrEmpty(this.ReturnValue))
+			{
+				this.Step = 0;
+				return null;
+			}
+
+			int count = this.Fill(scData);
+			if (count < 0)
+			{
+				this.Step = 0;
+				return null;
+			}
+
+			// 1. Charger is On and working
+			if (this.Step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On)
+			{
+				if (scData.ChargeState != ChargeStateCode.Off && (scData.PvPower < 0.1 || dailyInit))
+				{
+					// Switch Off
+					coData.ChargerOnOff = ChargerOnOffCode.Off;
+					count = this.Write(coData);
+					this.ReturnValue = "Switch Off: " + count;
+					this.Step = 2;
+				}
+				else
+				{
+					// stop timer 2
+					this.ReturnValue = "Stop1";
+					this.Step = 0;
+				}
+			}
+
+			// 2. Charger is Off /* and not working */
+			if (this.Step != 3 && scData.ChargerOnOff == ChargerOnOffCode.Off /* && scData.ChargeState == ChargeStateCode.Off */)
+			{
+				// Switch On
+				coData.ChargerOnOff = ChargerOnOffCode.On;
+				count = this.Write(coData);
+				this.ReturnValue = "Switch On: " + count;
+				this.Step = 3;
+			}
+
+			// 3. Charger is On. working isn't necessary
+			if (this.Step == 3 && scData.ChargerOnOff == ChargerOnOffCode.On)
+			{
+				// stop timer 2
+				this.ReturnValue = "Stop2";
+				this.Step = 0;
+			}
+
+			return scData;
+		}
 	}
 }

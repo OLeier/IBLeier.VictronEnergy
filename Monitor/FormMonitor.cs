@@ -7,13 +7,14 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Monitor
 {
 	public partial class FormMonitor : Form
 	{
+		private bool formClosing;
+
 		public FormMonitor()
 		{
 			InitializeComponent();
@@ -35,7 +36,7 @@ namespace Monitor
 		{
 			try
 			{
-				this.Timer1_Tick();
+				this.Timer1_Tick(sender: null, e: null);
 			}
 			catch (Exception ex)
 			{
@@ -44,35 +45,9 @@ namespace Monitor
 			}
 		}
 
-		private void Timer1_Tick(object sender, EventArgs e)
-		{
-			try
-			{
-				this.Timer1_Tick();
-			}
-			catch (Exception ex)
-			{
-				Logging.Log("Timer1_Tick", ex.ToString());
-				MessageBox.Show(ex.ToString(), "Timer1_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-
-		private void Timer2_Tick(object sender, EventArgs e)
-		{
-			try
-			{
-				this.Timer2_Tick();
-			}
-			catch (Exception ex)
-			{
-				Logging.Log("Timer2_Tick", ex.ToString());
-				MessageBox.Show(ex.ToString(), "Timer2_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-
 		private string lastExceptionName;
 
-		private async void Timer1_Tick()
+		private async void Timer1_Tick(object sender, EventArgs e)
 		{
 			this.timer1.Stop();
 
@@ -93,31 +68,44 @@ namespace Monitor
 					this.lastExceptionName = name;
 					MessageBox.Show(ex.ToString(), "GetInstallationsAsync", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
-				this.timer1.Start();
-				return;
+
+				installationsOKResponse = null;
 			}
 
-			double bv = this.Fill(installationsOKResponse);
+			if (!this.formClosing)
+			{
+				if (installationsOKResponse != null)
+				{
+					try
+					{
+						double bv = this.Fill(installationsOKResponse);
 
 #if DEBUG
-			Check check = null;
+						Check check = null;
 #else
-			Check check = Check.CheckVoltage(bv);
+						Check check = Check.CheckVoltage(bv);
 #endif
-			if (check != null)
-			{
-				this.TopMost = true;
-				MessageBox.Show(bv + " V < " + check.low + " V !!!", "Spannung zu niedrig !!!", MessageBoxButtons.OK, check.icon);
-				this.TopMost = false;
+						if (check != null)
+						{
+							this.TopMost = true;
+							MessageBox.Show(bv + " V < " + check.low + " V !!!", "Spannung zu niedrig !!!", MessageBoxButtons.OK, check.icon);
+							this.TopMost = false;
+						}
+					}
+					catch (Exception ex)
+					{
+						Logging.Log("Timer1_Tick", ex.ToString());
+						MessageBox.Show(ex.ToString(), "Timer1_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				this.timer1.Start();
 			}
-
-			this.timer1.Start();
 			return;
 		}
 
 		private void Fill(Exception exception)
 		{
-			//Logging.Log("Fill-Exception", "Begin");
+			Logging.Log("Fill-Exception", "Begin");
 			string description = DateTime.Now.ToLongTimeString();
 			string formattedValue = null;
 			this.dataGridView1.Rows.Insert(0, description, formattedValue);
@@ -132,12 +120,12 @@ namespace Monitor
 
 				ex = ex.InnerException;
 			} while (ex != null);
-			//Logging.Log("Fill-Exception", "End");
+			Logging.Log("Fill-Exception", "End");
 		}
 
 		private double Fill(InstallationsOKResponse installationsOKResponse)
 		{
-			//Logging.Log("Fill-InstallationsOKResponse", "Begin");
+			Logging.Log("Fill-InstallationsOKResponse", "Begin");
 			double bv = 0;
 			var site = installationsOKResponse.Records.First();
 
@@ -177,7 +165,7 @@ namespace Monitor
 
 			this.dataGridView1.Rows.Add("count", ++count);
 
-			//Logging.Log("Fill-InstallationsOKResponse", "End-" + bv);
+			Logging.Log("Fill-InstallationsOKResponse", "End-" + bv);
 			return bv;
 		}
 
@@ -201,97 +189,76 @@ namespace Monitor
 			}
 		}
 
-		private async void FormMonitor_FormClosed(object sender, FormClosedEventArgs e)
+		private void FormMonitor_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			int i = 0;
-			while (!this.timer1.Enabled && i < 6)
-			{
-				Logging.Log("FormMonitor_FormClosed-timer1", this.timer1.Enabled.ToString());
-				//Thread.Sleep(300);
-				await Task.Delay(300);
-				i++;
-			};
+			Logging.Log("FormMonitor_FormClosing", "Begin-" + e.CloseReason + ", " + e.Cancel);
+
+			// Warten auf den eigenen Thread ist nicht möglich
+			// await Task.Delay(300); fuktioniert auch nicht, da FormMonitor_FormClosing kein 2. Mal aufgerufen wird
+			this.formClosing = true;
+
+			Logging.Log("FormMonitor_FormClosing-timer1a", this.timer1.Enabled.ToString());
 			this.timer1.Stop();
 
-			i = 0;
-			while (!this.timer2.Enabled && i < 6)
-			{
-				Logging.Log("FormMonitor_FormClosed-timer2", this.timer2.Enabled.ToString());
-				//Thread.Sleep(300);
-				await Task.Delay(300);
-				i++;
-			};
+			Logging.Log("FormMonitor_FormClosing-timer2a", this.timer2.Enabled.ToString());
 			this.timer2.Stop();
-			Logging.Log("FormMonitor_FormClosed", "Stop.");
+
+			Logging.Log("FormMonitor_FormClosing", "End.");
+		}
+
+		private void FormMonitor_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Logging.Log("FormMonitor_FormClosed", "Begin-" + e.CloseReason);
+
+			Logging.Log("FormMonitor_FormClosed-timer1a", this.timer1.Enabled.ToString());
+			this.timer1.Stop();
+
+			Logging.Log("FormMonitor_FormClosed-timer2a", this.timer2.Enabled.ToString());
+			this.timer2.Stop();
+
+			Logging.Log("FormMonitor_FormClosed", "End.");
 		}
 
 		private int step;
 		private bool dailyInit;
 
-		private void Timer2_Tick()
+		private async void Timer2_Tick(object sender, EventArgs e)
 		{
-			SolarChargerData scData = new SolarChargerData(239);
-			ChargerOnOffData coData = new ChargerOnOffData(239);
-
-			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
+			try
 			{
-				string returnValue = adapter.Connect(Settings.Default.ModbusIpAddress, 502);
-				if (!string.IsNullOrEmpty(returnValue))
+				using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
 				{
-					this.timer2.Stop();
-					Logging.Log("FormMonitor.Timer2_Tick-Error", returnValue);
-					this.step = 0;
-					return;
-				}
-
-				int count = adapter.Fill(scData);
-				string message = null;
-				message += "step: " + this.step + ", count: " + count + ", dailyInit: " + this.dailyInit + " - ";
-				message += "PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ";
-				message += "Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode;
-				Trace.WriteLine(message);
-				Logging.Log("FormMonitor.Timer2_Tick-Fill", message);
-
-				// 1. Charger is On and working
-				if (this.step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On)
-				{
-					if (scData.ChargeState != ChargeStateCode.Off && (scData.PvCurrent < 0.1 || scData.PvPower < 0.1 || this.dailyInit))
+					Logging.Log("FormMonitor.Timer2_Tick-SwitchChargerOnOffAsync", "Start");
+					SolarChargerData scData = await adapter.SwitchChargerOnOffAsync(Settings.Default.ModbusIpAddress, this.step, this.dailyInit);
+					if (scData != null)
 					{
-						this.dailyInit = false;
-
-						// Switch Off
-						coData.ChargerOnOff = ChargerOnOffCode.Off;
-						count = adapter.Write(coData);
-						Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch Off: " + count);
-						this.step = 2;
+						string message = null;
+						message += "step: " + this.step + "/" + adapter.Step + ", dailyInit: " + this.dailyInit + " - ";
+						message += "PV: " + scData.PvVoltage + "V, " + scData.PvCurrent + "A, " + scData.PvPower + "W - ";
+						message += "Charger: " + scData.ChargerOnOff + ", " + scData.ChargeState + ", " + scData.MppOperationMode;
+						Trace.WriteLine(message);
+						Logging.Log("FormMonitor.Timer2_Tick-Fill", message);
 					}
-					else
+
+					this.step = adapter.Step;
+					this.dailyInit = false;
+					if (this.step == 0)
 					{
 						// stop timer 2
 						this.timer2.Stop();
-						Logging.Log("FormMonitor.Timer2_Tick", "Stop1");
-						this.step = 0;
+					}
+
+					string returnValue = adapter.ReturnValue;
+					if (!string.IsNullOrEmpty(returnValue))
+					{
+						Logging.Log("FormMonitor.Timer2_Tick-Log", returnValue);
 					}
 				}
-
-				// 2. Charger is Off /* and not working */
-				if (this.step != 3 && scData.ChargerOnOff == ChargerOnOffCode.Off /* && scData.ChargeState == ChargeStateCode.Off */)
-				{
-					// Switch On
-					coData.ChargerOnOff = ChargerOnOffCode.On;
-					count = adapter.Write(coData);
-					Logging.Log("FormMonitor.Timer2_Tick-Write", "Switch On: " + count);
-					this.step = 3;
-				}
-
-				// 3. Charger is On. working isn't necessary
-				if (this.step == 3 && scData.ChargerOnOff == ChargerOnOffCode.On)
-				{
-					// stop timer 2
-					this.timer2.Stop();
-					Logging.Log("FormMonitor.Timer2_Tick", "Stop2");
-					this.step = 0;
-				}
+			}
+			catch (Exception ex)
+			{
+				Logging.Log("Timer2_Tick", ex.ToString());
+				MessageBox.Show(ex.ToString(), "Timer2_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}
