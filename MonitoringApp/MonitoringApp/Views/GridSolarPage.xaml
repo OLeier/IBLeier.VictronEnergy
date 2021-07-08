@@ -64,13 +64,13 @@
 
             <Label Text="Batterie"
                    Grid.Row="2" />
-            <Label Text="36,22V"
+            <Label Text="{Binding BatteryVoltage, Mode=OneWay, StringFormat='{0:F2}V'}"
                    Grid.Row="2"
                    Grid.Column="1" />
-            <Label Text="1,2A"
+            <Label Text="{Binding BatteryCurrent, Mode=OneWay, StringFormat='{0:F1}A'}"
                    Grid.Row="2"
                    Grid.Column="2" Grid.ColumnSpan="2" />
-            <Label Text="36,24W"
+            <Label Text="{Binding BatteryPower, Mode=OneWay, StringFormat='{0:F1}W'}"
                    Grid.Row="2"
                    Grid.Column="4" />
 
