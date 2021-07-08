@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonitoringApp.Views.GridSolarPage"
+             xmlns:vm="clr-namespace:MonitoringApp.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:SolarViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <!-- Implicit styles -->
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="BackgroundColor"
+                    Value="LightGray" />
+            <Setter Property="HorizontalOptions"
+                    Value="FillAndExpand" />
+            <Setter Property="HorizontalTextAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalTextAlignment"
+                    Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid
+            Margin="10" Padding="50"
+            HorizontalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Welcome to Xamarin.Forms!"
+                 BackgroundColor="gray"   />
+            <Label Text="MPPT aktive"
+                   Grid.Row="0"
+                   Grid.Column="1" Grid.ColumnSpan="2" />
+            <Label Text="Konst. Spanung"
+                   Grid.Row="0"
+                   Grid.Column="3" Grid.ColumnSpan="2" />
+
+            <Label Text="PV"
+                   Grid.Row="1" />
+            <Label Text="36,12V"
+                   Grid.Row="1"
+                   Grid.Column="1" />
+            <Label Text="1,1A"
+                   Grid.Row="1"
+                   Grid.Column="2" Grid.ColumnSpan="2" />
+            <Label Text="36,14W"
+                   Grid.Row="1"
+                   Grid.Column="4" />
+
+            <Label Text="Batterie"
+                   Grid.Row="2" />
+            <Label Text="36,22V"
+                   Grid.Row="2"
+                   Grid.Column="1" />
+            <Label Text="1,2A"
+                   Grid.Row="2"
+                   Grid.Column="2" Grid.ColumnSpan="2" />
+            <Label Text="36,24W"
+                   Grid.Row="2"
+                   Grid.Column="4" />
+
+            <Label Text="Last"
+                   Grid.Row="3" />
+            <Label Text="36,32V"
+                   Grid.Row="3"
+                   Grid.Column="1" />
+            <Label Text="1,3A"
+                   Grid.Row="3"
+                   Grid.Column="2" Grid.ColumnSpan="2" />
+            <Label Text="36,34W"
+                   Grid.Row="3"
+                   Grid.Column="4" />
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
