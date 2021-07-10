@@ -1,17 +1,18 @@
 ﻿namespace IBLeier.VictronEnergy.ModbusTcp
 {
 	/// <summary>
-	/// SolarChargerData
+	/// SystemData
 	/// </summary>
 	/// <remarks>
 	/// https://www.victronenergy.com/live/ccgx:modbustcp_faq
 	/// https://www.victronenergy.com/support-and-downloads/whitepapers
 	/// https://github.com/victronenergy/dbus_modbustcp/blob/master/CCGX-Modbus-TCP-register-list.xlsx
 	/// </remarks>
-	public class SolarChargerData : IData
+	public class SystemData : IData
 	{
 		enum FieldIndex
 		{
+			Serial,
 			BatteryVoltage,
 			BatteryCurrent,
 			BatteryTemperature,
@@ -33,7 +34,7 @@
 			PvPower,
 			UserYield,
 			MppOperationMode,
-			Quantity
+			Quantity = 67
 		}
 
 		/// <summary>
@@ -44,21 +45,22 @@
 		/// To see a list of available devices, and their Address, go to Settings → Services → Modbus/TCP → Available services.
 		/// https://www.victronenergy.com/live/ccgx:modbustcp_faq
 		/// </param>
-		public SolarChargerData(byte unitIdentifier)
+		public SystemData(byte unitIdentifier)
 		{
 			this.UnitIdentifier = unitIdentifier;
-			this.StartingAddress = 771;
+			this.StartingAddress = 800;
 			this.Quantity = (int)FieldIndex.Quantity;
 			this.Fields = new int[(int)FieldIndex.Quantity];
 		}
 
-		public byte UnitIdentifier { get; }     // 239;	// com.victronenergy.solarcharger
-		public int StartingAddress { get; }     // 771-791 -> 21
+		public byte UnitIdentifier { get; }     // 100;	// com.victronenergy.system
+		public int StartingAddress { get; }     // 800-866 -> 67
 		public int Quantity { get; }            // (int)FieldIndex.Quantity;
 
 		const double Scalefactor100 = 100;
 		const double Scalefactor10 = 10;
 		//const double Scalefactor1 = 1;
+		const double Scalefactor001 = 0.01;
 
 		public int[] Fields { get; set; }
 
@@ -69,7 +71,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.BatteryVoltage] / SolarChargerData.Scalefactor100;
+				return this.Fields[(int)FieldIndex.BatteryVoltage] / SystemData.Scalefactor100;
 			}
 		}
 
@@ -80,7 +82,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.BatteryCurrent] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.BatteryCurrent] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -91,7 +93,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.BatteryTemperature] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.BatteryTemperature] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -125,7 +127,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.PvVoltage] / SolarChargerData.Scalefactor100;
+				return this.Fields[(int)FieldIndex.PvVoltage] / SystemData.Scalefactor100;
 			}
 		}
 
@@ -136,7 +138,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.PvCurrent] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.PvCurrent] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -158,7 +160,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.EqualizationTimeRemaining] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.EqualizationTimeRemaining] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -213,7 +215,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.YieldToday] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.YieldToday] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -235,7 +237,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.YieldYesterday] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.YieldYesterday] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -285,7 +287,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.PvPower] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.PvPower] / SystemData.Scalefactor10;
 			}
 		}
 
@@ -296,7 +298,7 @@
 		{
 			get
 			{
-				return this.Fields[(int)FieldIndex.UserYield] / SolarChargerData.Scalefactor10;
+				return this.Fields[(int)FieldIndex.UserYield] / SystemData.Scalefactor10;
 			}
 		}
 

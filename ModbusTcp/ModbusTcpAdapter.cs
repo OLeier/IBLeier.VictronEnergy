@@ -87,8 +87,8 @@ namespace IBLeier.VictronEnergy.ModbusTcp
 			try
 			{
 				// localhost, venus
-				// com.victronenergy.system			Unit-ID: 100
-				// com.victronenergy.solarcharger	Unit-ID: 239	771-790	0x303
+				// com.victronenergy.system			Unit-ID: 100	800-866
+				// com.victronenergy.solarcharger	Unit-ID: 239	771-790	0x303 + 3700-3723
 				//ModbusClient modbusClient = new ModbusClient("localhost", 502);		//Ip-Address and Port of Modbus-TCP-Server
 				//modbusClient.Connect();												//Connect to Server
 				this.modbusClient.UnitIdentifier = data.UnitIdentifier;

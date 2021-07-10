@@ -39,6 +39,7 @@
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
 
             <Label Text="Welcome to Xamarin.Forms!"
@@ -52,15 +53,18 @@
 
             <Label Text="PV"
                    Grid.Row="1" />
-            <Label Text="36,12V"
+            <Label Text="{Binding PvVoltage, Mode=OneWay, StringFormat='{0:F2}V'}"
                    Grid.Row="1"
                    Grid.Column="1" />
-            <Label Text="1,1A"
+            <Label Text="{Binding PvCurrent, Mode=OneWay, StringFormat='{0:F1}A'}"
                    Grid.Row="1"
                    Grid.Column="2" Grid.ColumnSpan="2" />
-            <Label Text="36,14W"
+            <Label Text="{Binding PvPower, Mode=OneWay, StringFormat='{0:F1}W'}"
                    Grid.Row="1"
                    Grid.Column="4" />
+            <Label Text="{Binding PvPowerSoc, Mode=OneWay, StringFormat='{0:F1}W'}"
+                   Grid.Row="1"
+                   Grid.Column="5" />
 
             <Label Text="Batterie"
                    Grid.Row="2" />
