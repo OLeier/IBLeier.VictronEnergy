@@ -32,6 +32,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -44,10 +46,10 @@
 
             <Label Text="Welcome to Xamarin.Forms!"
                  BackgroundColor="gray"   />
-            <Label Text="MPPT aktive"
+            <Label Text="{Binding MppOperationMode, Mode=OneWay, StringFormat='MPPT {0}'}"
                    Grid.Row="0"
                    Grid.Column="1" Grid.ColumnSpan="2" />
-            <Label Text="Konst. Spanung"
+            <Label Text="{Binding ChargeState, Mode=OneWay}"
                    Grid.Row="0"
                    Grid.Column="3" Grid.ColumnSpan="2" />
 
@@ -80,15 +82,27 @@
 
             <Label Text="Last"
                    Grid.Row="3" />
-            <Label Text="36,32V"
+            <Label
                    Grid.Row="3"
                    Grid.Column="1" />
-            <Label Text="1,3A"
+            <Label Text="{Binding LoadCurrent, Mode=OneWay, StringFormat='{0:F1}A'}"
                    Grid.Row="3"
                    Grid.Column="2" Grid.ColumnSpan="2" />
-            <Label Text="36,34W"
+            <Label Text="{Binding LoadPower, Mode=OneWay, StringFormat='{0:F1}W'}"
                    Grid.Row="3"
                    Grid.Column="4" />
+
+            <Label Text="Zeit"
+                   Grid.Row="4" />
+            <Label Text="{Binding Time, Mode=OneWay, StringFormat='{0:T}'}"
+                   Grid.Row="4"
+                   Grid.Column="1" Grid.ColumnSpan="4" />
+
+            <Label Text="Nachricht"
+                   Grid.Row="5" />
+            <Label Text="{Binding Message, Mode=OneWay}"
+                   Grid.Row="5"
+                   Grid.Column="1" Grid.ColumnSpan="4" />
         </Grid>
     </ContentPage.Content>
 

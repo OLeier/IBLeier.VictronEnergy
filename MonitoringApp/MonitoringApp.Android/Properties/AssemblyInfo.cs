@@ -22,7 +22,7 @@ using Android.App;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("2.0.3.1")]
+[assembly: AssemblyVersion("2.0.3.2")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
 // Add some common permissions, these can be removed if not needed
