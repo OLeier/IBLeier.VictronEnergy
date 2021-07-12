@@ -12,8 +12,10 @@
 	{
 		enum FieldIndex
 		{
+			// VRM Portal-Kennung: b827eb27e008
+			// string[6] - 12 characters - 62, 38, 32, 37, 65, 62, 32, 37, 65, 30, 30, 38
 			Serial,
-			BatteryVoltage,
+			BatteryVoltage = Serial + 6,
 			BatteryCurrent,
 			BatteryTemperature,
 			ChargerOnOff,
@@ -34,7 +36,7 @@
 			PvPower,
 			UserYield,
 			MppOperationMode,
-			Quantity = 67
+			Quantity = 27
 		}
 
 		/// <summary>
@@ -54,7 +56,7 @@
 		}
 
 		public byte UnitIdentifier { get; }     // 100;	// com.victronenergy.system
-		public int StartingAddress { get; }     // 800-866 -> 67
+		public int StartingAddress { get; }     //	800-826 -> 27, 840-846, 850-851, 855, 860, 865-866 -> 67
 		public int Quantity { get; }            // (int)FieldIndex.Quantity;
 
 		const double Scalefactor100 = 100;
@@ -63,6 +65,28 @@
 		const double Scalefactor001 = 0.01;
 
 		public int[] Fields { get; set; }
+
+		/// <summary>
+		/// Serial: VRM Portal-Kennung: b827eb27e008 - 62, 38, 32, 37, 65, 62, 32, 37, 65, 30, 30, 38
+		/// </summary>
+		public string Serial
+		{
+			get
+			{
+				char[] chars = new char[12];
+				int end = (int)FieldIndex.Serial + 6;
+				for (int i = (int)FieldIndex.Serial, j = 0; i < end; i++)
+				{
+					int value = this.Fields[i];
+					char c1 = (char)(value >> 8);
+					chars[j++] = c1;
+					char c2 = (char)(value & 0xff);
+					chars[j++] = c2;
+				}
+				string result = new string(chars);
+				return result;
+			}
+		}
 
 		/// <summary>
 		/// BatteryVoltage: V DC

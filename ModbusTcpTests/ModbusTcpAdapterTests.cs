@@ -42,10 +42,10 @@ namespace ModbusTcp.Tests
 		}
 
 		/// <summary>
-		/// FillTest - start EasyModbusServerSimulator.exe before.
+		/// FillSolarChargerDataTestVenus - venus device in lokal network.
 		/// </summary>
 		[TestMethod()]
-		public void FillTestVenus()
+		public void FillSolarChargerDataTestVenus()
 		{
 			SolarChargerData data = new SolarChargerData(239);
 
@@ -59,6 +59,28 @@ namespace ModbusTcp.Tests
 			}
 			Assert.IsNotNull(data.Fields, "data.Fields");
 			Assert.AreEqual(data.Quantity, data.Fields.Length, "data.Fields.Length");
+		}
+
+		/// <summary>
+		/// FillSystemDataTestVenus - venus device in lokal network.
+		/// </summary>
+		[TestMethod()]
+		public void FillSystemDataTestVenus()
+		{
+			SystemData data = new SystemData(100);
+
+			using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
+			{
+				string returnValue = adapter.Connect("venus", 502);
+				Assert.IsTrue(string.IsNullOrEmpty(returnValue), "returnValue");
+
+				int count = adapter.Fill(data);
+				Assert.AreEqual(0, count, "count");
+			}
+			Assert.IsNotNull(data.Fields, "data.Fields");
+			Assert.AreEqual(data.Quantity, data.Fields.Length, "data.Fields.Length");
+			Assert.IsNotNull(data.Serial, "data.Serial");
+			Assert.AreEqual(12, data.Serial.Length);
 		}
 
 		[TestMethod()]
