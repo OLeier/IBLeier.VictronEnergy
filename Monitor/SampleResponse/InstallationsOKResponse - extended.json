@@ -10,31 +10,26 @@
       "identifier": "b827eb27e008",
       "idUser": 99417,
       "pvMax": 0,
-      "timezone": "Europe\\/Berlin",
+      "timezone": "Europe\/Berlin",
       "phonenumber": null,
       "notes": null,
       "geofence": null,
       "geofenceEnabled": false,
+      "realtimeUpdates": true,
       "hasMains": 0,
       "hasGenerator": 0,
       "noDataAlarmTimeout": null,
       "alarmMonitoring": 1,
       "invalidVRMAuthTokenUsedInLogRequest": 0,
-      "invalidMqttPasswordSentAt": 0,
       "syscreated": 1599133383,
+      "grafanaEnabled": 0,
       "shared": false,
-      "device_icon": "battery",
-      "alarm": true,
-      "last_timestamp": 1605698396,
-      "tags": [
-        {
-          "idTag": 39,
-          "name": "alarm",
-          "automatic": true
-        }
-      ],
-      "current_time": "22:35",
-      "timezone_offset": 3600,
+      "device_icon": "solar",
+      "alarm": false,
+      "last_timestamp": 1627128644,
+      "tags": false,
+      "current_time": "14:11",
+      "timezone_offset": 7200,
       "images": false,
       "view_permissions": {
         "update_settings": false,
@@ -57,9 +52,9 @@
           "textValue": null,
           "instance": "0",
           "dbusServiceType": "system",
-          "dbusPath": "\\/Dc\\/Battery\\/Voltage",
-          "rawValue": "22.67",
-          "formattedValue": "22.67 V"
+          "dbusPath": "\/Dc\/Battery\/Voltage",
+          "rawValue": "25.32",
+          "formattedValue": "25.32 V"
         },
         {
           "idDataAttribute": 147,
@@ -70,9 +65,9 @@
           "textValue": null,
           "instance": "0",
           "dbusServiceType": "system",
-          "dbusPath": "\\/Dc\\/Battery\\/Current",
-          "rawValue": "-2.3",
-          "formattedValue": "-2.30 A"
+          "dbusPath": "\/Dc\/Battery\/Current",
+          "rawValue": "-0.9",
+          "formattedValue": "-0.90 A"
         },
         {
           "idDataAttribute": 250,
@@ -83,7 +78,7 @@
           "textValue": "Off",
           "instance": "0",
           "dbusServiceType": "settings",
-          "dbusPath": "\\/Settings\\/Services\\/MqttVrm",
+          "dbusPath": "\/Settings\/Services\/MqttVrm",
           "rawValue": "0",
           "formattedValue": "Off",
           "dataAttributeEnumValues": [
@@ -106,7 +101,7 @@
           "textValue": "Not available",
           "instance": "0",
           "dbusServiceType": "settings",
-          "dbusPath": "\\/Settings\\/SystemSetup\\/AcInput1",
+          "dbusPath": "\/Settings\/SystemSetup\/AcInput1",
           "rawValue": "0",
           "formattedValue": "Not available",
           "dataAttributeEnumValues": [
@@ -137,7 +132,7 @@
           "textValue": "Not available",
           "instance": "0",
           "dbusServiceType": "settings",
-          "dbusPath": "\\/Settings\\/SystemSetup\\/AcInput2",
+          "dbusPath": "\/Settings\/SystemSetup\/AcInput2",
           "rawValue": "0",
           "formattedValue": "Not available",
           "dataAttributeEnumValues": [
@@ -237,20 +232,20 @@
           "idDataAttribute": null
         },
         {
-          "rawValue": 40.806,
+          "rawValue": 43.044,
           "formatWithUnit": "%.0F W",
           "dataAttributes": [
             {
               "instance": 0,
               "dbusServiceType": "system",
-              "dbusPath": "\\/Dc\\/Pv\\/Power"
+              "dbusPath": "\/Dc\/Pv\/Power"
             }
           ],
           "idDataAttribute": null,
           "code": "solar_yield",
           "description": "Solar_yield",
           "textValue": null,
-          "formattedValue": "41 W"
+          "formattedValue": "43 W"
         },
         {
           "rawValue": null,
@@ -296,15 +291,16 @@
           "code": "soc_status",
           "description": "SOC Status",
           "rawValue": 0,
-          "formattedValue": "Discharging",
-          "textValue": "Discharging",
+          "formattedValue": "",
+          "textValue": "",
           "idDataAttribute": null
         }
       ],
       "demo_mode": false,
       "mqtt_webhost": "webmqtt48.victronenergy.com",
       "high_workload": false,
-      "current_alarms": [ "Solar Charger [288] - Voltage" ],
+      "current_alarms": [],
+      "num_alarms": 0,
       "avatar_url": null
     }
   ]

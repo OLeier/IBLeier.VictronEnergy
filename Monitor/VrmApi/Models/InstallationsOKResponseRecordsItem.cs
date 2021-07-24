@@ -4,238 +4,234 @@
 
 namespace Monitor.VrmApi.Models
 {
-    using System;
-    using System.Linq;
-    using System.Collections.Generic;
-    using Newtonsoft.Json;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Serialization;
+	using Newtonsoft.Json;
+	using System.Collections.Generic;
 
-    public partial class InstallationsOKResponseRecordsItem
-    {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// InstallationsOKResponseRecordsItem class.
-        /// </summary>
-        public InstallationsOKResponseRecordsItem() { }
+	public partial class InstallationsOKResponseRecordsItem
+	{
+		/// <summary>
+		/// Initializes a new instance of the
+		/// InstallationsOKResponseRecordsItem class.
+		/// </summary>
+		public InstallationsOKResponseRecordsItem() { }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// InstallationsOKResponseRecordsItem class.
-        /// </summary>
-        public InstallationsOKResponseRecordsItem(int? idSite = default(int?), int? accessLevel = default(int?), bool? owner = default(bool?), bool? isAdmin = default(bool?), string name = default(string), string identifier = default(string), int? idUser = default(int?), int? pvMax = default(int?), string timezone = default(string), string phonenumber = default(string), string notes = default(string), string geofence = default(string), bool? geofenceEnabled = default(bool?), int? hasMains = default(int?), int? hasGenerator = default(int?), string noDataAlarmTimeout = default(string), int? alarmMonitoring = default(int?), int? invalidVRMAuthTokenUsedInLogRequest = default(int?), int? invalidMqttPasswordSentAt = default(int?), long? syscreated = default(long?), bool? shared = default(bool?), string deviceIcon = default(string), bool? alarm = default(bool?), long? lastTimestamp = default(long?), IList<InstallationsOKResponseRecordsItemTagsItem> tags = default(IList<InstallationsOKResponseRecordsItemTagsItem>), string currentTime = default(string), int? timezoneOffset = default(int?), bool? images = default(bool?), InstallationsOKResponseRecordsItemViewPermissions viewPermissions = default(InstallationsOKResponseRecordsItemViewPermissions), IList<InstallationsOKResponseRecordsItemExtendedItem> extended = default(IList<InstallationsOKResponseRecordsItemExtendedItem>), bool? demoMode = default(bool?), string mqttWebhost = default(string), bool? highWorkload = default(bool?), IList<string> currentAlarms = default(IList<string>), string avatarUrl = default(string))
-        {
-            IdSite = idSite;
-            AccessLevel = accessLevel;
-            Owner = owner;
-            IsAdmin = isAdmin;
-            Name = name;
-            Identifier = identifier;
-            IdUser = idUser;
-            PvMax = pvMax;
-            Timezone = timezone;
-            Phonenumber = phonenumber;
-            Notes = notes;
-            Geofence = geofence;
-            GeofenceEnabled = geofenceEnabled;
-            HasMains = hasMains;
-            HasGenerator = hasGenerator;
-            NoDataAlarmTimeout = noDataAlarmTimeout;
-            AlarmMonitoring = alarmMonitoring;
-            InvalidVRMAuthTokenUsedInLogRequest = invalidVRMAuthTokenUsedInLogRequest;
-            InvalidMqttPasswordSentAt = invalidMqttPasswordSentAt;
-            Syscreated = syscreated;
-            Shared = shared;
-            DeviceIcon = deviceIcon;
-            Alarm = alarm;
-            LastTimestamp = lastTimestamp;
-            Tags = tags;
-            CurrentTime = currentTime;
-            TimezoneOffset = timezoneOffset;
-            Images = images;
-            ViewPermissions = viewPermissions;
-            Extended = extended;
-            DemoMode = demoMode;
-            MqttWebhost = mqttWebhost;
-            HighWorkload = highWorkload;
-            CurrentAlarms = currentAlarms;
-            AvatarUrl = avatarUrl;
-        }
+		/// <summary>
+		/// Initializes a new instance of the
+		/// InstallationsOKResponseRecordsItem class.
+		/// </summary>
+		public InstallationsOKResponseRecordsItem(int? idSite = default(int?), int? accessLevel = default(int?), bool? owner = default(bool?), bool? isAdmin = default(bool?), string name = default(string), string identifier = default(string), int? idUser = default(int?), int? pvMax = default(int?), string timezone = default(string), string phonenumber = default(string), string notes = default(string), string geofence = default(string), bool? geofenceEnabled = default(bool?), int? hasMains = default(int?), int? hasGenerator = default(int?), string noDataAlarmTimeout = default(string), int? alarmMonitoring = default(int?), int? invalidVRMAuthTokenUsedInLogRequest = default(int?), int? invalidMqttPasswordSentAt = default(int?), long? syscreated = default(long?), bool? shared = default(bool?), string deviceIcon = default(string), bool? alarm = default(bool?), long? lastTimestamp = default(long?), IList<InstallationsOKResponseRecordsItemTagsItem> tags = default(IList<InstallationsOKResponseRecordsItemTagsItem>), string currentTime = default(string), int? timezoneOffset = default(int?), bool? images = default(bool?), InstallationsOKResponseRecordsItemViewPermissions viewPermissions = default(InstallationsOKResponseRecordsItemViewPermissions), IList<InstallationsOKResponseRecordsItemExtendedItem> extended = default(IList<InstallationsOKResponseRecordsItemExtendedItem>), bool? demoMode = default(bool?), string mqttWebhost = default(string), bool? highWorkload = default(bool?), IList<string> currentAlarms = default(IList<string>), string avatarUrl = default(string))
+		{
+			IdSite = idSite;
+			AccessLevel = accessLevel;
+			Owner = owner;
+			IsAdmin = isAdmin;
+			Name = name;
+			Identifier = identifier;
+			IdUser = idUser;
+			PvMax = pvMax;
+			Timezone = timezone;
+			Phonenumber = phonenumber;
+			Notes = notes;
+			Geofence = geofence;
+			GeofenceEnabled = geofenceEnabled;
+			HasMains = hasMains;
+			HasGenerator = hasGenerator;
+			NoDataAlarmTimeout = noDataAlarmTimeout;
+			AlarmMonitoring = alarmMonitoring;
+			InvalidVRMAuthTokenUsedInLogRequest = invalidVRMAuthTokenUsedInLogRequest;
+			InvalidMqttPasswordSentAt = invalidMqttPasswordSentAt;
+			Syscreated = syscreated;
+			Shared = shared;
+			DeviceIcon = deviceIcon;
+			Alarm = alarm;
+			LastTimestamp = lastTimestamp;
+			//Tags = tags;
+			CurrentTime = currentTime;
+			TimezoneOffset = timezoneOffset;
+			Images = images;
+			ViewPermissions = viewPermissions;
+			Extended = extended;
+			DemoMode = demoMode;
+			MqttWebhost = mqttWebhost;
+			HighWorkload = highWorkload;
+			CurrentAlarms = currentAlarms;
+			AvatarUrl = avatarUrl;
+		}
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "idSite")]
-        public int? IdSite { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "idSite")]
+		public int? IdSite { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "accessLevel")]
-        public int? AccessLevel { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "accessLevel")]
+		public int? AccessLevel { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "owner")]
-        public bool? Owner { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "owner")]
+		public bool? Owner { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "is_admin")]
-        public bool? IsAdmin { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "is_admin")]
+		public bool? IsAdmin { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "name")]
+		public string Name { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "identifier")]
+		public string Identifier { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "idUser")]
-        public int? IdUser { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "idUser")]
+		public int? IdUser { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "pvMax")]
-        public int? PvMax { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "pvMax")]
+		public int? PvMax { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezone")]
-        public string Timezone { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "timezone")]
+		public string Timezone { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "phonenumber")]
-        public string Phonenumber { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "phonenumber")]
+		public string Phonenumber { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "notes")]
-        public string Notes { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "notes")]
+		public string Notes { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "geofence")]
-        public string Geofence { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "geofence")]
+		public string Geofence { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "geofenceEnabled")]
-        public bool? GeofenceEnabled { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "geofenceEnabled")]
+		public bool? GeofenceEnabled { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "hasMains")]
-        public int? HasMains { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "hasMains")]
+		public int? HasMains { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "hasGenerator")]
-        public int? HasGenerator { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "hasGenerator")]
+		public int? HasGenerator { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "noDataAlarmTimeout")]
-        public string NoDataAlarmTimeout { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "noDataAlarmTimeout")]
+		public string NoDataAlarmTimeout { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "alarmMonitoring")]
-        public int? AlarmMonitoring { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "alarmMonitoring")]
+		public int? AlarmMonitoring { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "invalidVRMAuthTokenUsedInLogRequest")]
-        public int? InvalidVRMAuthTokenUsedInLogRequest { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "invalidVRMAuthTokenUsedInLogRequest")]
+		public int? InvalidVRMAuthTokenUsedInLogRequest { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "invalidMqttPasswordSentAt")]
-        public int? InvalidMqttPasswordSentAt { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "invalidMqttPasswordSentAt")]
+		public int? InvalidMqttPasswordSentAt { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "syscreated")]
-        public long? Syscreated { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "syscreated")]
+		public long? Syscreated { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "shared")]
-        public bool? Shared { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "shared")]
+		public bool? Shared { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "device_icon")]
-        public string DeviceIcon { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "device_icon")]
+		public string DeviceIcon { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "alarm")]
-        public bool? Alarm { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "alarm")]
+		public bool? Alarm { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "last_timestamp")]
-        public long? LastTimestamp { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "last_timestamp")]
+		public long? LastTimestamp { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "tags")]
-        public IList<InstallationsOKResponseRecordsItemTagsItem> Tags { get; set; }
+		///// <summary>
+		///// </summary>
+		//[JsonProperty(PropertyName = "tags")]
+		//public IList<InstallationsOKResponseRecordsItemTagsItem> Tags { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "current_time")]
-        public string CurrentTime { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "current_time")]
+		public string CurrentTime { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "timezone_offset")]
-        public int? TimezoneOffset { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "timezone_offset")]
+		public int? TimezoneOffset { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "images")]
-        public bool? Images { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "images")]
+		public bool? Images { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "view_permissions")]
-        public InstallationsOKResponseRecordsItemViewPermissions ViewPermissions { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "view_permissions")]
+		public InstallationsOKResponseRecordsItemViewPermissions ViewPermissions { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "extended")]
-        public IList<InstallationsOKResponseRecordsItemExtendedItem> Extended { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "extended")]
+		public IList<InstallationsOKResponseRecordsItemExtendedItem> Extended { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "demo_mode")]
-        public bool? DemoMode { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "demo_mode")]
+		public bool? DemoMode { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "mqtt_webhost")]
-        public string MqttWebhost { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "mqtt_webhost")]
+		public string MqttWebhost { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "high_workload")]
-        public bool? HighWorkload { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "high_workload")]
+		public bool? HighWorkload { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "current_alarms")]
-        public IList<string> CurrentAlarms { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "current_alarms")]
+		public IList<string> CurrentAlarms { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "avatar_url")]
-        public string AvatarUrl { get; set; }
+		/// <summary>
+		/// </summary>
+		[JsonProperty(PropertyName = "avatar_url")]
+		public string AvatarUrl { get; set; }
 
-    }
+	}
 }
