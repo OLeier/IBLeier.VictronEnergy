@@ -46,15 +46,24 @@ namespace IBLeier.VictronEnergy.ModbusTcp
 				this.modbusClient.Disconnect();
 			}
 
-			string returnValue = null;
+			string returnValue = "*** Connect(" + ipAddress + ", " + port + ") *** ";
 			try
 			{
 				this.modbusClient.Connect(ipAddress, port);
+				returnValue = null;
+			}
+			catch (AggregateException ae)
+			{
+				foreach (Exception ie in ae.InnerExceptions)
+				{
+					Console.WriteLine(ie);
+					returnValue += ie.Message + " *** ";
+				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
-				returnValue = ex.Message;
+				returnValue += ex.Message;
 			}
 			return returnValue;
 		}

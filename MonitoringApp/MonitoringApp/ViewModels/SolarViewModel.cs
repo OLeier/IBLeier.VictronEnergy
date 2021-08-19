@@ -45,6 +45,12 @@ namespace MonitoringApp.ViewModels
 
 		public async Task LoadChargerDataAsync()
 		{
+			if (IsBusy)
+			{
+				Debug.WriteLine("*** LoadChargerDataAsync.IsBusy: " + IsBusy);
+				return;
+			}
+
 			IsBusy = true;
 
 			try

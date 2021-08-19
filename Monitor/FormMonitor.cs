@@ -222,8 +222,18 @@ namespace Monitor
 		private int step;
 		private bool dailyInit;
 
+		public bool IsBusy { get; private set; }
+
 		private async void Timer2_Tick(object sender, EventArgs e)
 		{
+			if (this.IsBusy)
+			{
+				Logging.Log("FormMonitor.Timer2_Tick-IsBusy", this.IsBusy.ToString());
+				return;
+			}
+
+			this.IsBusy = true;
+
 			try
 			{
 				using (ModbusTcpAdapter adapter = new ModbusTcpAdapter())
@@ -259,6 +269,10 @@ namespace Monitor
 			{
 				Logging.Log("Timer2_Tick", ex.ToString());
 				MessageBox.Show(ex.ToString(), "Timer2_Tick", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				this.IsBusy = false;
 			}
 		}
 	}
