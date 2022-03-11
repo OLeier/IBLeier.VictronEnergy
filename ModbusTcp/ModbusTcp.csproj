@@ -12,9 +12,9 @@
 		<!--<ProduceReferenceAssembly>true</ProduceReferenceAssembly>-->
 		<AssemblyName>IBLeier.VictronEnergy.ModbusTcp</AssemblyName>
 		<RootNamespace>IBLeier.VictronEnergy.ModbusTcp</RootNamespace>
-		<Version>2.0.3.3</Version>
+		<Version>2.0.3.4</Version>
 		<Authors>IBLeier</Authors>
-		<Copyright>MIT - IBLeier - 2021</Copyright>
+		<Copyright>MIT - IBLeier - 2021-2022</Copyright>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
 

@@ -11,11 +11,11 @@
     <TargetFramework>netstandard1.4</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <Version>2.0.3.3</Version>
+    <Version>2.0.3.4</Version>
     <Authors>IBLeier</Authors>
-    <Copyright>MIT - IBLeier - 2021</Copyright>
+    <Copyright>MIT - IBLeier - 2021-2022</Copyright>
     <NeutralLanguage>de-DE</NeutralLanguage>
-    <FileVersion>2.0.3.3</FileVersion>
+    <FileVersion>2.0.3.4</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IB-Leier.net")]
 [assembly: AssemblyProduct("IBLeier.VictronEnergy.Monitor")]
-[assembly: AssemblyCopyright("Copyright © IB-Leier.net 2020-2021")]
+[assembly: AssemblyCopyright("Copyright © IB-Leier.net 2020-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.3.3")]
+[assembly: AssemblyVersion("2.0.3.4")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]

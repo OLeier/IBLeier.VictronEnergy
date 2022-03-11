@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IBLeier")]
 [assembly: AssemblyProduct("MonitoringApp.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Copyright ©  2021-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("2.0.3.3")]
+[assembly: AssemblyVersion("2.0.3.4")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 
 // Add some common permissions, these can be removed if not needed

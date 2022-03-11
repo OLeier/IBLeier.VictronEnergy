@@ -192,7 +192,8 @@ namespace IBLeier.VictronEnergy.ModbusTcp
 			// 1. Charger is On and working
 			if (this.Step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On)
 			{
-				if (scData.ChargeState != ChargeStateCode.Off && (scData.PvPower < 0.5 || dailyInit))
+				if (scData.ChargeState != ChargeStateCode.Off &&
+					(scData.PvPower < 0.5 || dailyInit || (scData.PvCurrent < 0.5 && scData.PvVoltage > 40 && scData.PvPower < 1.5)))
 				{
 					// Switch Off
 					coData.ChargerOnOff = ChargerOnOffCode.Off;
