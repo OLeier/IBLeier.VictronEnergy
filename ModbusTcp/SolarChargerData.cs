@@ -310,5 +310,10 @@
 				return (MppOperationModeCode)this.Fields[(int)FieldIndex.MppOperationMode];
 			}
 		}
+
+		public double DifferenceVoltage
+		{
+			get { return this.PvVoltage - this.BatteryVoltage; }
+		}
 	}
 }
