@@ -1,4 +1,5 @@
 ﻿using Microsoft.Rest;
+using Monitor;
 using Monitor.Properties;
 using Monitor.VrmApi;
 using Monitor.VrmApi.Models;
@@ -23,7 +24,10 @@ namespace IBLeier.VictronEnergy.Monitor
 			ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
 			using (VrmApiClient client = new VrmApiClient(credentials))
 			{
-				Credential credential = new Credential()
+				ServiceClientTracing.IsEnabled = true;
+                ServiceClientTracing.AddTracingInterceptor(new DebugTracer());
+
+                Credential credential = new Credential()
 				{
 					Username = Settings.Default.Username,
 					Password = Settings.Default.Password
