@@ -24,7 +24,7 @@ namespace IBLeier.VictronEnergy.Monitor
 			ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
 			using (VrmApiClient client = new VrmApiClient(credentials))
 			{
-				ServiceClientTracing.IsEnabled = true;
+				ServiceClientTracing.IsEnabled = false;
                 ServiceClientTracing.AddTracingInterceptor(new DebugTracer());
 
                 Credential credential = new Credential()
