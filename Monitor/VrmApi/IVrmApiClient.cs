@@ -6,12 +6,11 @@ namespace Monitor.VrmApi
 {
     using System;
     using System.Collections.Generic;
-    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
     using Microsoft.Rest;
     using Models;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Victron Remote Management API.
@@ -40,7 +39,7 @@ namespace Monitor.VrmApi
         ServiceClientCredentials Credentials { get; }
 
 
-            /// <summary>
+        /// <summary>
         /// Returns a token.
         /// </summary>
         /// X-Authorization: Bearer {token}.

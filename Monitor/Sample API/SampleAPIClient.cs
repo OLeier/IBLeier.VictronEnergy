@@ -5,14 +5,9 @@
 namespace Monitor.SampleAPI
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Net;
     using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Rest;
@@ -37,7 +32,7 @@ namespace Monitor.SampleAPI
         /// <summary>
         /// Gets or sets json deserialization settings.
         /// </summary>
-        public JsonSerializerSettings DeserializationSettings { get; private set; }        
+        public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
         /// Subscription credentials which uniquely identify client subscription.
@@ -52,7 +47,7 @@ namespace Monitor.SampleAPI
         /// </param>
         protected SampleAPIClient(params DelegatingHandler[] handlers) : base(handlers)
         {
-            this.Initialize();
+            Initialize();
         }
 
         /// <summary>
@@ -66,7 +61,7 @@ namespace Monitor.SampleAPI
         /// </param>
         protected SampleAPIClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
-            this.Initialize();
+            Initialize();
         }
 
         /// <summary>
@@ -84,7 +79,7 @@ namespace Monitor.SampleAPI
             {
                 throw new ArgumentNullException("baseUri");
             }
-            this.BaseUri = baseUri;
+            BaseUri = baseUri;
         }
 
         /// <summary>
@@ -105,7 +100,7 @@ namespace Monitor.SampleAPI
             {
                 throw new ArgumentNullException("baseUri");
             }
-            this.BaseUri = baseUri;
+            BaseUri = baseUri;
         }
 
         /// <summary>
@@ -123,10 +118,10 @@ namespace Monitor.SampleAPI
             {
                 throw new ArgumentNullException("credentials");
             }
-            this.Credentials = credentials;
-            if (this.Credentials != null)
+            Credentials = credentials;
+            if (Credentials != null)
             {
-                this.Credentials.InitializeServiceClient(this);
+                Credentials.InitializeServiceClient(this);
             }
         }
 
@@ -148,10 +143,10 @@ namespace Monitor.SampleAPI
             {
                 throw new ArgumentNullException("credentials");
             }
-            this.Credentials = credentials;
-            if (this.Credentials != null)
+            Credentials = credentials;
+            if (Credentials != null)
             {
-                this.Credentials.InitializeServiceClient(this);
+                Credentials.InitializeServiceClient(this);
             }
         }
 
@@ -177,11 +172,11 @@ namespace Monitor.SampleAPI
             {
                 throw new ArgumentNullException("credentials");
             }
-            this.BaseUri = baseUri;
-            this.Credentials = credentials;
-            if (this.Credentials != null)
+            BaseUri = baseUri;
+            Credentials = credentials;
+            if (Credentials != null)
             {
-                this.Credentials.InitializeServiceClient(this);
+                Credentials.InitializeServiceClient(this);
             }
         }
 
@@ -210,11 +205,11 @@ namespace Monitor.SampleAPI
             {
                 throw new ArgumentNullException("credentials");
             }
-            this.BaseUri = baseUri;
-            this.Credentials = credentials;
-            if (this.Credentials != null)
+            BaseUri = baseUri;
+            Credentials = credentials;
+            if (Credentials != null)
             {
-                this.Credentials.InitializeServiceClient(this);
+                Credentials.InitializeServiceClient(this);
             }
         }
 
@@ -227,7 +222,7 @@ namespace Monitor.SampleAPI
         /// </summary>
         private void Initialize()
         {
-            this.BaseUri = new Uri("https://api.example.com/v1");
+            BaseUri = new Uri("https://api.example.com/v1");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
@@ -254,7 +249,7 @@ namespace Monitor.SampleAPI
                     }
             };
             CustomInitialize();
-        }    
+        }
         /// <summary>
         /// Returns a list of users.
         /// </summary>
@@ -281,7 +276,7 @@ namespace Monitor.SampleAPI
                 ServiceClientTracing.Enter(_invocationId, this, "GetUsers", tracingParameters);
             }
             // Construct URL
-            var _baseUrl = this.BaseUri.AbsoluteUri;
+            var _baseUrl = BaseUri.AbsoluteUri;
             var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "users").ToString();
             // Create HTTP transport objects
             HttpRequestMessage _httpRequest = new HttpRequestMessage();
@@ -291,7 +286,7 @@ namespace Monitor.SampleAPI
             // Set Headers
             if (customHeaders != null)
             {
-                foreach(var _header in customHeaders)
+                foreach (var _header in customHeaders)
                 {
                     if (_httpRequest.Headers.Contains(_header.Key))
                     {
@@ -304,10 +299,10 @@ namespace Monitor.SampleAPI
             // Serialize Request
             string _requestContent = null;
             // Set Credentials
-            if (this.Credentials != null)
+            if (Credentials != null)
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                await this.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+                await Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             }
             // Send Request
             if (_shouldTrace)
@@ -315,7 +310,7 @@ namespace Monitor.SampleAPI
                 ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
             }
             cancellationToken.ThrowIfCancellationRequested();
-            _httpResponse = await this.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            _httpResponse = await HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
             if (_shouldTrace)
             {
                 ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);

@@ -4,12 +4,8 @@
 
 namespace Monitor.VrmApi
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Rest;
     using Models;
 
     /// <summary>
@@ -17,218 +13,218 @@ namespace Monitor.VrmApi
     /// </summary>
     public static partial class VrmApiClientExtensions
     {
-            /// <summary>
-            /// Returns a token.
-            /// </summary>
-            /// X-Authorization: Bearer {token}.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='credential'>
-            /// The credential for login
-            /// </param>
-            public static LoginOKResponse Login(this IVrmApiClient operations, Credential credential)
-            {
-                return Task.Factory.StartNew(s => ((IVrmApiClient)s).LoginAsync(credential), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// Returns a token.
+        /// </summary>
+        /// X-Authorization: Bearer {token}.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='credential'>
+        /// The credential for login
+        /// </param>
+        public static LoginOKResponse Login(this IVrmApiClient operations, Credential credential)
+        {
+            return Task.Factory.StartNew(s => ((IVrmApiClient)s).LoginAsync(credential), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// Returns a token.
-            /// </summary>
-            /// X-Authorization: Bearer {token}.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='credential'>
-            /// The credential for login
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<LoginOKResponse> LoginAsync(this IVrmApiClient operations, Credential credential, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>
+        /// Returns a token.
+        /// </summary>
+        /// X-Authorization: Bearer {token}.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='credential'>
+        /// The credential for login
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<LoginOKResponse> LoginAsync(this IVrmApiClient operations, Credential credential, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.LoginWithHttpMessagesAsync(credential, null, cancellationToken).ConfigureAwait(false))
             {
-                using (var _result = await operations.LoginWithHttpMessagesAsync(credential, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                return _result.Body;
             }
+        }
 
-            /// <summary>
-            /// Will blacklist the token at the server side for further use.
-            /// </summary>
-            /// X-Authorization: Bearer {token}.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            public static void Logout(this IVrmApiClient operations, string xAuthorization)
-            {
-                Task.Factory.StartNew(s => ((IVrmApiClient)s).LogoutAsync(xAuthorization), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// Will blacklist the token at the server side for further use.
+        /// </summary>
+        /// X-Authorization: Bearer {token}.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        public static void Logout(this IVrmApiClient operations, string xAuthorization)
+        {
+            Task.Factory.StartNew(s => ((IVrmApiClient)s).LogoutAsync(xAuthorization), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// Will blacklist the token at the server side for further use.
-            /// </summary>
-            /// X-Authorization: Bearer {token}.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task LogoutAsync(this IVrmApiClient operations, string xAuthorization, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                await operations.LogoutWithHttpMessagesAsync(xAuthorization, null, cancellationToken).ConfigureAwait(false);
-            }
+        /// <summary>
+        /// Will blacklist the token at the server side for further use.
+        /// </summary>
+        /// X-Authorization: Bearer {token}.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task LogoutAsync(this IVrmApiClient operations, string xAuthorization, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await operations.LogoutWithHttpMessagesAsync(xAuthorization, null, cancellationToken).ConfigureAwait(false);
+        }
 
-            /// <summary>
-            /// Get all installations/sites of a given user.
-            /// </summary>
-            /// (Restricted) admins can retrieve installations of all users, dealers can
-            /// only retrieve installations for the users that are linked to them, normal
-            /// users can only retrieve their own installations/sites.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='idUser'>
-            /// The id of the user.
-            /// </param>
-            /// <param name='extended'>
-            /// for extended values
-            /// </param>
-            public static InstallationsOKResponse Installations(this IVrmApiClient operations, string xAuthorization, int idUser, int? extended = default(int?))
-            {
-                return Task.Factory.StartNew(s => ((IVrmApiClient)s).InstallationsAsync(xAuthorization, idUser, extended), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// Get all installations/sites of a given user.
+        /// </summary>
+        /// (Restricted) admins can retrieve installations of all users, dealers can
+        /// only retrieve installations for the users that are linked to them, normal
+        /// users can only retrieve their own installations/sites.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='idUser'>
+        /// The id of the user.
+        /// </param>
+        /// <param name='extended'>
+        /// for extended values
+        /// </param>
+        public static InstallationsOKResponse Installations(this IVrmApiClient operations, string xAuthorization, int idUser, int? extended = default(int?))
+        {
+            return Task.Factory.StartNew(s => ((IVrmApiClient)s).InstallationsAsync(xAuthorization, idUser, extended), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// Get all installations/sites of a given user.
-            /// </summary>
-            /// (Restricted) admins can retrieve installations of all users, dealers can
-            /// only retrieve installations for the users that are linked to them, normal
-            /// users can only retrieve their own installations/sites.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='idUser'>
-            /// The id of the user.
-            /// </param>
-            /// <param name='extended'>
-            /// for extended values
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<InstallationsOKResponse> InstallationsAsync(this IVrmApiClient operations, string xAuthorization, int idUser, int? extended = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>
+        /// Get all installations/sites of a given user.
+        /// </summary>
+        /// (Restricted) admins can retrieve installations of all users, dealers can
+        /// only retrieve installations for the users that are linked to them, normal
+        /// users can only retrieve their own installations/sites.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='idUser'>
+        /// The id of the user.
+        /// </param>
+        /// <param name='extended'>
+        /// for extended values
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<InstallationsOKResponse> InstallationsAsync(this IVrmApiClient operations, string xAuthorization, int idUser, int? extended = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.InstallationsWithHttpMessagesAsync(xAuthorization, idUser, extended, null, cancellationToken).ConfigureAwait(false))
             {
-                using (var _result = await operations.InstallationsWithHttpMessagesAsync(xAuthorization, idUser, extended, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                return _result.Body;
             }
+        }
 
-            /// <summary>
-            /// Retrieve connected devices (e.g. to get device instance).
-            /// </summary>
-            /// Retrieve connected devices (e.g. to get device instance).
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='idSite'>
-            /// The id of the site.
-            /// </param>
-            public static SystemOverviewOKResponse SystemOverview(this IVrmApiClient operations, string xAuthorization, int idSite)
-            {
-                return Task.Factory.StartNew(s => ((IVrmApiClient)s).SystemOverviewAsync(xAuthorization, idSite), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// Retrieve connected devices (e.g. to get device instance).
+        /// </summary>
+        /// Retrieve connected devices (e.g. to get device instance).
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='idSite'>
+        /// The id of the site.
+        /// </param>
+        public static SystemOverviewOKResponse SystemOverview(this IVrmApiClient operations, string xAuthorization, int idSite)
+        {
+            return Task.Factory.StartNew(s => ((IVrmApiClient)s).SystemOverviewAsync(xAuthorization, idSite), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// Retrieve connected devices (e.g. to get device instance).
-            /// </summary>
-            /// Retrieve connected devices (e.g. to get device instance).
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='idSite'>
-            /// The id of the site.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<SystemOverviewOKResponse> SystemOverviewAsync(this IVrmApiClient operations, string xAuthorization, int idSite, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>
+        /// Retrieve connected devices (e.g. to get device instance).
+        /// </summary>
+        /// Retrieve connected devices (e.g. to get device instance).
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='idSite'>
+        /// The id of the site.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<SystemOverviewOKResponse> SystemOverviewAsync(this IVrmApiClient operations, string xAuthorization, int idSite, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.SystemOverviewWithHttpMessagesAsync(xAuthorization, idSite, null, cancellationToken).ConfigureAwait(false))
             {
-                using (var _result = await operations.SystemOverviewWithHttpMessagesAsync(xAuthorization, idSite, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                return _result.Body;
             }
+        }
 
-            /// <summary>
-            /// Summary data.
-            /// </summary>
-            /// Returns latest recorded values for the Solar Charger Summary for for
-            /// instance 255.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='idSite'>
-            /// The id of the site.
-            /// </param>
-            /// <param name='instance'>
-            /// The id of the instance.
-            /// </param>
-            public static SolarChargerSummaryOKResponse SolarChargerSummary(this IVrmApiClient operations, string xAuthorization, int idSite, int instance)
-            {
-                return Task.Factory.StartNew(s => ((IVrmApiClient)s).SolarChargerSummaryAsync(xAuthorization, idSite, instance), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// Summary data.
+        /// </summary>
+        /// Returns latest recorded values for the Solar Charger Summary for for
+        /// instance 255.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='idSite'>
+        /// The id of the site.
+        /// </param>
+        /// <param name='instance'>
+        /// The id of the instance.
+        /// </param>
+        public static SolarChargerSummaryOKResponse SolarChargerSummary(this IVrmApiClient operations, string xAuthorization, int idSite, int instance)
+        {
+            return Task.Factory.StartNew(s => ((IVrmApiClient)s).SolarChargerSummaryAsync(xAuthorization, idSite, instance), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// Summary data.
-            /// </summary>
-            /// Returns latest recorded values for the Solar Charger Summary for for
-            /// instance 255.
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='xAuthorization'>
-            /// X-Authorization: Bearer {token}.
-            /// </param>
-            /// <param name='idSite'>
-            /// The id of the site.
-            /// </param>
-            /// <param name='instance'>
-            /// The id of the instance.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<SolarChargerSummaryOKResponse> SolarChargerSummaryAsync(this IVrmApiClient operations, string xAuthorization, int idSite, int instance, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>
+        /// Summary data.
+        /// </summary>
+        /// Returns latest recorded values for the Solar Charger Summary for for
+        /// instance 255.
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='xAuthorization'>
+        /// X-Authorization: Bearer {token}.
+        /// </param>
+        /// <param name='idSite'>
+        /// The id of the site.
+        /// </param>
+        /// <param name='instance'>
+        /// The id of the instance.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<SolarChargerSummaryOKResponse> SolarChargerSummaryAsync(this IVrmApiClient operations, string xAuthorization, int idSite, int instance, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.SolarChargerSummaryWithHttpMessagesAsync(xAuthorization, idSite, instance, null, cancellationToken).ConfigureAwait(false))
             {
-                using (var _result = await operations.SolarChargerSummaryWithHttpMessagesAsync(xAuthorization, idSite, instance, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                return _result.Body;
             }
+        }
 
     }
 }

@@ -6,11 +6,10 @@ namespace Monitor.SampleAPI
 {
     using System;
     using System.Collections.Generic;
-    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
     using Microsoft.Rest;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// API description in Markdown.
@@ -39,7 +38,7 @@ namespace Monitor.SampleAPI
         ServiceClientCredentials Credentials { get; }
 
 
-            /// <summary>
+        /// <summary>
         /// Returns a list of users.
         /// </summary>
         /// Optional extended description in Markdown.
