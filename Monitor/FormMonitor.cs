@@ -25,7 +25,7 @@ namespace Monitor
 #if DEBUG
             timer1.Interval = 1000;
 #else
-			this.timer1.Interval = Settings.Default.TimerInterval * 1000;
+            timer1.Interval = Settings.Default.TimerInterval * 1000;
 #endif
             timer2.Interval = Settings.Default.ModbusTimerInterval * 1000;
         }
@@ -83,7 +83,7 @@ namespace Monitor
 #if DEBUG
                         Check check = null;
 #else
-						Check check = Check.CheckVoltage(bv);
+                        Check check = Check.CheckVoltage(bv);
 #endif
                         if (check != null)
                         {

@@ -51,6 +51,7 @@ namespace IBLeier.VictronEnergy.Monitor
                 }
             }
 
+            Logging.Log("CheckVoltage", bv + " V < " + retval?.low + " V !!!");
             return retval;
         }
 
