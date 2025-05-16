@@ -149,6 +149,8 @@
     <None Include="Swagger\Sample API.json" />
     <None Include="Swagger\VrmApi.json" />
     <None Include="SampleResponse\LoginOKResponse.json" />
+    <None Include="Swagger\VrmApi_BundledReferences.yaml" />
+    <None Include="Swagger\VrmApi_Original.yaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

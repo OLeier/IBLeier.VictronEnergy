@@ -1,0 +1,169 @@
+openapi: 3.1.0
+info:
+  title: VRM API
+  version: '2'
+  description: |-
+    ## Introduction
+    This document provides a brief overview of some of the available endpoints and their parameters. The API is a REST API, accepting JSON as request body. You can use the try-it tool to play around with it, or use software like Postman.
+
+    ## Authentication
+    Most endpoints require authentication, using a JWT token. This token should be placed in the `x-authorization` field in the HTTP header. There are two types of tokens.
+    - Bearer token. Uses the `Bearer <token_value>` format. This is used when logging in to VRM, for example. Can be retrieved from [/auth/login](/operations/auth/login) or [/auth/loginAsDemo](/operations/auth/loginAsDemo).
+    - Access token. Uses the `Token <token_value>` format. This is commonly used for third party applications using the VRM API. Can be created using [/users/{idUser}/accesstokens/create](/operations/users/idUser/accesstokens/create).
+    
+    ## Rate limiting
+    Most endpoints are by default rate limited with a rolling window of max 200 requests, where every 0.33 seconds a request gets removed from the rolling window. (so on average maximum of 3 requests per second won't get rate limited). There are different types of ratelimiting in VRM. If you receive a 429 with a JSON response, you can check the Retry-After response header to check the amount of seconds you have to wait until retrying.
+
+    ## WARNING & DISCLAIMER
+    Whilst publicly available, Victron Energy does not offer support to professional customers or end-users that implement features using the here documented functionality, except in really specific situations (i.e such as a special arrangement with a large OEM customer).
+
+    The recommended method for support on the VRM API is to use the Modifications section on Victron Community. This space is frequently visited by many people using the API, and other methods of integrating with Victron products.
+    Direct company support is only offered on a limited basis via your Victron representative.
+servers:
+  - url: 'https://vrmapi.victronenergy.com/v2'
+paths:
+  # Auth
+  /auth/login:
+    $ref: '../Commands/Auth/docs/LoginCommand.yaml'
+  /auth/loginAsDemo:
+    $ref: '../Commands/Auth/docs/LoginAsDemoCommand.yaml'
+  /auth/logout:
+    $ref: '../Commands/Auth/docs/LogoutCommand.yaml'
+
+  # Users
+  /users/{idUser}/addsite:
+    $ref: '../Commands/User/docs/AddSiteCommand.yaml'
+  /users/{idUser}/installations:
+    $ref: '../Commands/User/docs/InstallationsCommand.yaml'
+  /users/{idUser}/accesstokens/create:
+    $ref: '../Commands/User/AccessToken/docs/CreateAccessTokenCommand.yaml'
+  /users/{idUser}/accesstokens/list:
+    $ref: '../Commands/User/AccessToken/docs/ListAccessTokenCommand.yaml'
+  /users/{idUser}/accesstokens/{idAccessToken}/revoke:
+    $ref: '../Commands/User/AccessToken/docs/RevokeAccessTokenCommand.yaml'
+  /users/{idUser}/get-site-id:
+    $ref: '../Commands/User/docs/GetSiteIdCommand.yaml'
+  /users/me:
+    $ref: '../Commands/User/docs/InfoMeCommand.yaml'
+  /users/{idUser}/search:
+    $ref: '../Commands/User/docs/SearchCommand.yaml'
+
+  # Installation
+  /installations/{idSite}/alarms:
+    $ref: '../Commands/Installation/docs/AlarmsCommand.yaml'
+  /installations/{idSite}/clear-alarm:
+    $ref: '../Commands/Installation/docs/ClearAlarmCommand.yaml'
+  /installations/{idSite}/system-overview:
+    $ref: '../Commands/Installation/docs/SystemOverviewCommand.yaml'
+  /installations/{idSite}/diagnostics:
+    $ref: '../Commands/Installation/docs/DiagnosticsCommand.yaml'
+  /installations/{idSite}/dynamic-ess-settings:
+    $ref: '../Commands/Installation/docs/DynamicEssSettingsCommand.yaml'
+  /installations/{idSite}/gps-download:
+    $ref: '../Commands/Installation/docs/GPSDownloadCommand.yaml'
+  /installations/{idSite}/tags:
+    $ref: '../Commands/Installation/docs/TagsCommand.yaml'
+  /installations/{idSite}/data-download:
+    $ref: '../Commands/Installation/docs/DataDownloadCommand.yaml'
+  /installations/{idSite}/stats:
+    $ref: '../Commands/Installation/docs/StatsCommand.yaml#/components/operations'
+  /installations/{idSite}/overallstats:
+    $ref: '../Commands/Installation/docs/OverallStatsCommand.yaml#/components/operations'
+  /installations/{idSite}/settings:
+    $ref: '../Commands/Installation/docs/SettingsCommand.yaml'
+  /installations/{idSite}/invite:
+    $ref: '../Commands/Installation/docs/InviteCommand.yaml'
+  /installations/{idSite}/reset-forecasts:
+    $ref: '../Commands/Installation/docs/ResetForecastsCommand.yaml'
+  /installations/{idSite}/custom-widget:
+    $ref: '../Commands/Installation/docs/CustomWidgetCommand.yaml'
+  /installation-overview-download:
+    $ref: '../Commands/docs/InstallationOverviewDownloadCommand.yaml'
+  /data-attributes:
+    $ref: '../Commands/docs/DataAttributesCommand.yaml'
+
+  # General Widgets
+  /installations/{idSite}/widgets/Graph:
+    $ref: '../Commands/Installation/Widget/Graph/docs/GraphWidgetCommand.yaml'
+  /installations/{idSite}/widgets/GPS:
+    $ref: '../Commands/Installation/Widget/Other/docs/GPSCommand.yaml'
+  /installations/{idSite}/widgets/HoursOfAc:
+    $ref: '../Commands/Installation/Widget/Other/docs/HoursOfAcCommand.yaml'
+
+  # State widgets
+  /installations/{idSite}/widgets/GeneratorState:
+    $ref: '../Commands/Installation/Widget/State/docs/GeneratorStateCommand.yaml'
+  /installations/{idSite}/widgets/InputState:
+    $ref: '../Commands/Installation/Widget/State/docs/InputStateCommand.yaml'
+  /installations/{idSite}/widgets/InverterState:
+    $ref: '../Commands/Installation/Widget/State/docs/InverterStateCommand.yaml'
+  /installations/{idSite}/widgets/MPPTState:
+    $ref: '../Commands/Installation/Widget/State/docs/MPPTStateCommand.yaml'
+  /installations/{idSite}/widgets/ChargerState:
+    $ref: '../Commands/Installation/Widget/State/docs/ChargerStateCommand.yaml'
+  /installations/{idSite}/widgets/EssBatteryLifeState:
+    $ref: '../Commands/Installation/Widget/State/docs/EssBatteryLifeStateCommand.yaml'
+  /installations/{idSite}/widgets/FuelCellState:
+    $ref: '../Commands/Installation/Widget/State/docs/FuelCellStateCommand.yaml'
+  /installations/{idSite}/widgets/BatteryExternalRelayState:
+    $ref: '../Commands/Installation/Widget/State/docs/BatteryExternalRelayStateCommand.yaml'
+  /installations/{idSite}/widgets/BatteryRelayState:
+    $ref: '../Commands/Installation/Widget/State/docs/BatteryRelayStateCommand.yaml'
+  /installations/{idSite}/widgets/BatteryMonitorWarningsAndAlarms:
+    $ref: '../Commands/Installation/Widget/State/docs/BatteryMonitorWarningsAndAlarmsCommand.yaml'
+  /installations/{idSite}/widgets/GatewayRelayState:
+    $ref: '../Commands/Installation/Widget/State/docs/GatewayRelayStateCommand.yaml'
+  /installations/{idSite}/widgets/GatewayRelayTwoState:
+    $ref: '../Commands/Installation/Widget/State/docs/GatewayRelayTwoStateCommand.yaml'
+  /installations/{idSite}/widgets/ChargerRelayState:
+    $ref: '../Commands/Installation/Widget/State/docs/ChargerRelayStateCommand.yaml'
+  /installations/{idSite}/widgets/SolarChargerRelayState:
+    $ref: '../Commands/Installation/Widget/State/docs/SolarChargerRelayStateCommand.yaml'
+  /installations/{idSite}/widgets/VeBusState:
+    $ref: '../Commands/Installation/Widget/State/docs/VeBusStateCommand.yaml'
+  /installations/{idSite}/widgets/VeBusWarningsAndAlarms:
+    $ref: '../Commands/Installation/Widget/State/docs/VeBusWarningsAndAlarmsCommand.yaml'
+  /installations/{idSite}/widgets/InverterChargerState:
+    $ref: '../Commands/Installation/Widget/State/docs/InverterChargerStateCommand.yaml'
+  /installations/{idSite}/widgets/InverterChargerWarningsAndAlarms:
+    $ref: '../Commands/Installation/Widget/State/docs/InverterChargerWarningsAndAlarmsCommand.yaml'
+
+  # Summary widgets
+  /installations/{idSite}/widgets/BatterySummary:
+    $ref: '../Commands/Installation/Widget/Summary/docs/BatteryCommand.yaml'
+  /installations/{idSite}/widgets/BMSDiagnostics:
+    $ref: '../Commands/Installation/Widget/Summary/docs/BMSDiagnosticsCommand.yaml'
+  /installations/{idSite}/widgets/HistoricData:
+    $ref: '../Commands/Installation/Widget/Summary/docs/HistoricDataCommand.yaml'
+  /installations/{idSite}/widgets/IOExtenderInOut:
+    $ref: '../Commands/Installation/Widget/Summary/docs/IOExtenderInOutCommand.yaml'
+  /installations/{idSite}/widgets/LithiumBMS:
+    $ref: '../Commands/Installation/Widget/Summary/docs/LithiumBMSCommand.yaml'
+  /installations/{idSite}/widgets/DCMeter:
+    $ref: '../Commands/Installation/Widget/Summary/docs/DCMeterCommand.yaml'
+  /installations/{idSite}/widgets/EvChargerSummary:
+    $ref: '../Commands/Installation/Widget/Summary/docs/EvChargerSummaryCommand.yaml'
+  /installations/{idSite}/widgets/MeteorologicalSensor:
+    $ref: '../Commands/Installation/Widget/Summary/docs/MeteorologicalSensorCommand.yaml'
+  /installations/{idSite}/widgets/GlobalLinkSummary:
+    $ref: '../Commands/Installation/Widget/Summary/docs/GlobalLinkSummaryCommand.yaml'
+  /installations/{idSite}/widgets/MotorSummary:
+    $ref: '../Commands/Installation/Widget/Summary/docs/MotorCommand.yaml'
+  /installations/{idSite}/widgets/PVInverterStatus:
+    $ref: '../Commands/Installation/Widget/Summary/docs/PVInverterCommand.yaml'
+  /installations/{idSite}/widgets/SolarChargerSummary:
+    $ref: '../Commands/Installation/Widget/Summary/docs/SolarChargerCommand.yaml'
+  /installations/{idSite}/widgets/Status:
+    $ref: '../Commands/Installation/Widget/Summary/docs/StatusCommand.yaml'
+  /installations/{idSite}/widgets/TankSummary:
+    $ref: '../Commands/Installation/Widget/Summary/docs/TankCommand.yaml'
+  /installations/{idSite}/widgets/TempSummaryAndGraph:
+    $ref: '../Commands/Installation/Widget/Summary/docs/TempSummaryCommand.yaml'
+
+  # Admin
+  /admin/devices:
+    $ref: '../Commands/Admin/docs/DevicesCommand.yaml'
+  /admin/installation-data-attributes-count:
+    $ref: '../Commands/Admin/docs/InstallationDataAttributesCountCommand.yaml'
+  /admin/search-download:
+    $ref: '../Commands/Admin/docs/InstallationSearchDownloadCommand.yaml'

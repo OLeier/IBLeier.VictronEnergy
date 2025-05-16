@@ -1,4 +1,9 @@
-﻿#Readme
+﻿#  - VRM Monitor
+
+## VRM API
+
+https://vrm-api-docs.victronenergy.com/#/  
+incl. Export Möglichkeit für document.yaml
 
 ## json -> swagger
 https://swagger-toolbox.firebaseapp.com/ - Swagger toolbox
