@@ -24,7 +24,7 @@ openapi-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
 
 openapi-generator-cli help
 openapi-generator-cli validate -i api_v1.yaml
-openapi-generator-cli generate -i VrmApi_BundledReferences.yaml -g csharp
+openapi-generator-cli generate -i VrmApi_BundledReferences.yaml -g csharp --skip-validate-spec
 openapi-generator-cli generate -i OpenAPI.json -g csharp
 
 ## json -> swagger
