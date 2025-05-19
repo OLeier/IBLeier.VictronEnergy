@@ -42,7 +42,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="dataType">dataType</param>
         /// <param name="enumValues">enumValues</param>
         [JsonConstructor]
-        public InstallationsIdSiteAlarmsGet200ResponseAttributesInner(Option<decimal?> idDataAttribute = default, Option<string?> code = default, Option<string?> description = default, Option<string?> targetTable = default, Option<Int?> idDeviceType = default, Option<string?> formatWithUnit = default, Option<string?> dataType = default, Option<string?> enumValues = default)
+        public InstallationsIdSiteAlarmsGet200ResponseAttributesInner(Option<decimal?> idDataAttribute = default, Option<string?> code = default, Option<string?> description = default, Option<string?> targetTable = default, Option<int?> idDeviceType = default, Option<string?> formatWithUnit = default, Option<string?> dataType = default, Option<string?> enumValues = default)
         {
             IdDataAttributeOption = idDataAttribute;
             CodeOption = code;
@@ -118,14 +118,14 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Int?> IdDeviceTypeOption { get; private set; }
+        public Option<int?> IdDeviceTypeOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets IdDeviceType
         /// </summary>
         /* <example>33</example> */
         [JsonPropertyName("idDeviceType")]
-        public Int? IdDeviceType { get { return this.IdDeviceTypeOption; } set { this.IdDeviceTypeOption = new(value); } }
+        public int? IdDeviceType { get { return this.IdDeviceTypeOption; } set { this.IdDeviceTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FormatWithUnit
@@ -226,7 +226,7 @@ namespace Org.OpenAPITools.Model
             Option<string?> code = default;
             Option<string?> description = default;
             Option<string?> targetTable = default;
-            Option<Int?> idDeviceType = default;
+            Option<int?> idDeviceType = default;
             Option<string?> formatWithUnit = default;
             Option<string?> dataType = default;
             Option<string?> enumValues = default;
@@ -259,7 +259,7 @@ namespace Org.OpenAPITools.Model
                             targetTable = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "idDeviceType":
-                            idDeviceType = new Option<Int?>(JsonSerializer.Deserialize<Int>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            idDeviceType = new Option<int?>(JsonSerializer.Deserialize<int>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "formatWithUnit":
                             formatWithUnit = new Option<string?>(utf8JsonReader.GetString()!);

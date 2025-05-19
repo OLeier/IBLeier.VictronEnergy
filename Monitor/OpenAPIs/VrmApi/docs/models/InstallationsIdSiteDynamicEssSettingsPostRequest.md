@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 **SellPriceSchedule** | [**List&lt;InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner&gt;**](InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner.md) |  | [optional] 
 **SellPriceFormula** | **string** | A formula to apply to the raw dynamic energy prices, where p is the raw price. | [optional] 
 **IsPeriodicFullChargeOn** | **bool** | Whether or not do you want to periodically charge your battery to 100% in order to extend battery life | [optional] 
-**PeriodicFullChargeDuration** | [**PositiveNumberOrNull**](PositiveNumberOrNull.md) | How many hours should your battery stay at 100% during the periodic recharge | [optional] 
-**PeriodicFullChargeInterval** | [**PositiveNumberOrNull**](PositiveNumberOrNull.md) | How often should the battery be fully charged (in days) | [optional] 
+**PeriodicFullChargeDuration** | [**uint**](uint.md) | How many hours should your battery stay at 100% during the periodic recharge | [optional] 
+**PeriodicFullChargeInterval** | [**uint**](uint.md) | How often should the battery be fully charged (in days) | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -46,7 +46,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="UNKNOWN_PARAMETER_NAME"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IInstallationOverviewDownloadApiResponse"/>&gt;</returns>
-        Task<IInstallationOverviewDownloadApiResponse> InstallationOverviewDownloadAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IInstallationOverviewDownloadApiResponse> InstallationOverviewDownloadAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download installation overview
@@ -58,7 +58,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="UNKNOWN_PARAMETER_NAME"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IInstallationOverviewDownloadApiResponse"/>?&gt;</returns>
-        Task<IInstallationOverviewDownloadApiResponse?> InstallationOverviewDownloadOrDefaultAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IInstallationOverviewDownloadApiResponse?> InstallationOverviewDownloadOrDefaultAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Alarm
@@ -1727,7 +1727,7 @@ namespace Org.OpenAPITools.Api
             Events = installationsApiEvents;
         }
 
-        partial void FormatInstallationOverviewDownload(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME);
+        partial void FormatInstallationOverviewDownload(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME);
 
         /// <summary>
         /// Validates the request parameters
@@ -1735,7 +1735,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="installationOverviewDownloadRequest"></param>
         /// <param name="UNKNOWN_PARAMETER_NAME"></param>
         /// <returns></returns>
-        private void ValidateInstallationOverviewDownload(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME)
+        private void ValidateInstallationOverviewDownload(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME)
         {
             if (installationOverviewDownloadRequest == null)
                 throw new ArgumentNullException(nameof(installationOverviewDownloadRequest));
@@ -1750,7 +1750,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="installationOverviewDownloadRequest"></param>
         /// <param name="UNKNOWN_PARAMETER_NAME"></param>
-        private void AfterInstallationOverviewDownloadDefaultImplementation(IInstallationOverviewDownloadApiResponse apiResponseLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME)
+        private void AfterInstallationOverviewDownloadDefaultImplementation(IInstallationOverviewDownloadApiResponse apiResponseLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME)
         {
             bool suppressDefaultLog = false;
             AfterInstallationOverviewDownload(ref suppressDefaultLog, apiResponseLocalVar, installationOverviewDownloadRequest, UNKNOWN_PARAMETER_NAME);
@@ -1765,7 +1765,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="installationOverviewDownloadRequest"></param>
         /// <param name="UNKNOWN_PARAMETER_NAME"></param>
-        partial void AfterInstallationOverviewDownload(ref bool suppressDefaultLog, IInstallationOverviewDownloadApiResponse apiResponseLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME);
+        partial void AfterInstallationOverviewDownload(ref bool suppressDefaultLog, IInstallationOverviewDownloadApiResponse apiResponseLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1775,7 +1775,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="installationOverviewDownloadRequest"></param>
         /// <param name="UNKNOWN_PARAMETER_NAME"></param>
-        private void OnErrorInstallationOverviewDownloadDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME)
+        private void OnErrorInstallationOverviewDownloadDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorInstallationOverviewDownload(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, installationOverviewDownloadRequest, UNKNOWN_PARAMETER_NAME);
@@ -1792,7 +1792,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="installationOverviewDownloadRequest"></param>
         /// <param name="UNKNOWN_PARAMETER_NAME"></param>
-        partial void OnErrorInstallationOverviewDownload(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME);
+        partial void OnErrorInstallationOverviewDownload(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME);
 
         /// <summary>
         /// Download installation overview Fetches a customized overview of installations with specified columns, site IDs, and settings. The response can be either JSON or an XLSX file depending on the &#x60;jsonResponse&#x60; parameter.
@@ -1801,7 +1801,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="UNKNOWN_PARAMETER_NAME"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IInstallationOverviewDownloadApiResponse"/>&gt;</returns>
-        public async Task<IInstallationOverviewDownloadApiResponse?> InstallationOverviewDownloadOrDefaultAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IInstallationOverviewDownloadApiResponse?> InstallationOverviewDownloadOrDefaultAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1821,7 +1821,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="UNKNOWN_PARAMETER_NAME"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IInstallationOverviewDownloadApiResponse"/>&gt;</returns>
-        public async Task<IInstallationOverviewDownloadApiResponse> InstallationOverviewDownloadAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IInstallationOverviewDownloadApiResponse> InstallationOverviewDownloadAsync(InstallationOverviewDownloadRequest installationOverviewDownloadRequest, Option<string> UNKNOWN_PARAMETER_NAME = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

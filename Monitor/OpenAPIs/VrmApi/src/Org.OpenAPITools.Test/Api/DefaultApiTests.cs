@@ -65,7 +65,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test AuthLoginAsDemo
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact (/*Skip = "not implemented"*/)]
         public async Task AuthLoginAsDemoAsyncTest()
         {
             var response = await _instance.AuthLoginAsDemoAsync();

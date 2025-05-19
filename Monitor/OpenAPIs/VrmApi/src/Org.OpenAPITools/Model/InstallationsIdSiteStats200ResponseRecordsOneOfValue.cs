@@ -35,7 +35,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="list"></param>
         /// <param name="bool"></param>
-        internal InstallationsIdSiteStats200ResponseRecordsOneOfValue(Option<List?> list, Option<bool?> @bool)
+        internal InstallationsIdSiteStats200ResponseRecordsOneOfValue(Option<List<List<decimal>>?> list, Option<bool?> @bool)
         {
             ListOption = list;
             BoolOption = @bool;
@@ -158,9 +158,9 @@ namespace Org.OpenAPITools.Model
                 }
             }
 
-            Option<List?> listParsedValue = list == null
+            Option< List < List<decimal> >?> listParsedValue = list == null
                 ? default
-                : new Option<List?>(list);
+                : new Option<List<List<decimal>>?>(list);
             Option<bool?> varBoolParsedValue = varBool == null
                 ? default
                 : new Option<bool?>(varBool);

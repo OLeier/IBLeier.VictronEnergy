@@ -58,7 +58,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="periodicFullChargeDuration">How many hours should your battery stay at 100% during the periodic recharge</param>
         /// <param name="periodicFullChargeInterval">How often should the battery be fully charged (in days)</param>
         [JsonConstructor]
-        public InstallationsIdSiteDynamicEssSettingsPostRequest(decimal batteryCapacity, decimal batteryCosts, BatteryFlowRestrictionEnum batteryFlowRestriction, BuyPriceTypeEnum buyPriceType, decimal chargePower, decimal dischargePower, GridSellEnum gridSell, bool isOn, decimal maxPowerFromGrid, decimal maxPowerToGrid, SellPriceTypeEnum sellPriceType, Option<decimal?> batteryPrice = default, Option<decimal?> buyEnergyProviderId = default, Option<string?> buyPriceFormula = default, Option<List<InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner>?> buyPriceSchedule = default, Option<decimal?> idBiddingZone = default, Option<bool?> isDessSocDifferent = default, Option<bool?> isGreenModeOn = default, Option<decimal?> sellEnergyProviderId = default, Option<List<InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner>?> sellPriceSchedule = default, Option<string?> sellPriceFormula = default, Option<bool?> isPeriodicFullChargeOn = default, Option<PositiveNumberOrNull?> periodicFullChargeDuration = default, Option<PositiveNumberOrNull?> periodicFullChargeInterval = default)
+        public InstallationsIdSiteDynamicEssSettingsPostRequest(decimal batteryCapacity, decimal batteryCosts, BatteryFlowRestrictionEnum batteryFlowRestriction, BuyPriceTypeEnum buyPriceType, decimal chargePower, decimal dischargePower, GridSellEnum gridSell, bool isOn, decimal maxPowerFromGrid, decimal maxPowerToGrid, SellPriceTypeEnum sellPriceType, Option<decimal?> batteryPrice = default, Option<decimal?> buyEnergyProviderId = default, Option<string?> buyPriceFormula = default, Option<List<InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner>?> buyPriceSchedule = default, Option<decimal?> idBiddingZone = default, Option<bool?> isDessSocDifferent = default, Option<bool?> isGreenModeOn = default, Option<decimal?> sellEnergyProviderId = default, Option<List<InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner>?> sellPriceSchedule = default, Option<string?> sellPriceFormula = default, Option<bool?> isPeriodicFullChargeOn = default, Option<uint?> periodicFullChargeDuration = default, Option<uint?> periodicFullChargeInterval = default)
         {
             BatteryCapacity = batteryCapacity;
             BatteryCosts = batteryCosts;
@@ -625,7 +625,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<PositiveNumberOrNull?> PeriodicFullChargeDurationOption { get; private set; }
+        public Option<uint?> PeriodicFullChargeDurationOption { get; private set; }
 
         /// <summary>
         /// How many hours should your battery stay at 100% during the periodic recharge
@@ -633,14 +633,14 @@ namespace Org.OpenAPITools.Model
         /// <value>How many hours should your battery stay at 100% during the periodic recharge</value>
         /* <example>2</example> */
         [JsonPropertyName("periodicFullChargeDuration")]
-        public PositiveNumberOrNull? PeriodicFullChargeDuration { get { return this.PeriodicFullChargeDurationOption; } set { this.PeriodicFullChargeDurationOption = new(value); } }
+        public uint? PeriodicFullChargeDuration { get { return this.PeriodicFullChargeDurationOption; } set { this.PeriodicFullChargeDurationOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PeriodicFullChargeInterval
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<PositiveNumberOrNull?> PeriodicFullChargeIntervalOption { get; private set; }
+        public Option<uint?> PeriodicFullChargeIntervalOption { get; private set; }
 
         /// <summary>
         /// How often should the battery be fully charged (in days)
@@ -648,7 +648,7 @@ namespace Org.OpenAPITools.Model
         /// <value>How often should the battery be fully charged (in days)</value>
         /* <example>14</example> */
         [JsonPropertyName("periodicFullChargeInterval")]
-        public PositiveNumberOrNull? PeriodicFullChargeInterval { get { return this.PeriodicFullChargeIntervalOption; } set { this.PeriodicFullChargeIntervalOption = new(value); } }
+        public uint? PeriodicFullChargeInterval { get { return this.PeriodicFullChargeIntervalOption; } set { this.PeriodicFullChargeIntervalOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -741,8 +741,8 @@ namespace Org.OpenAPITools.Model
             Option<List<InstallationsIdSiteDynamicEssSettingsGet200ResponseDataBuyPriceScheduleInner>?> sellPriceSchedule = default;
             Option<string?> sellPriceFormula = default;
             Option<bool?> isPeriodicFullChargeOn = default;
-            Option<PositiveNumberOrNull?> periodicFullChargeDuration = default;
-            Option<PositiveNumberOrNull?> periodicFullChargeInterval = default;
+            Option<uint?> periodicFullChargeDuration = default;
+            Option<uint?> periodicFullChargeInterval = default;
 
             while (utf8JsonReader.Read())
             {
@@ -828,10 +828,10 @@ namespace Org.OpenAPITools.Model
                             isPeriodicFullChargeOn = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "periodicFullChargeDuration":
-                            periodicFullChargeDuration = new Option<PositiveNumberOrNull?>(JsonSerializer.Deserialize<PositiveNumberOrNull>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            periodicFullChargeDuration = new Option<uint?>(JsonSerializer.Deserialize<uint>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "periodicFullChargeInterval":
-                            periodicFullChargeInterval = new Option<PositiveNumberOrNull?>(JsonSerializer.Deserialize<PositiveNumberOrNull>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            periodicFullChargeInterval = new Option<uint?>(JsonSerializer.Deserialize<uint>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

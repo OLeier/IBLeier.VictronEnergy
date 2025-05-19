@@ -43,7 +43,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="lowAlarmHysteresis">lowAlarmHysteresis</param>
         /// <param name="enumValues">enumValues</param>
         [JsonConstructor]
-        public InstallationsIdSiteAlarmsPutRequest(Option<decimal?> idDataAttribute = default, Option<decimal?> instance = default, Option<decimal?> alarmEnabled = default, Option<decimal?> notifyAfterSeconds = default, Option<decimal?> highAlarm = default, Option<decimal?> highAlarmHysteresis = default, Option<decimal?> lowAlarm = default, Option<decimal?> lowAlarmHysteresis = default, Option<List?> enumValues = default)
+        public InstallationsIdSiteAlarmsPutRequest(Option<decimal?> idDataAttribute = default, Option<decimal?> instance = default, Option<decimal?> alarmEnabled = default, Option<decimal?> notifyAfterSeconds = default, Option<decimal?> highAlarm = default, Option<decimal?> highAlarmHysteresis = default, Option<decimal?> lowAlarm = default, Option<decimal?> lowAlarmHysteresis = default, Option<List<string>?> enumValues = default)
         {
             IdDataAttributeOption = idDataAttribute;
             InstanceOption = instance;
@@ -176,14 +176,14 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List?> EnumValuesOption { get; private set; }
+        public Option<List<string>?> EnumValuesOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets EnumValues
         /// </summary>
         /* <example>[0,4,6]</example> */
         [JsonPropertyName("enumValues")]
-        public List? EnumValues { get { return this.EnumValuesOption; } set { this.EnumValuesOption = new(value); } }
+        public List<string>? EnumValues { get { return this.EnumValuesOption; } set { this.EnumValuesOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -247,7 +247,7 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> highAlarmHysteresis = default;
             Option<decimal?> lowAlarm = default;
             Option<decimal?> lowAlarmHysteresis = default;
-            Option<List?> enumValues = default;
+            Option<List<string>?> enumValues = default;
 
             while (utf8JsonReader.Read())
             {
@@ -289,7 +289,7 @@ namespace Org.OpenAPITools.Model
                             lowAlarmHysteresis = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "enumValues":
-                            enumValues = new Option<List?>(JsonSerializer.Deserialize<List>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            enumValues = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

@@ -36,7 +36,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="dictionary"></param>
         internal InstallationsIdSiteStats200ResponseRecords(Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue> dictionary)
         {
-            Dictionary = dictionary;
+            Dictionary1 = dictionary;
             OnCreated();
         }
 
@@ -46,7 +46,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="dictionary"></param>
         internal InstallationsIdSiteStats200ResponseRecords(Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1> dictionary)
         {
-            Dictionary = dictionary;
+            Dictionary2 = dictionary;
             OnCreated();
         }
 
@@ -56,13 +56,13 @@ namespace Org.OpenAPITools.Model
         /// Statistics for each data attribute.
         /// </summary>
         /// <value>Statistics for each data attribute.</value>
-        public Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue>? Dictionary { get; set; }
+        public Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue>? Dictionary1 { get; set; }
 
         /// <summary>
         /// List of instances, with the key or index being the instance id.
         /// </summary>
         /// <value>List of instances, with the key or index being the instance id.</value>
-        public Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1>? Dictionary { get; set; }
+        public Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1>? Dictionary2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -109,8 +109,8 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue>? dictionary = default;
-            Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1>? dictionary = default;
+            Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue>? dictionary1 = default;
+            Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1>? dictionary2 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -124,10 +124,10 @@ namespace Org.OpenAPITools.Model
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
                     Utf8JsonReader utf8JsonReaderDictionary = utf8JsonReader;
-                    ClientUtils.TryDeserialize<Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue>?>(ref utf8JsonReaderDictionary, jsonSerializerOptions, out dictionary);
+                    ClientUtils.TryDeserialize<Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue>?>(ref utf8JsonReaderDictionary, jsonSerializerOptions, out dictionary1);
 
-                    Utf8JsonReader utf8JsonReaderDictionary = utf8JsonReader;
-                    ClientUtils.TryDeserialize<Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1>?>(ref utf8JsonReaderDictionary, jsonSerializerOptions, out dictionary);
+                    //Utf8JsonReader utf8JsonReaderDictionary = utf8JsonReader;
+                    ClientUtils.TryDeserialize<Dictionary<string, InstallationsIdSiteStats200ResponseRecordsOneOfValue1>?>(ref utf8JsonReaderDictionary, jsonSerializerOptions, out dictionary2);
                 }
             }
 
@@ -152,11 +152,11 @@ namespace Org.OpenAPITools.Model
                 }
             }
 
-            if (dictionary != null)
-                return new InstallationsIdSiteStats200ResponseRecords(dictionary);
+            if (dictionary1 != null)
+                return new InstallationsIdSiteStats200ResponseRecords(dictionary1);
 
-            if (dictionary != null)
-                return new InstallationsIdSiteStats200ResponseRecords(dictionary);
+            if (dictionary2 != null)
+                return new InstallationsIdSiteStats200ResponseRecords(dictionary2);
 
             throw new JsonException();
         }

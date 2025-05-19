@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Test.Api
         public async Task InstallationOverviewDownloadAsyncTest()
         {
             InstallationOverviewDownloadRequest installationOverviewDownloadRequest = default!;
-            Client.Option<> UNKNOWN_PARAMETER_NAME = default!;
+            Client.Option<string> UNKNOWN_PARAMETER_NAME = default!;
             var response = await _instance.InstallationOverviewDownloadAsync(installationOverviewDownloadRequest, UNKNOWN_PARAMETER_NAME);
             var model = response.Ok();
             Assert.IsType<InstallationOverviewDownload200Response>(model);
