@@ -8,12 +8,11 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
+using Xunit;
 
 
 /* *********************************************************************************
@@ -45,7 +44,7 @@ namespace Org.OpenAPITools.Test.Api
     {
         private readonly IInstallationsApi _instance;
 
-        public InstallationsApiTests(): base(Array.Empty<string>())
+        public InstallationsApiTests() : base(Array.Empty<string>())
         {
             _instance = _host.Services.GetRequiredService<IInstallationsApi>();
         }
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationOverviewDownload
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationOverviewDownloadAsyncTest()
         {
             InstallationOverviewDownloadRequest installationOverviewDownloadRequest = default!;
@@ -66,7 +65,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteAlarmsDelete
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteAlarmsDeleteAsyncTest()
         {
             string xAuthorization = default!;
@@ -80,7 +79,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteAlarmsGet
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteAlarmsGetAsyncTest()
         {
             string xAuthorization = default!;
@@ -93,7 +92,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteAlarmsPost
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteAlarmsPostAsyncTest()
         {
             string xAuthorization = default!;
@@ -107,7 +106,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteAlarmsPut
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteAlarmsPutAsyncTest()
         {
             string xAuthorization = default!;
@@ -121,7 +120,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteClearAlarm
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteClearAlarmAsyncTest()
         {
             string xAuthorization = default!;
@@ -135,7 +134,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteCustomWidgetDelete
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteCustomWidgetDeleteAsyncTest()
         {
             string xAuthorization = default!;
@@ -149,7 +148,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteCustomWidgetGet
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteCustomWidgetGetAsyncTest()
         {
             string xAuthorization = default!;
@@ -163,7 +162,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteCustomWidgetPatch
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteCustomWidgetPatchAsyncTest()
         {
             string xAuthorization = default!;
@@ -177,7 +176,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteCustomWidgetPost
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteCustomWidgetPostAsyncTest()
         {
             string xAuthorization = default!;
@@ -191,7 +190,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteDataDownload
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteDataDownloadAsyncTest()
         {
             string xAuthorization = default!;
@@ -210,7 +209,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteDiagnostics
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteDiagnosticsAsyncTest()
         {
             string xAuthorization = default!;
@@ -225,7 +224,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteDynamicEssSettingsGet
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteDynamicEssSettingsGetAsyncTest()
         {
             int id = default!;
@@ -238,7 +237,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteDynamicEssSettingsPost
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteDynamicEssSettingsPostAsyncTest()
         {
             int id = default!;
@@ -252,7 +251,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteGpsDownload
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteGpsDownloadAsyncTest()
         {
             string xAuthorization = default!;
@@ -265,7 +264,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteInvitePost
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteInvitePostAsyncTest()
         {
             string xAuthorization = default!;
@@ -279,7 +278,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteOverallstats
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteOverallstatsAsyncTest()
         {
             string xAuthorization = default!;
@@ -294,7 +293,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteResetForecastsGet
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteResetForecastsGetAsyncTest()
         {
             string xAuthorization = default!;
@@ -307,7 +306,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteResetForecastsPost
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteResetForecastsPostAsyncTest()
         {
             string xAuthorization = default!;
@@ -321,7 +320,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteSettings
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteSettingsAsyncTest()
         {
             int id = default!;
@@ -335,7 +334,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteStats
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteStatsAsyncTest()
         {
             string xAuthorization = default!;
@@ -354,7 +353,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteSystemOverview
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteSystemOverviewAsyncTest()
         {
             string xAuthorization = default!;
@@ -367,7 +366,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteTagsDelete
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteTagsDeleteAsyncTest()
         {
             string xAuthorization = default!;
@@ -381,7 +380,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteTagsGet
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteTagsGetAsyncTest()
         {
             string xAuthorization = default!;
@@ -394,7 +393,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteTagsPut
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteTagsPutAsyncTest()
         {
             string xAuthorization = default!;

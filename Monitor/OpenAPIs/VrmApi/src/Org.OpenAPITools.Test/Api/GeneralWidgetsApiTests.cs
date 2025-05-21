@@ -8,12 +8,11 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
+using Xunit;
 
 
 /* *********************************************************************************
@@ -45,7 +44,7 @@ namespace Org.OpenAPITools.Test.Api
     {
         private readonly IGeneralWidgetsApi _instance;
 
-        public GeneralWidgetsApiTests(): base(Array.Empty<string>())
+        public GeneralWidgetsApiTests() : base(Array.Empty<string>())
         {
             _instance = _host.Services.GetRequiredService<IGeneralWidgetsApi>();
         }
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsGPS
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsGPSAsyncTest()
         {
             string xAuthorization = default!;
@@ -67,7 +66,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsGraph
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsGraphAsyncTest()
         {
             string xAuthorization = default!;
@@ -88,7 +87,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsHoursOfAc
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsHoursOfAcAsyncTest()
         {
             string xAuthorization = default!;

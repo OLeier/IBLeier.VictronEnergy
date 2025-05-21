@@ -8,15 +8,8 @@
  */
 
 
-using Xunit;
-
 using System;
-using System.Linq;
-using System.IO;
-using System.Collections.Generic;
-using Org.OpenAPITools.Model;
-using Org.OpenAPITools.Client;
-using System.Reflection;
+using Xunit;
 
 namespace Org.OpenAPITools.Test.Model
 {

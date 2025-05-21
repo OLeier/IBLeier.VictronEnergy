@@ -8,12 +8,10 @@
  */
 
 using System;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using Org.OpenAPITools.Client;
+using Microsoft.Extensions.Hosting;
 using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Extensions;
 using Xunit;
 
@@ -118,19 +116,19 @@ namespace Org.OpenAPITools.Test.Api
         {
             var defaultApi = _hostUsingAddWithAClient.Services.GetRequiredService<IDefaultApi>();
             Assert.True(defaultApi.HttpClient.BaseAddress != null);
-            
+
             var generalWidgetsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IGeneralWidgetsApi>();
             Assert.True(generalWidgetsApi.HttpClient.BaseAddress != null);
-            
+
             var installationsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IInstallationsApi>();
             Assert.True(installationsApi.HttpClient.BaseAddress != null);
-            
+
             var stateWidgetsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IStateWidgetsApi>();
             Assert.True(stateWidgetsApi.HttpClient.BaseAddress != null);
-            
+
             var summaryWidgetsApi = _hostUsingAddWithAClient.Services.GetRequiredService<ISummaryWidgetsApi>();
             Assert.True(summaryWidgetsApi.HttpClient.BaseAddress != null);
-            
+
             var usersApi = _hostUsingAddWithAClient.Services.GetRequiredService<IUsersApi>();
             Assert.True(usersApi.HttpClient.BaseAddress != null);
         }

@@ -8,12 +8,11 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
+using Xunit;
 
 
 /* *********************************************************************************
@@ -45,7 +44,7 @@ namespace Org.OpenAPITools.Test.Api
     {
         private readonly IUsersApi _instance;
 
-        public UsersApiTests(): base(Array.Empty<string>())
+        public UsersApiTests() : base(Array.Empty<string>())
         {
             _instance = _host.Services.GetRequiredService<IUsersApi>();
         }
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserAccesstokensCreate
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserAccesstokensCreateAsyncTest()
         {
             string xAuthorization = default!;
@@ -67,7 +66,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserAccesstokensList
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserAccesstokensListAsyncTest()
         {
             string xAuthorization = default!;
@@ -80,7 +79,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserAccesstokensRevoke
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserAccesstokensRevokeAsyncTest()
         {
             string xAuthorization = default!;
@@ -94,7 +93,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserAddsite
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserAddsiteAsyncTest()
         {
             string xAuthorization = default!;
@@ -107,7 +106,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserGetSiteId
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserGetSiteIdAsyncTest()
         {
             string xAuthorization = default!;
@@ -120,7 +119,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserInstallations
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserInstallationsAsyncTest()
         {
             string xAuthorization = default!;
@@ -135,7 +134,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserSearch
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersIdUserSearchAsyncTest()
         {
             string query = default!;
@@ -147,7 +146,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersMe
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task UsersMeAsyncTest()
         {
             string xAuthorization = default!;

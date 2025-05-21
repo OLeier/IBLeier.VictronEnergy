@@ -8,12 +8,11 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
+using Xunit;
 
 
 /* *********************************************************************************
@@ -45,7 +44,7 @@ namespace Org.OpenAPITools.Test.Api
     {
         private readonly ISummaryWidgetsApi _instance;
 
-        public SummaryWidgetsApiTests(): base(Array.Empty<string>())
+        public SummaryWidgetsApiTests() : base(Array.Empty<string>())
         {
             _instance = _host.Services.GetRequiredService<ISummaryWidgetsApi>();
         }
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsBMSDiagnostics
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsBMSDiagnosticsAsyncTest()
         {
             string xAuthorization = default!;
@@ -67,7 +66,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsBatterySummary
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsBatterySummaryAsyncTest()
         {
             string xAuthorization = default!;
@@ -81,7 +80,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsDCMeter
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsDCMeterAsyncTest()
         {
             string xAuthorization = default!;
@@ -95,7 +94,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsEvChargerSummary
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsEvChargerSummaryAsyncTest()
         {
             string xAuthorization = default!;
@@ -109,7 +108,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsGlobalLinkSummary
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsGlobalLinkSummaryAsyncTest()
         {
             string xAuthorization = default!;
@@ -123,7 +122,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsHistoricData
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsHistoricDataAsyncTest()
         {
             string xAuthorization = default!;
@@ -137,7 +136,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsIOExtenderInOut
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsIOExtenderInOutAsyncTest()
         {
             string xAuthorization = default!;
@@ -151,7 +150,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsLithiumBMS
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsLithiumBMSAsyncTest()
         {
             string xAuthorization = default!;
@@ -165,7 +164,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsMeteorologicalSensor
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsMeteorologicalSensorAsyncTest()
         {
             string xAuthorization = default!;
@@ -179,7 +178,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsMotorSummary
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsMotorSummaryAsyncTest()
         {
             string xAuthorization = default!;
@@ -193,7 +192,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsPVInverterStatus
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsPVInverterStatusAsyncTest()
         {
             string xAuthorization = default!;
@@ -207,7 +206,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsSolarChargerSummary
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsSolarChargerSummaryAsyncTest()
         {
             string xAuthorization = default!;
@@ -221,7 +220,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsStatus
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsStatusAsyncTest()
         {
             string xAuthorization = default!;
@@ -235,7 +234,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsTankSummary
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsTankSummaryAsyncTest()
         {
             string xAuthorization = default!;
@@ -249,7 +248,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsTempSummaryAndGraph
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsTempSummaryAndGraphAsyncTest()
         {
             string xAuthorization = default!;

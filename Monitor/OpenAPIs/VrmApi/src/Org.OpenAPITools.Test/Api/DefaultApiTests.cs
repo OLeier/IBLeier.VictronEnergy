@@ -10,10 +10,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
+using Xunit;
 
 
 /* *********************************************************************************
@@ -45,7 +46,7 @@ namespace Org.OpenAPITools.Test.Api
     {
         private readonly IDefaultApi _instance;
 
-        public DefaultApiTests(): base(Array.Empty<string>())
+        public DefaultApiTests() : base(Array.Empty<string>())
         {
             _instance = _host.Services.GetRequiredService<IDefaultApi>();
         }
@@ -53,10 +54,18 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test AuthLogin
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(/*Skip = "not implemented"*/)]
         public async Task AuthLoginAsyncTest()
         {
+            // Ask the service provider for the configuration abstraction.
+            IConfiguration config = _host.Services.GetRequiredService<IConfiguration>();
+            string? username = config.GetValue<string>("AuthLogin:Username");
+            string? password = config.GetValue<string>("AuthLogin:Password");
+            Assert.NotNull(username);
+            Assert.NotNull(password);
+
             AuthLoginRequest authLoginRequest = default!;
+            authLoginRequest = new AuthLoginRequest(username, password);
             var response = await _instance.AuthLoginAsync(authLoginRequest);
             var model = response.Ok();
             Assert.IsType<AuthLogin200Response>(model);
@@ -65,7 +74,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test AuthLoginAsDemo
         /// </summary>
-        [Fact (/*Skip = "not implemented"*/)]
+        [Fact(/*Skip = "not implemented"*/)]
         public async Task AuthLoginAsDemoAsyncTest()
         {
             var response = await _instance.AuthLoginAsDemoAsync();
@@ -76,10 +85,16 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test AuthLogout
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(/*Skip = "not implemented"*/)]
         public async Task AuthLogoutAsyncTest()
         {
+            var response1 = await _instance.AuthLoginAsDemoAsync();
+            var model1 = response1.Ok();
+            Assert.IsType<AuthLoginAsDemo200Response>(model1);
+            Assert.NotNull(model1.Token);
+
             string xAuthorization = default!;
+            xAuthorization = "Bearer " + model1.Token;
             var response = await _instance.AuthLogoutAsync(xAuthorization);
             var model = response.Ok();
             Assert.IsType<AuthLogout200Response>(model);
@@ -88,7 +103,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test DataAttributesGet
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task DataAttributesGetAsyncTest()
         {
             var response = await _instance.DataAttributesGetAsync();

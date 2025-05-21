@@ -8,12 +8,11 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
+using Xunit;
 
 
 /* *********************************************************************************
@@ -45,7 +44,7 @@ namespace Org.OpenAPITools.Test.Api
     {
         private readonly IStateWidgetsApi _instance;
 
-        public StateWidgetsApiTests(): base(Array.Empty<string>())
+        public StateWidgetsApiTests() : base(Array.Empty<string>())
         {
             _instance = _host.Services.GetRequiredService<IStateWidgetsApi>();
         }
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsBatteryExternalRelayStateCommand
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsBatteryExternalRelayStateCommandAsyncTest()
         {
             string xAuthorization = default!;
@@ -69,7 +68,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsBatteryMonitorWarningsAndAlarms
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsBatteryMonitorWarningsAndAlarmsAsyncTest()
         {
             string xAuthorization = default!;
@@ -85,7 +84,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsBatteryRelayState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsBatteryRelayStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -101,7 +100,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsChargerRelayState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsChargerRelayStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -117,7 +116,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsChargerState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsChargerStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -133,7 +132,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsEssBatteryLifeState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsEssBatteryLifeStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -149,7 +148,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsFuelCellState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsFuelCellStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -165,7 +164,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsGatewayRelayState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsGatewayRelayStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -181,7 +180,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsGatewayRelayTwoState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsGatewayRelayTwoStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -197,7 +196,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsGeneratorState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsGeneratorStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -213,7 +212,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsInputState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsInputStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -229,7 +228,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsInverterChargerState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsInverterChargerStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -245,7 +244,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsInverterChargerWarningsAndAlarms
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsInverterChargerWarningsAndAlarmsAsyncTest()
         {
             string xAuthorization = default!;
@@ -261,7 +260,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsInverterState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsInverterStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -277,7 +276,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsMPPTState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsMPPTStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -293,7 +292,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsSolarChargerRelayState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsSolarChargerRelayStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -309,7 +308,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsVeBusState
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsVeBusStateAsyncTest()
         {
             string xAuthorization = default!;
@@ -325,7 +324,7 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test InstallationsIdSiteWidgetsVeBusWarningsAndAlarms
         /// </summary>
-        [Fact (Skip = "not implemented")]
+        [Fact(Skip = "not implemented")]
         public async Task InstallationsIdSiteWidgetsVeBusWarningsAndAlarmsAsyncTest()
         {
             string xAuthorization = default!;
