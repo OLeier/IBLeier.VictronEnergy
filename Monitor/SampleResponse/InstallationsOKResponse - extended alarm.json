@@ -1,307 +1,629 @@
 ﻿{
-  "success": true,
-  "records": [
-    {
-      "idSite": 70876,
-      "accessLevel": 0,
-      "owner": true,
-      "is_admin": false,
-      "name": "RasPi",
-      "identifier": "b827eb27e008",
-      "idUser": 99417,
-      "pvMax": 0,
-      "timezone": "Europe\/Berlin",
-      "phonenumber": null,
-      "notes": null,
-      "geofence": null,
-      "geofenceEnabled": false,
-      "realtimeUpdates": true,
-      "hasMains": 0,
-      "hasGenerator": 0,
-      "noDataAlarmTimeout": null,
-      "alarmMonitoring": 1,
-      "invalidVRMAuthTokenUsedInLogRequest": 0,
-      "syscreated": 1599133383,
-      "grafanaEnabled": 0,
-      "shared": false,
-      "device_icon": "solar",
-      "alarm": false,
-      "last_timestamp": 1627128644,
-      "tags": false,
-      "current_time": "14:11",
-      "timezone_offset": 7200,
-      "images": false,
-      "view_permissions": {
-        "update_settings": false,
-        "settings": true,
-        "diagnostics": false,
-        "share": false,
-        "vnc": false,
-        "mqtt_rpc": false,
-        "vebus": false,
-        "twoway": false,
-        "exact_location": true
-      },
-      "extended": [
+    "success": true,
+    "records": [
         {
-          "idDataAttribute": 143,
-          "code": "bv",
-          "description": "Voltage",
-          "formatWithUnit": "%.2F V",
-          "dataType": "float",
-          "textValue": null,
-          "instance": "0",
-          "dbusServiceType": "system",
-          "dbusPath": "\/Dc\/Battery\/Voltage",
-          "rawValue": "25.32",
-          "formattedValue": "25.32 V"
-        },
-        {
-          "idDataAttribute": 147,
-          "code": "bc",
-          "description": "Current",
-          "formatWithUnit": "%.2F A",
-          "dataType": "float",
-          "textValue": null,
-          "instance": "0",
-          "dbusServiceType": "system",
-          "dbusPath": "\/Dc\/Battery\/Current",
-          "rawValue": "-0.9",
-          "formattedValue": "-0.90 A"
-        },
-        {
-          "idDataAttribute": 250,
-          "code": "tw",
-          "description": "Two way communication",
-          "formatWithUnit": "%s",
-          "dataType": "enum",
-          "textValue": "Off",
-          "instance": "0",
-          "dbusServiceType": "settings",
-          "dbusPath": "\/Settings\/Services\/MqttVrm",
-          "rawValue": "0",
-          "formattedValue": "Off",
-          "dataAttributeEnumValues": [
-            {
-              "nameEnum": "Off",
-              "valueEnum": 0
+            "idSite": 70876,
+            "accessLevel": 0,
+            "owner": true,
+            "is_admin": false,
+            "name": "RasPi",
+            "identifier": "b827eb27e008",
+            "idUser": 99417,
+            "pvMax": 0,
+            "timezone": "Europe\/Berlin",
+            "phonenumber": null,
+            "notes": null,
+            "geofence": null,
+            "geofenceEnabled": false,
+            "realtimeUpdates": true,
+            "hasMains": 0,
+            "hasGenerator": 0,
+            "noDataAlarmTimeout": null,
+            "alarmMonitoring": 1,
+            "invalidVRMAuthTokenUsedInLogRequest": 0,
+            "syscreated": 1599133383,
+            "isPaygo": 0,
+            "paygoCurrency": null,
+            "paygoTotalAmount": null,
+            "inverterChargerControl": 0,
+            "remoteConsoleChoice": null,
+            "shared": false,
+            "device_icon": "battery",
+            "alarm": true,
+            "last_timestamp": 1747928519,
+            "tags": [
+                {
+                    "idTag": 41,
+                    "name": "No alarm",
+                    "automatic": true,
+                    "source": "predefined"
+                }
+            ],
+            "new_tags": false,
+            "current_time": "17:42",
+            "timezone_offset": 7200,
+            "images": false,
+            "view_permissions": {
+                "update_settings": false,
+                "settings": true,
+                "diagnostics": false,
+                "share": false,
+                "rc_classic": false,
+                "rc_gui_v2": false,
+                "mqtt_rpc": false,
+                "vebus": false,
+                "twoway": false,
+                "readonly_realtime": false,
+                "exact_location": true,
+                "nodered": false,
+                "nodered_dash": false,
+                "nodered_dash_v2": false,
+                "signalk": false,
+                "paygo": false,
+                "dess_config": false,
+                "canAlterInstallation": false,
+                "can_see_group_and_team_members": false
             },
-            {
-              "nameEnum": "On",
-              "valueEnum": 1
-            }
-          ]
-        },
-        {
-          "idDataAttribute": 251,
-          "code": "si1",
-          "description": "AC Input 1 ",
-          "formatWithUnit": "%s",
-          "dataType": "enum",
-          "textValue": "Not available",
-          "instance": "0",
-          "dbusServiceType": "settings",
-          "dbusPath": "\/Settings\/SystemSetup\/AcInput1",
-          "rawValue": "0",
-          "formattedValue": "Not available",
-          "dataAttributeEnumValues": [
-            {
-              "nameEnum": "Not available",
-              "valueEnum": 0
+            "extended": [
+                {
+                    "idDataAttribute": 2,
+                    "code": "v",
+                    "description": "Fw Version",
+                    "formatWithUnit": "%s",
+                    "dataType": "string",
+                    "idDeviceType": 0,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": 1747910819,
+                    "dbusServiceType": null,
+                    "dbusPath": null,
+                    "rawValue": "v2.66",
+                    "formattedValue": "v2.66"
+                },
+                {
+                    "idDataAttribute": 4,
+                    "code": "lt",
+                    "description": "Latitude",
+                    "formatWithUnit": "%.5F LAT",
+                    "dataType": "float",
+                    "idDeviceType": 0,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": null,
+                    "dbusServiceType": "gps",
+                    "dbusPath": "\/Position\/Latitude",
+                    "rawValue": 50.3345,
+                    "formattedValue": "50.33450 LAT"
+                },
+                {
+                    "idDataAttribute": 5,
+                    "code": "lg",
+                    "description": "Longitude",
+                    "formatWithUnit": "%.5F LNG",
+                    "dataType": "float",
+                    "idDeviceType": 0,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": null,
+                    "dbusServiceType": "gps",
+                    "dbusPath": "\/Position\/Longitude",
+                    "rawValue": 9.87563,
+                    "formattedValue": "9.87563 LNG"
+                },
+                {
+                    "idDataAttribute": 143,
+                    "code": "bv",
+                    "description": "Voltage",
+                    "formatWithUnit": "%.2F V",
+                    "dataType": "float",
+                    "idDeviceType": 6,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": 1747928519,
+                    "dbusServiceType": "system",
+                    "dbusPath": "\/Dc\/Battery\/Voltage",
+                    "rawValue": 24.65,
+                    "formattedValue": "24.65 V"
+                },
+                {
+                    "idDataAttribute": 147,
+                    "code": "bc",
+                    "description": "Current",
+                    "formatWithUnit": "%.2F A",
+                    "dataType": "float",
+                    "idDeviceType": 6,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": 1747928519,
+                    "dbusServiceType": "system",
+                    "dbusPath": "\/Dc\/Battery\/Current",
+                    "rawValue": -1,
+                    "formattedValue": "-1.00 A"
+                },
+                {
+                    "idDataAttribute": 250,
+                    "code": "tw",
+                    "description": "Two way communication",
+                    "formatWithUnit": "%s",
+                    "dataType": "enum",
+                    "idDeviceType": 0,
+                    "textValue": "Off",
+                    "instance": 0,
+                    "timestamp": 1747910818,
+                    "dbusServiceType": "settings",
+                    "dbusPath": "\/Settings\/Services\/MqttVrm",
+                    "rawValue": 0,
+                    "formattedValue": "Off",
+                    "dataAttributeEnumValues": [
+                        {
+                            "nameEnum": "Off",
+                            "valueEnum": 0
+                        },
+                        {
+                            "nameEnum": "On",
+                            "valueEnum": 1
+                        }
+                    ]
+                },
+                {
+                    "idDataAttribute": 251,
+                    "code": "si1",
+                    "description": "AC Input 1 ",
+                    "formatWithUnit": "%s",
+                    "dataType": "enum",
+                    "idDeviceType": 0,
+                    "textValue": "Not available",
+                    "instance": 0,
+                    "timestamp": 1747910818,
+                    "dbusServiceType": "settings",
+                    "dbusPath": "\/Settings\/SystemSetup\/AcInput1",
+                    "rawValue": 0,
+                    "formattedValue": "Not available",
+                    "dataAttributeEnumValues": [
+                        {
+                            "nameEnum": "Not available",
+                            "valueEnum": 0
+                        },
+                        {
+                            "nameEnum": "Grid",
+                            "valueEnum": 1
+                        },
+                        {
+                            "nameEnum": "Generator",
+                            "valueEnum": 2
+                        },
+                        {
+                            "nameEnum": "Shore power",
+                            "valueEnum": 3
+                        }
+                    ]
+                },
+                {
+                    "idDataAttribute": 252,
+                    "code": "si2",
+                    "description": "AC Input 2",
+                    "formatWithUnit": "%s",
+                    "dataType": "enum",
+                    "idDeviceType": 0,
+                    "textValue": "Not available",
+                    "instance": 0,
+                    "timestamp": 1747910818,
+                    "dbusServiceType": "settings",
+                    "dbusPath": "\/Settings\/SystemSetup\/AcInput2",
+                    "rawValue": 0,
+                    "formattedValue": "Not available",
+                    "dataAttributeEnumValues": [
+                        {
+                            "nameEnum": "Not available",
+                            "valueEnum": 0
+                        },
+                        {
+                            "nameEnum": "Grid",
+                            "valueEnum": 1
+                        },
+                        {
+                            "nameEnum": "Generator",
+                            "valueEnum": 2
+                        },
+                        {
+                            "nameEnum": "Shore power",
+                            "valueEnum": 3
+                        }
+                    ]
+                },
+                {
+                    "idDataAttribute": 453,
+                    "code": "cp",
+                    "description": "Capabilities",
+                    "formatWithUnit": "%s",
+                    "dataType": "enum",
+                    "idDeviceType": 0,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": 1747910819,
+                    "dbusServiceType": null,
+                    "dbusPath": null,
+                    "rawValue": 15,
+                    "formattedValue": "15",
+                    "dataAttributeEnumValues": [
+                        {
+                            "nameEnum": "MQTT-RPC",
+                            "valueEnum": "1"
+                        },
+                        {
+                            "nameEnum": "MQTT-RPC new firmware update command",
+                            "valueEnum": "2"
+                        },
+                        {
+                            "nameEnum": "VNC-SSH authentication",
+                            "valueEnum": "4"
+                        },
+                        {
+                            "nameEnum": "VregLink",
+                            "valueEnum": "8"
+                        },
+                        {
+                            "nameEnum": "Multiple generator start-stop services is supported",
+                            "valueEnum": "16"
+                        },
+                        {
+                            "nameEnum": "Accumulated generator runtime is available on the Tga attribute.",
+                            "valueEnum": "40"
+                        },
+                        {
+                            "nameEnum": "Has DESS support",
+                            "valueEnum": "64"
+                        },
+                        {
+                            "nameEnum": "Has GUI v2 support",
+                            "valueEnum": "128"
+                        },
+                        {
+                            "nameEnum": "Needs active MQTT topic refreshing with keep-alives instead of using retained messages.",
+                            "valueEnum": 256
+                        },
+                        {
+                            "nameEnum": "Has EVCS portal tunneling capabilities",
+                            "valueEnum": 512
+                        },
+                        {
+                            "nameEnum": "Uses new VRM config security attributes",
+                            "valueEnum": 1024
+                        },
+                        {
+                            "nameEnum": "Supports VRM EV integrations",
+                            "valueEnum": 2048
+                        }
+                    ]
+                },
+                {
+                    "idDataAttribute": 469,
+                    "code": "sca",
+                    "description": "ESS Scheduled Charging",
+                    "formatWithUnit": "%s",
+                    "dataType": "enum",
+                    "idDeviceType": 0,
+                    "textValue": "Not active",
+                    "instance": 0,
+                    "timestamp": 1747928519,
+                    "dbusServiceType": null,
+                    "dbusPath": null,
+                    "rawValue": 0,
+                    "formattedValue": "Not active",
+                    "dataAttributeEnumValues": [
+                        {
+                            "nameEnum": "Not active",
+                            "valueEnum": 0
+                        },
+                        {
+                            "nameEnum": "Active",
+                            "valueEnum": 1
+                        }
+                    ]
+                },
+                {
+                    "idDataAttribute": 570,
+                    "code": "st",
+                    "description": "System type",
+                    "formatWithUnit": "%s",
+                    "dataType": "string",
+                    "idDeviceType": 6,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": 1747910832,
+                    "dbusServiceType": "system",
+                    "dbusPath": "\/SystemType",
+                    "rawValue": "Hub-1",
+                    "formattedValue": "Hub-1"
+                },
+                {
+                    "idDataAttribute": 571,
+                    "code": "ss",
+                    "description": "System state",
+                    "formatWithUnit": "%s",
+                    "dataType": "enum",
+                    "idDeviceType": 6,
+                    "textValue": "Off",
+                    "instance": 0,
+                    "timestamp": 1747928519,
+                    "dbusServiceType": "system",
+                    "dbusPath": "\/SystemState\/State",
+                    "rawValue": 0,
+                    "formattedValue": "Off",
+                    "dataAttributeEnumValues": [
+                        {
+                            "nameEnum": "Off",
+                            "valueEnum": 0
+                        },
+                        {
+                            "nameEnum": "AES mode",
+                            "valueEnum": 1
+                        },
+                        {
+                            "nameEnum": "Fault",
+                            "valueEnum": 2
+                        },
+                        {
+                            "nameEnum": "Bulk",
+                            "valueEnum": 3
+                        },
+                        {
+                            "nameEnum": "Absorption",
+                            "valueEnum": 4
+                        },
+                        {
+                            "nameEnum": "Float",
+                            "valueEnum": 5
+                        },
+                        {
+                            "nameEnum": "Storage",
+                            "valueEnum": 6
+                        },
+                        {
+                            "nameEnum": "Equalize",
+                            "valueEnum": 7
+                        },
+                        {
+                            "nameEnum": "Passthru",
+                            "valueEnum": 8
+                        },
+                        {
+                            "nameEnum": "Inverting",
+                            "valueEnum": 9
+                        },
+                        {
+                            "nameEnum": "Assisting",
+                            "valueEnum": 10
+                        },
+                        {
+                            "nameEnum": "Power Supply Mode",
+                            "valueEnum": 11
+                        },
+                        {
+                            "nameEnum": "Sustain",
+                            "valueEnum": 244
+                        },
+                        {
+                            "nameEnum": "Repeated Abs.",
+                            "valueEnum": 246
+                        },
+                        {
+                            "nameEnum": "Equalize",
+                            "valueEnum": 247
+                        },
+                        {
+                            "nameEnum": "Battery Safe",
+                            "valueEnum": 248
+                        },
+                        {
+                            "nameEnum": "Test",
+                            "valueEnum": 249
+                        },
+                        {
+                            "nameEnum": "Blocked",
+                            "valueEnum": 250
+                        },
+                        {
+                            "nameEnum": "Test",
+                            "valueEnum": 251
+                        },
+                        {
+                            "nameEnum": "Ext. control",
+                            "valueEnum": 252
+                        },
+                        {
+                            "nameEnum": "Discharging",
+                            "valueEnum": 256
+                        },
+                        {
+                            "nameEnum": "Sustain",
+                            "valueEnum": 257
+                        },
+                        {
+                            "nameEnum": "Recharging",
+                            "valueEnum": 258
+                        },
+                        {
+                            "nameEnum": "Sched charge",
+                            "valueEnum": 259
+                        },
+                        {
+                            "nameEnum": "Dynamic ESS",
+                            "valueEnum": 260
+                        }
+                    ]
+                },
+                {
+                    "idDataAttribute": 577,
+                    "code": "rtt",
+                    "description": "D-Bus Round-trip time",
+                    "formatWithUnit": "%.0F ms",
+                    "dataType": "float",
+                    "idDeviceType": 0,
+                    "textValue": null,
+                    "instance": 0,
+                    "timestamp": 1747928519,
+                    "dbusServiceType": null,
+                    "dbusPath": null,
+                    "rawValue": 1,
+                    "formattedValue": "1 ms"
+                },
+                {
+                    "rawValue": null,
+                    "formatWithUnit": "",
+                    "consistsOfAttributeCodes": [
+                        "a1",
+                        "a2",
+                        "a3",
+                        "dc"
+                    ],
+                    "dataAttributes": [],
+                    "timestamp": null,
+                    "code": "consumption",
+                    "description": "Consumption",
+                    "textValue": null,
+                    "formattedValue": "",
+                    "idDataAttribute": null
+                },
+                {
+                    "rawValue": 9.86,
+                    "formatWithUnit": "%.0F W",
+                    "consistsOfAttributeCodes": [
+                        "P",
+                        "P2",
+                        "P3",
+                        "Pi",
+                        "Pi2",
+                        "Pi3",
+                        "Pdc"
+                    ],
+                    "dataAttributes": [
+                        {
+                            "instance": 0,
+                            "idDataAttribute": 113,
+                            "code": "Pdc",
+                            "dbusServiceType": "system",
+                            "dbusPath": "\/Dc\/Pv\/Power",
+                            "idDeviceType": 6
+                        }
+                    ],
+                    "timestamp": 1747928519,
+                    "idDataAttribute": null,
+                    "code": "solar_yield",
+                    "description": "Solar_yield",
+                    "textValue": null,
+                    "formattedValue": "10 W"
+                },
+                {
+                    "rawValue": null,
+                    "formatWithUnit": "",
+                    "consistsOfAttributeCodes": [
+                        "g1",
+                        "g2",
+                        "g3"
+                    ],
+                    "dataAttributes": [],
+                    "timestamp": null,
+                    "code": "from_to_grid",
+                    "description": "From_to_grid",
+                    "textValue": null,
+                    "formattedValue": "",
+                    "idDataAttribute": null
+                },
+                {
+                    "rawValue": null,
+                    "formatWithUnit": "",
+                    "consistsOfAttributeCodes": [
+                        "gs1",
+                        "gs2",
+                        "gs3"
+                    ],
+                    "dataAttributes": [],
+                    "timestamp": null,
+                    "code": "generator",
+                    "description": "Generator",
+                    "textValue": null,
+                    "formattedValue": "",
+                    "idDataAttribute": null
+                },
+                {
+                    "rawValue": null,
+                    "formatWithUnit": "",
+                    "consistsOfAttributeCodes": [
+                        "Pi",
+                        "Pi2",
+                        "Pi3"
+                    ],
+                    "dataAttributes": [],
+                    "timestamp": null,
+                    "code": "ac_in",
+                    "description": "Ac_in",
+                    "textValue": null,
+                    "formattedValue": "",
+                    "idDataAttribute": null
+                },
+                {
+                    "rawValue": null,
+                    "formatWithUnit": "",
+                    "consistsOfAttributeCodes": [
+                        "P",
+                        "P2",
+                        "P3"
+                    ],
+                    "dataAttributes": [],
+                    "timestamp": null,
+                    "code": "ac_out",
+                    "description": "Ac_out",
+                    "textValue": null,
+                    "formattedValue": "",
+                    "idDataAttribute": null
+                },
+                {
+                    "code": "soc_status",
+                    "description": "SOC Status",
+                    "rawValue": 0,
+                    "formattedValue": "Entladen",
+                    "textValue": "Entladen",
+                    "idDataAttribute": null
+                }
+            ],
+            "demo_mode": false,
+            "mqtt_webhost": "webmqtt48.victronenergy.com",
+            "mqtt_host": "mqtt48.victronenergy.com",
+            "high_workload": false,
+            "prices_unavailable": false,
+            "currency": {
+                "idCurrency": 1,
+                "code": "EUR",
+                "name": "Euro",
+                "sign": "\u20ac"
             },
-            {
-              "nameEnum": "Grid",
-              "valueEnum": 1
-            },
-            {
-              "nameEnum": "Generator",
-              "valueEnum": 2
-            },
-            {
-              "nameEnum": "Shore power",
-              "valueEnum": 3
-            }
-          ]
-        },
-        {
-          "idDataAttribute": 252,
-          "code": "si2",
-          "description": "AC Input 2",
-          "formatWithUnit": "%s",
-          "dataType": "enum",
-          "textValue": "Not available",
-          "instance": "0",
-          "dbusServiceType": "settings",
-          "dbusPath": "\/Settings\/SystemSetup\/AcInput2",
-          "rawValue": "0",
-          "formattedValue": "Not available",
-          "dataAttributeEnumValues": [
-            {
-              "nameEnum": "Not available",
-              "valueEnum": 0
-            },
-            {
-              "nameEnum": "Grid",
-              "valueEnum": 1
-            },
-            {
-              "nameEnum": "Generator",
-              "valueEnum": 2
-            },
-            {
-              "nameEnum": "Shore power",
-              "valueEnum": 3
-            }
-          ]
-        },
-        {
-          "idDataAttribute": 453,
-          "code": "cp",
-          "description": "Capabilities",
-          "formatWithUnit": "%s",
-          "dataType": "enum",
-          "textValue": null,
-          "instance": "0",
-          "dbusServiceType": null,
-          "dbusPath": null,
-          "rawValue": "15",
-          "formattedValue": "15",
-          "dataAttributeEnumValues": [
-            {
-              "nameEnum": "MQTT-RPC",
-              "valueEnum": 1
-            },
-            {
-              "nameEnum": "MQTT-RPC new firmware update command",
-              "valueEnum": 2
-            },
-            {
-              "nameEnum": "VNC-SSH authentication",
-              "valueEnum": 4
-            },
-            {
-              "nameEnum": "VregLink",
-              "valueEnum": 8
-            }
-          ]
-        },
-        {
-          "idDataAttribute": 469,
-          "code": "sca",
-          "description": "ESS Scheduled Charging",
-          "formatWithUnit": "%s",
-          "dataType": "enum",
-          "textValue": "Not active",
-          "instance": "0",
-          "dbusServiceType": null,
-          "dbusPath": null,
-          "rawValue": "0",
-          "formattedValue": "Not active",
-          "dataAttributeEnumValues": [
-            {
-              "nameEnum": "Not active",
-              "valueEnum": 0
-            },
-            {
-              "nameEnum": "Active",
-              "valueEnum": 1
-            }
-          ]
-        },
-        {
-          "idDataAttribute": 577,
-          "code": "rtt",
-          "description": "D-Bus Round-trip time",
-          "formatWithUnit": "%.0F ms",
-          "dataType": "float",
-          "textValue": null,
-          "instance": "0",
-          "dbusServiceType": null,
-          "dbusPath": null,
-          "rawValue": "1",
-          "formattedValue": "1 ms"
-        },
-        {
-          "rawValue": null,
-          "formatWithUnit": "",
-          "dataAttributes": [],
-          "code": "consumption",
-          "description": "Consumption",
-          "textValue": null,
-          "formattedValue": "",
-          "idDataAttribute": null
-        },
-        {
-          "rawValue": 43.044,
-          "formatWithUnit": "%.0F W",
-          "dataAttributes": [
-            {
-              "instance": 0,
-              "dbusServiceType": "system",
-              "dbusPath": "\/Dc\/Pv\/Power"
-            }
-          ],
-          "idDataAttribute": null,
-          "code": "solar_yield",
-          "description": "Solar_yield",
-          "textValue": null,
-          "formattedValue": "43 W"
-        },
-        {
-          "rawValue": null,
-          "formatWithUnit": "",
-          "dataAttributes": [],
-          "code": "from_to_grid",
-          "description": "From_to_grid",
-          "textValue": null,
-          "formattedValue": "",
-          "idDataAttribute": null
-        },
-        {
-          "rawValue": null,
-          "formatWithUnit": "",
-          "dataAttributes": [],
-          "code": "generator",
-          "description": "Generator",
-          "textValue": null,
-          "formattedValue": "",
-          "idDataAttribute": null
-        },
-        {
-          "rawValue": null,
-          "formatWithUnit": "",
-          "dataAttributes": [],
-          "code": "ac_in",
-          "description": "Ac_in",
-          "textValue": null,
-          "formattedValue": "",
-          "idDataAttribute": null
-        },
-        {
-          "rawValue": null,
-          "formatWithUnit": "",
-          "dataAttributes": [],
-          "code": "ac_out",
-          "description": "Ac_out",
-          "textValue": null,
-          "formattedValue": "",
-          "idDataAttribute": null
-        },
-        {
-          "code": "soc_status",
-          "description": "SOC Status",
-          "rawValue": 0,
-          "formattedValue": "",
-          "textValue": "",
-          "idDataAttribute": null
+            "current_alarms": [
+                {
+                    "idField": "idAlarm",
+                    "idGenerated": true,
+                    "table": "alarmLog",
+                    "casts": null,
+                    "setCasts": null,
+                    "idAlarm": 993204593,
+                    "idSite": 70876,
+                    "instance": 288,
+                    "type": "float",
+                    "description": "Voltage",
+                    "started": 1747928339,
+                    "cleared": null,
+                    "idDataAttribute": 81,
+                    "device": "Solar Charger",
+                    "customName": "",
+                    "nameEnum": null
+                }
+            ],
+            "num_alarms": 1,
+            "last_location_timestamp": false,
+            "avatar_url": null,
+            "nodered_running": false,
+            "guiHash": null,
+            "GUIv": null
         }
-      ],
-      "demo_mode": false,
-      "mqtt_webhost": "webmqtt48.victronenergy.com",
-      "high_workload": false,
-      "current_alarms": [],
-      "num_alarms": 0,
-      "avatar_url": null
-    }
-  ]
+    ]
 }
