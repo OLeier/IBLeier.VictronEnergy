@@ -119,12 +119,17 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserInstallations
         /// </summary>
-        [Fact(Skip = "not implemented")]
+        [Fact(/*Skip = "not implemented"*/)]
         public async Task UsersIdUserInstallationsAsyncTest()
         {
-            string xAuthorization = default!;
-            string idUser = default!;
-            Client.Option<int> extended = default!;
+            AuthLogin200Response? authLoginResponse = AuthLoginResponse;
+            Assert.NotNull(authLoginResponse);
+
+            string xAuthorization = "Bearer " + authLoginResponse.Token;
+            string idUser = authLoginResponse.IdUser.ToString();
+            //If 1, include all optional response values.
+            Client.Option<int> extended = 1;
+            //Id of the site we want to retrieve.
             Client.Option<int> idSite = default!;
             var response = await _instance.UsersIdUserInstallationsAsync(xAuthorization, idUser, extended, idSite);
             var model = response.Ok();
@@ -146,10 +151,10 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersMe
         /// </summary>
-        [Fact(Skip = "not implemented")]
+        [Fact(/*Skip = "not implemented"*/)]
         public async Task UsersMeAsyncTest()
         {
-            string xAuthorization = default!;
+            string xAuthorization = "Token " + Token;
             var response = await _instance.UsersMeAsync(xAuthorization);
             var model = response.Ok();
             Assert.IsType<UsersMe200Response>(model);

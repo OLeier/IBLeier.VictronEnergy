@@ -12,7 +12,9 @@ using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Extensions;
+using Org.OpenAPITools.Model;
 
 
 /* *********************************************************************************
@@ -43,6 +45,45 @@ namespace Org.OpenAPITools.Test.Api
     public class ApiTestsBase
     {
         protected readonly IHost _host;
+
+        protected string Token
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_token))
+                {
+                    // https://learn.microsoft.com/de-de/dotnet/core/extensions/configuration
+                    // Ask the service provider for the configuration abstraction.
+                    IConfiguration config = _host.Services.GetRequiredService<IConfiguration>();
+
+                    string? authLoginToken = config.GetValue<string>("AuthLogin:Token");
+                    _token = authLoginToken ?? string.Empty;
+                }
+                return _token;
+            }
+        }
+        private string? _token;
+
+        protected AuthLogin200Response? AuthLoginResponse
+        {
+            get
+            {
+                if (_authLoginResponse == null)
+                {
+                    // Ask the service provider for the configuration abstraction.
+                    IConfiguration config = _host.Services.GetRequiredService<IConfiguration>();
+                    string username = config.GetValue<string>("AuthLogin:Username") ?? "";
+                    string password = config.GetValue<string>("AuthLogin:Password") ?? "";
+
+                    var authLoginRequest = new AuthLoginRequest(username, password);
+                    IDefaultApi _instance = _host.Services.GetRequiredService<IDefaultApi>();
+                    var response = _instance.AuthLoginAsync(authLoginRequest).Result;
+                    _authLoginResponse = response.Ok();
+                }
+                return _authLoginResponse;
+            }
+        }
+        private AuthLogin200Response? _authLoginResponse;
 
         public ApiTestsBase(string[] args)
         {

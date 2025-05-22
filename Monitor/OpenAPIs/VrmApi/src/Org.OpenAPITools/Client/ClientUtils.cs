@@ -10,15 +10,15 @@
 #nullable enable
 
 using System;
-using System.IO;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Org.OpenAPITools.Model;
-using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Org.OpenAPITools.Test")]
 

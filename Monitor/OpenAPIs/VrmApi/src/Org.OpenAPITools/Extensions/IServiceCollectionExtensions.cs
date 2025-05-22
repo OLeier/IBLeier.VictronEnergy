@@ -55,7 +55,7 @@ namespace Org.OpenAPITools.Extensions
             var containerServices = services.Where(s => s.ServiceType.IsGenericType &&
                 s.ServiceType.GetGenericTypeDefinition().IsAssignableFrom(typeof(TokenContainer<>))).ToArray();
 
-            foreach(var containerService in containerServices)
+            foreach (var containerService in containerServices)
             {
                 var tokenType = containerService.ServiceType.GenericTypeArguments[0];
 
@@ -64,7 +64,7 @@ namespace Org.OpenAPITools.Extensions
                 if (provider == null)
                 {
                     services.AddSingleton(typeof(RateLimitProvider<>).MakeGenericType(tokenType));
-                    services.AddSingleton(typeof(TokenProvider<>).MakeGenericType(tokenType), 
+                    services.AddSingleton(typeof(TokenProvider<>).MakeGenericType(tokenType),
                         s => s.GetRequiredService(typeof(RateLimitProvider<>).MakeGenericType(tokenType)));
                 }
             }

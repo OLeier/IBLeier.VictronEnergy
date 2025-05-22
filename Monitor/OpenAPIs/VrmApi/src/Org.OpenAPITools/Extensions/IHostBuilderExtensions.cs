@@ -27,7 +27,7 @@ namespace Org.OpenAPITools.Extensions
         /// <param name="builder"></param>
         public static IHostBuilder ConfigureApi(this IHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => 
+            builder.ConfigureServices((context, services) =>
             {
                 HostConfiguration config = new HostConfiguration(services);
 
@@ -44,7 +44,7 @@ namespace Org.OpenAPITools.Extensions
         /// <param name="options"></param>
         public static IHostBuilder ConfigureApi(this IHostBuilder builder, Action<HostBuilderContext, IServiceCollection, HostConfiguration> options)
         {
-            builder.ConfigureServices((context, services) => 
+            builder.ConfigureServices((context, services) =>
             {
                 HostConfiguration config = new HostConfiguration(services);
 

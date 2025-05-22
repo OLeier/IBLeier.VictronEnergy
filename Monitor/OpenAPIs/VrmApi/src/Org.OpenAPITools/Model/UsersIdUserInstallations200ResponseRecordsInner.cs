@@ -714,10 +714,23 @@ namespace Org.OpenAPITools.Model
                             tags = new Option<List<UsersIdUserInstallations200ResponseRecordsInnerTagsInner>?>(JsonSerializer.Deserialize<List<UsersIdUserInstallations200ResponseRecordsInnerTagsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "images":
-                            images = new Option<List<UsersIdUserInstallations200ResponseRecordsInnerImagesInner>?>(JsonSerializer.Deserialize<List<UsersIdUserInstallations200ResponseRecordsInnerImagesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            try
+                            {
+                                images = new Option<List<UsersIdUserInstallations200ResponseRecordsInnerImagesInner>?>(JsonSerializer.Deserialize<List<UsersIdUserInstallations200ResponseRecordsInnerImagesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            }
+                            catch 
+                            {
+                                //images = null;
+                            }
                             break;
                         case "view_permissions":
-                            viewPermissions = new Option<UsersIdUserInstallations200ResponseRecordsInnerViewPermissions?>(JsonSerializer.Deserialize<UsersIdUserInstallations200ResponseRecordsInnerViewPermissions>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            try
+                            {
+                                viewPermissions = new Option<UsersIdUserInstallations200ResponseRecordsInnerViewPermissions?>(JsonSerializer.Deserialize<UsersIdUserInstallations200ResponseRecordsInnerViewPermissions>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            }
+                            catch
+                            {
+                            }
                             break;
                         case "extended":
                             extended = new Option<List<UsersIdUserInstallations200ResponseRecordsInnerExtendedInner>?>(JsonSerializer.Deserialize<List<UsersIdUserInstallations200ResponseRecordsInnerExtendedInner>>(ref utf8JsonReader, jsonSerializerOptions)!);

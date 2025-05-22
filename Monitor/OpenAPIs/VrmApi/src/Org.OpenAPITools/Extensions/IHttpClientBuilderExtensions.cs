@@ -12,9 +12,9 @@
 using System;
 using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Polly.Timeout;
-using Polly.Extensions.Http;
 using Polly;
+using Polly.Extensions.Http;
+using Polly.Timeout;
 
 namespace Org.OpenAPITools.Extensions
 {

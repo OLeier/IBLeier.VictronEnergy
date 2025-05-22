@@ -11,10 +11,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Org.OpenAPITools.Api;
 using Org.OpenAPITools.Model;
@@ -213,7 +212,7 @@ namespace Org.OpenAPITools.Client
             builders.Add(_services.AddHttpClient<IStateWidgetsApi, StateWidgetsApi>(client));
             builders.Add(_services.AddHttpClient<ISummaryWidgetsApi, SummaryWidgetsApi>(client));
             builders.Add(_services.AddHttpClient<IUsersApi, UsersApi>(client));
-            
+
             if (builder != null)
                 foreach (IHttpClientBuilder instance in builders)
                     builder(instance);
@@ -243,7 +242,7 @@ namespace Org.OpenAPITools.Client
         /// <returns></returns>
         public HostConfiguration AddTokens<TTokenBase>(TTokenBase token) where TTokenBase : TokenBase
         {
-            return AddTokens(new TTokenBase[]{ token });
+            return AddTokens(new TTokenBase[] { token });
         }
 
         /// <summary>
@@ -266,7 +265,7 @@ namespace Org.OpenAPITools.Client
         /// <typeparam name="TTokenProvider"></typeparam>
         /// <typeparam name="TTokenBase"></typeparam>
         /// <returns></returns>
-        public HostConfiguration UseProvider<TTokenProvider, TTokenBase>() 
+        public HostConfiguration UseProvider<TTokenProvider, TTokenBase>()
             where TTokenProvider : TokenProvider<TTokenBase>
             where TTokenBase : TokenBase
         {

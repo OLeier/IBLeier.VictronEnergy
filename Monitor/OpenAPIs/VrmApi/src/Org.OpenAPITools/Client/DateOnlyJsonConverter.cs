@@ -36,13 +36,14 @@ namespace Org.OpenAPITools.Client
         /// <param name="typeToConvert"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
             if (reader.TokenType == JsonTokenType.Null)
                 throw new NotSupportedException();
 
             string value = reader.GetString()!;
 
-            foreach(string format in Formats)
+            foreach (string format in Formats)
                 if (DateOnly.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out DateOnly result))
                     return result;
 
