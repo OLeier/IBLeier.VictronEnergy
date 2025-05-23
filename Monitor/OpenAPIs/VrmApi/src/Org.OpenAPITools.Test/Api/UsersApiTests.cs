@@ -66,11 +66,14 @@ namespace Org.OpenAPITools.Test.Api
         /// <summary>
         /// Test UsersIdUserAccesstokensList
         /// </summary>
-        [Fact(Skip = "not implemented")]
+        [Fact(/*Skip = "not implemented"*/)]
         public async Task UsersIdUserAccesstokensListAsyncTest()
         {
-            string xAuthorization = default!;
-            string idUser = default!;
+            AuthLogin200Response? authLoginResponse = AuthLoginResponse;
+            Assert.NotNull(authLoginResponse);
+
+            string xAuthorization = "Bearer " + authLoginResponse.Token;
+            string idUser = authLoginResponse.IdUser.ToString();
             var response = await _instance.UsersIdUserAccesstokensListAsync(xAuthorization, idUser);
             var model = response.Ok();
             Assert.IsType<UsersIdUserAccesstokensList200Response>(model);

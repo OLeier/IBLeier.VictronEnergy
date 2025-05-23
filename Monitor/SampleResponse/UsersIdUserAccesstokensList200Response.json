@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "tokens": [
+        {
+            "name": "VRM.Monitor",
+            "idAccessToken": 2267995,
+            "createdOn": 1747922915,
+            "scope": "FULL_ACCESS",
+            "expires": null,
+            "lastSeen": 1747995881,
+            "lastSuccessfulAuth": 1747995881
+        }
+    ]
+}
+
+{"success":true,"tokens":[{"name":"VRM.Monitor","idAccessToken":2267995,"createdOn":1747922915,"scope":"FULL_ACCESS","expires":null,"lastSeen":1747995881,"lastSuccessfulAuth":1747995881}]}
