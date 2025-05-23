@@ -30,7 +30,7 @@
             "shared": false,
             "device_icon": "battery",
             "alarm": true,
-            "last_timestamp": 1747928519,
+            "last_timestamp": 1748013003,
             "tags": [
                 {
                     "idTag": 41,
@@ -40,7 +40,7 @@
                 }
             ],
             "new_tags": false,
-            "current_time": "17:42",
+            "current_time": "17:10",
             "timezone_offset": 7200,
             "images": false,
             "view_permissions": {
@@ -74,7 +74,7 @@
                     "idDeviceType": 0,
                     "textValue": null,
                     "instance": 0,
-                    "timestamp": 1747910819,
+                    "timestamp": 1620403765,
                     "dbusServiceType": null,
                     "dbusPath": null,
                     "rawValue": "v2.66",
@@ -119,11 +119,11 @@
                     "idDeviceType": 6,
                     "textValue": null,
                     "instance": 0,
-                    "timestamp": 1747928519,
+                    "timestamp": 1748013003,
                     "dbusServiceType": "system",
                     "dbusPath": "\/Dc\/Battery\/Voltage",
-                    "rawValue": 24.65,
-                    "formattedValue": "24.65 V"
+                    "rawValue": 24.03,
+                    "formattedValue": "24.03 V"
                 },
                 {
                     "idDataAttribute": 147,
@@ -134,11 +134,11 @@
                     "idDeviceType": 6,
                     "textValue": null,
                     "instance": 0,
-                    "timestamp": 1747928519,
+                    "timestamp": 1748013003,
                     "dbusServiceType": "system",
                     "dbusPath": "\/Dc\/Battery\/Current",
-                    "rawValue": -1,
-                    "formattedValue": "-1.00 A"
+                    "rawValue": -4.2,
+                    "formattedValue": "-4.20 A"
                 },
                 {
                     "idDataAttribute": 250,
@@ -149,7 +149,7 @@
                     "idDeviceType": 0,
                     "textValue": "Off",
                     "instance": 0,
-                    "timestamp": 1747910818,
+                    "timestamp": 1620403777,
                     "dbusServiceType": "settings",
                     "dbusPath": "\/Settings\/Services\/MqttVrm",
                     "rawValue": 0,
@@ -174,7 +174,7 @@
                     "idDeviceType": 0,
                     "textValue": "Not available",
                     "instance": 0,
-                    "timestamp": 1747910818,
+                    "timestamp": 1620403777,
                     "dbusServiceType": "settings",
                     "dbusPath": "\/Settings\/SystemSetup\/AcInput1",
                     "rawValue": 0,
@@ -207,7 +207,7 @@
                     "idDeviceType": 0,
                     "textValue": "Not available",
                     "instance": 0,
-                    "timestamp": 1747910818,
+                    "timestamp": 1620403777,
                     "dbusServiceType": "settings",
                     "dbusPath": "\/Settings\/SystemSetup\/AcInput2",
                     "rawValue": 0,
@@ -240,7 +240,7 @@
                     "idDeviceType": 0,
                     "textValue": null,
                     "instance": 0,
-                    "timestamp": 1747910819,
+                    "timestamp": 1620403765,
                     "dbusServiceType": null,
                     "dbusPath": null,
                     "rawValue": 15,
@@ -248,35 +248,35 @@
                     "dataAttributeEnumValues": [
                         {
                             "nameEnum": "MQTT-RPC",
-                            "valueEnum": "1"
+                            "valueEnum": 1
                         },
                         {
                             "nameEnum": "MQTT-RPC new firmware update command",
-                            "valueEnum": "2"
+                            "valueEnum": 2
                         },
                         {
                             "nameEnum": "VNC-SSH authentication",
-                            "valueEnum": "4"
+                            "valueEnum": 4
                         },
                         {
                             "nameEnum": "VregLink",
-                            "valueEnum": "8"
+                            "valueEnum": 8
                         },
                         {
                             "nameEnum": "Multiple generator start-stop services is supported",
-                            "valueEnum": "16"
+                            "valueEnum": 16
                         },
                         {
                             "nameEnum": "Accumulated generator runtime is available on the Tga attribute.",
-                            "valueEnum": "40"
+                            "valueEnum": 40
                         },
                         {
                             "nameEnum": "Has DESS support",
-                            "valueEnum": "64"
+                            "valueEnum": 64
                         },
                         {
                             "nameEnum": "Has GUI v2 support",
-                            "valueEnum": "128"
+                            "valueEnum": 128
                         },
                         {
                             "nameEnum": "Needs active MQTT topic refreshing with keep-alives instead of using retained messages.",
@@ -305,7 +305,7 @@
                     "idDeviceType": 0,
                     "textValue": "Not active",
                     "instance": 0,
-                    "timestamp": 1747928519,
+                    "timestamp": 1748013003,
                     "dbusServiceType": null,
                     "dbusPath": null,
                     "rawValue": 0,
@@ -330,7 +330,7 @@
                     "idDeviceType": 6,
                     "textValue": null,
                     "instance": 0,
-                    "timestamp": 1747910832,
+                    "timestamp": 1620403777,
                     "dbusServiceType": "system",
                     "dbusPath": "\/SystemType",
                     "rawValue": "Hub-1",
@@ -345,7 +345,7 @@
                     "idDeviceType": 6,
                     "textValue": "Off",
                     "instance": 0,
-                    "timestamp": 1747928519,
+                    "timestamp": 1748013003,
                     "dbusServiceType": "system",
                     "dbusPath": "\/SystemState\/State",
                     "rawValue": 0,
@@ -462,7 +462,7 @@
                     "idDeviceType": 0,
                     "textValue": null,
                     "instance": 0,
-                    "timestamp": 1747928519,
+                    "timestamp": 1748013003,
                     "dbusServiceType": null,
                     "dbusPath": null,
                     "rawValue": 1,
@@ -486,7 +486,7 @@
                     "idDataAttribute": null
                 },
                 {
-                    "rawValue": 9.86,
+                    "rawValue": 2.40301,
                     "formatWithUnit": "%.0F W",
                     "consistsOfAttributeCodes": [
                         "P",
@@ -507,12 +507,12 @@
                             "idDeviceType": 6
                         }
                     ],
-                    "timestamp": 1747928519,
+                    "timestamp": 1748013003,
                     "idDataAttribute": null,
                     "code": "solar_yield",
                     "description": "Solar_yield",
                     "textValue": null,
-                    "formattedValue": "10 W"
+                    "formattedValue": "2 W"
                 },
                 {
                     "rawValue": null,
@@ -605,12 +605,12 @@
                     "table": "alarmLog",
                     "casts": null,
                     "setCasts": null,
-                    "idAlarm": 993204593,
+                    "idAlarm": 993646668,
                     "idSite": 70876,
                     "instance": 288,
                     "type": "float",
                     "description": "Voltage",
-                    "started": 1747928339,
+                    "started": 1747998768,
                     "cleared": null,
                     "idDataAttribute": 81,
                     "device": "Solar Charger",
