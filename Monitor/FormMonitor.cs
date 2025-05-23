@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using IBLeier.VictronEnergy.ModbusTcp;
 using IBLeier.VictronEnergy.Monitor;
 using Monitor.Properties;
-using Monitor.VrmApi.Models;
+using Monitor.VrmApi;
 
 namespace Monitor
 {
@@ -23,7 +23,7 @@ namespace Monitor
             ServicePointManager.SecurityProtocol = /*SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | */ SecurityProtocolType.Tls12;
 
 #if DEBUG
-            timer1.Interval = 1000;
+            timer1.Interval = 5000;
 #else
             timer1.Interval = Settings.Default.TimerInterval * 1000;
 #endif
@@ -51,7 +51,7 @@ namespace Monitor
         {
             timer1.Stop();
 
-            InstallationsOKResponse installationsOKResponse;
+            Response2 installationsOKResponse;
             try
             {
                 installationsOKResponse = await VrmController.GetInstallationsAsync();
@@ -123,7 +123,7 @@ namespace Monitor
             Logging.Log("Fill-Exception", "End");
         }
 
-        private double Fill(InstallationsOKResponse installationsOKResponse)
+        private double Fill(Response2 installationsOKResponse)
         {
             Logging.Log("Fill-InstallationsOKResponse", "Begin");
             double bv = 0;
@@ -155,12 +155,12 @@ namespace Monitor
             DateTime sc = DateTimeOffset.FromUnixTimeSeconds(syscreated).LocalDateTime;
             dataGridView1.Rows.Add("syscreated", sc.ToString());
 
-            long lastTimestamp = site.LastTimestamp.Value;
+            long lastTimestamp = site.Last_timestamp.Value;
             DateTime lt = DateTimeOffset.FromUnixTimeSeconds(lastTimestamp).LocalDateTime;
             dataGridView1.Rows.Add("last_timestamp", lt.ToString());
             StartTimer2(lt);
 
-            string currentTime = site.CurrentTime;
+            string currentTime = site.Current_time;
             dataGridView1.Rows.Add("current_time", currentTime);
 
             dataGridView1.Rows.Add("count", ++count);

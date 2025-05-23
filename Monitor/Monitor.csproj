@@ -147,20 +147,6 @@
     <Compile Include="Sample API\ISampleAPIClient.cs" />
     <Compile Include="Sample API\SampleAPIClient.cs" />
     <Compile Include="Sample API\SampleAPIClientExtensions.cs" />
-    <Compile Include="VrmApi\IVrmApiClient.cs" />
-    <Compile Include="VrmApi\Models\Credential.cs" />
-    <Compile Include="VrmApi\Models\InstallationsOKResponse.cs" />
-    <Compile Include="VrmApi\Models\InstallationsOKResponseRecordsItem.cs" />
-    <Compile Include="VrmApi\Models\InstallationsOKResponseRecordsItemExtendedItem.cs" />
-    <Compile Include="VrmApi\Models\InstallationsOKResponseRecordsItemTagsItem.cs" />
-    <Compile Include="VrmApi\Models\InstallationsOKResponseRecordsItemViewPermissions.cs" />
-    <Compile Include="VrmApi\Models\LoginOKResponse.cs" />
-    <Compile Include="VrmApi\Models\SolarChargerSummaryOKResponse.cs" />
-    <Compile Include="VrmApi\Models\SolarChargerSummaryOKResponseRecords.cs" />
-    <Compile Include="VrmApi\Models\SystemOverviewOKResponse.cs" />
-    <Compile Include="VrmApi\Models\SystemOverviewOKResponseRecords.cs" />
-    <Compile Include="VrmApi\VrmApiClient.cs" />
-    <Compile Include="VrmApi\VrmApiClientExtensions.cs" />
     <Compile Include="VrmController.cs" />
     <EmbeddedResource Include="FormMonitor.resx">
       <DependentUpon>FormMonitor.cs</DependentUpon>

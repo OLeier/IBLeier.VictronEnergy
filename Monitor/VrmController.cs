@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.Rest;
 using Monitor;
 using Monitor.Properties;
 using Monitor.VrmApi;
-using Monitor.VrmApi.Models;
 
 namespace IBLeier.VictronEnergy.Monitor
 {
     public class VrmController
     {
-        public static Task<InstallationsOKResponse> GetInstallationsAsync()
+        public static Task<Response2> GetInstallationsAsync()
         {
             return Task.Run(() =>
             {
@@ -17,12 +17,13 @@ namespace IBLeier.VictronEnergy.Monitor
             });
         }
 
-        public static InstallationsOKResponse GetInstallations()
+        public static Response2 GetInstallations()
         {
             Logging.Log("VrmController_GetInstallations", "Begin");
+            HttpClient httpClient = new HttpClient();
+            //ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
 
-            ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
-            using (VrmApiClient client = new VrmApiClient(credentials))
+            var client = new Client(httpClient);
             {
                 ServiceClientTracing.IsEnabled = false;
                 ServiceClientTracing.AddTracingInterceptor(new DebugTracer());
@@ -32,12 +33,12 @@ namespace IBLeier.VictronEnergy.Monitor
                     Username = Settings.Default.Username,
                     Password = Settings.Default.Password
                 };
-                LoginOKResponse loginOKResponse = client.Login(credential);
+                Response loginOKResponse = client.LoginAsync(credential).Result;
                 //Console.WriteLine("Login: " + loginOKResponse.Token);
 
                 string xAuthorization = "Bearer " + loginOKResponse.Token;
 
-                InstallationsOKResponse installationsOKResponse = client.Installations(xAuthorization, loginOKResponse.IdUser, extended: 1);
+                Response2 installationsOKResponse = client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1).Result;
                 //Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
 
                 //var site = installationsOKResponse.Records.First();
@@ -57,7 +58,7 @@ namespace IBLeier.VictronEnergy.Monitor
                 //SolarChargerSummaryOKResponse solarChargerSummaryOKResponse = client.SolarChargerSummary(xAuthorization, idSite, instance);
                 //Console.WriteLine("solarChargerSummaryOKResponse: " + solarChargerSummaryOKResponse.Success.Value + ", " + solarChargerSummaryOKResponse.Records.Meta.Count);
 
-                client.Logout(xAuthorization);
+                client.LogoutAsync(xAuthorization).Wait();
                 //Console.WriteLine("Logout");
 
                 Logging.Log("VrmController_GetInstallations", "End");
