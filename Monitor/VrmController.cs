@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Rest;
 using Monitor;
@@ -9,18 +10,11 @@ namespace IBLeier.VictronEnergy.Monitor
 {
     public class VrmController
     {
-        public static Task<Response2> GetInstallationsAsync()
-        {
-            return Task.Run(() =>
-            {
-                return VrmController.GetInstallations();
-            });
-        }
+        static HttpClient httpClient = new HttpClient();
 
-        public static Response2 GetInstallations()
+        public static async Task<Response2> GetInstallationsAsync()
         {
             Logging.Log("VrmController_GetInstallations", "Begin");
-            HttpClient httpClient = new HttpClient();
             //ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
 
             var client = new Client(httpClient);
@@ -33,12 +27,12 @@ namespace IBLeier.VictronEnergy.Monitor
                     Username = Settings.Default.Username,
                     Password = Settings.Default.Password
                 };
-                Response loginOKResponse = client.LoginAsync(credential).Result;
+                Response loginOKResponse = await client.LoginAsync(credential);
                 //Console.WriteLine("Login: " + loginOKResponse.Token);
 
                 string xAuthorization = "Bearer " + loginOKResponse.Token;
 
-                Response2 installationsOKResponse = client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1).Result;
+                Response2 installationsOKResponse = await client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1);
                 //Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
 
                 //var site = installationsOKResponse.Records.First();
@@ -58,7 +52,7 @@ namespace IBLeier.VictronEnergy.Monitor
                 //SolarChargerSummaryOKResponse solarChargerSummaryOKResponse = client.SolarChargerSummary(xAuthorization, idSite, instance);
                 //Console.WriteLine("solarChargerSummaryOKResponse: " + solarChargerSummaryOKResponse.Success.Value + ", " + solarChargerSummaryOKResponse.Records.Meta.Count);
 
-                client.LogoutAsync(xAuthorization).Wait();
+                await client.LogoutAsync(xAuthorization);
                 //Console.WriteLine("Logout");
 
                 Logging.Log("VrmController_GetInstallations", "End");
