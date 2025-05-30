@@ -804,7 +804,7 @@ namespace Monitor.VrmApi
         public bool? High_workload { get; set; }
 
         [Newtonsoft.Json.JsonProperty("current_alarms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Collections.Generic.IDictionary<string, object>> Current_alarms { get; set; }
+        public System.Collections.Generic.ICollection<Current_alarms> Current_alarms { get; set; }
 
         [Newtonsoft.Json.JsonProperty("avatar_url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Avatar_url { get; set; }
@@ -917,6 +917,23 @@ namespace Monitor.VrmApi
 
         [Newtonsoft.Json.JsonProperty("formattedValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FormattedValue { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial class Current_alarms
+    {
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
 
     }
 

@@ -7,15 +7,18 @@
     },
     "host": "vrmapi.victronenergy.com",
     "basePath": "/v2",
-    "schemes": [ "https" ],
-
+    "schemes": [
+        "https"
+    ],
     "paths": {
         "/auth/login": {
             "post": {
                 "operationId": "login",
                 "summary": "Returns a token.",
                 "description": "X-Authorization: Bearer {token}.",
-                "produces": [ "application/json" ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "in": "body",
@@ -66,7 +69,9 @@
                 "operationId": "logout",
                 "summary": "Will blacklist the token at the server side for further use.",
                 "description": "X-Authorization: Bearer {token}.",
-                "produces": [ "application/json" ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "in": "header",
@@ -88,7 +93,9 @@
                 "operationId": "installations",
                 "summary": "Get all installations/sites of a given user.",
                 "description": "(Restricted) admins can retrieve installations of all users, dealers can only retrieve installations for the users that are linked to them, normal users can only retrieve their own installations/sites.",
-                "produces": [ "application/json" ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "in": "header",
@@ -333,6 +340,11 @@
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
+                                                    "properties": {
+                                                        "description": {
+                                                            "type": "string"
+                                                        }
+                                                    },
                                                     "additionalProperties": {}
                                                 }
                                             },
@@ -354,7 +366,9 @@
                 "operationId": "system-overview",
                 "summary": "Retrieve connected devices (e.g. to get device instance).",
                 "description": "Retrieve connected devices (e.g. to get device instance).",
-                "produces": [ "application/json" ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "in": "header",
@@ -406,7 +420,9 @@
                 "operationId": "SolarChargerSummary",
                 "summary": "Summary data.",
                 "description": "Returns latest recorded values for the Solar Charger Summary for for instance 255.",
-                "produces": [ "application/json" ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "in": "header",
