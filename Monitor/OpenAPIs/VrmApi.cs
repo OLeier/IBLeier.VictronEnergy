@@ -804,7 +804,7 @@ namespace Monitor.VrmApi
         public bool? High_workload { get; set; }
 
         [Newtonsoft.Json.JsonProperty("current_alarms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Current_alarms { get; set; }
+        public System.Collections.Generic.ICollection<System.Collections.Generic.IDictionary<string, object>> Current_alarms { get; set; }
 
         [Newtonsoft.Json.JsonProperty("avatar_url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Avatar_url { get; set; }
