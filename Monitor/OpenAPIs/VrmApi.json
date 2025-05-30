@@ -332,8 +332,7 @@
                       "current_alarms": {
                         "type": "array",
                         "items": {
-                            "type": "object",
-                            "additionalProperties": {}
+                            "type": "string"
                         }
                       },
                       "avatar_url": {
