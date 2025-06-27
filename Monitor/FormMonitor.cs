@@ -20,7 +20,7 @@ namespace Monitor
             InitializeComponent();
 
             // https://www.howsmyssl.com/a/check
-            ServicePointManager.SecurityProtocol = /*SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | */ SecurityProtocolType.Tls12;
+            //ServicePointManager.SecurityProtocol = /*SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | */ SecurityProtocolType.Tls12;
 
 #if DEBUG
             timer1.Interval = 1000;
@@ -36,6 +36,7 @@ namespace Monitor
         {
             try
             {
+                Logging.Log("FormMonitor_Load", "ProductVersion: " + this.ProductVersion + ", Version: " + Environment.Version);
                 Timer1_Tick(sender: null, e: null);
             }
             catch (Exception ex)
