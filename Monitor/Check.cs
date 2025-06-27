@@ -43,19 +43,32 @@ namespace IBLeier.VictronEnergy.Monitor
         public static Check CheckVoltage(double bv)
         {
             Check retval = null;
+            Check alert = null;
             foreach (Check check in Check.checks)
             {
                 if (check.CheckVoltageIntern(bv))
                 {
                     retval = check;
                 }
-                if (check.alert)
+                else if (check.alert)
                 {
-                    Logging.Log("CheckVoltage", bv + " V < " + check.low + " V !");
+                    alert = check;
                 }
             }
 
-            Logging.Log("CheckVoltage", bv + " V < " + retval?.low + " V !!!");
+            if (retval != null)
+            {
+                Logging.Log("CheckVoltage", bv + " V < " + retval.low + " V !!!");
+            }
+            else if (alert != null)
+            {
+                Logging.Log("CheckVoltage", bv + " V < " + alert.low + " V !");
+            }
+            else
+            {
+                Logging.Log("CheckVoltage", bv + " V");
+            }
+
             return retval;
         }
 

@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Net;
 using System.Windows.Forms;
 using IBLeier.VictronEnergy.ModbusTcp;
 using IBLeier.VictronEnergy.Monitor;
