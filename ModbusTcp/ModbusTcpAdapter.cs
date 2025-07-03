@@ -193,7 +193,7 @@ namespace IBLeier.VictronEnergy.ModbusTcp
             if (Step == 1 && scData.ChargerOnOff == ChargerOnOffCode.On)
             {
                 if (scData.ChargeState != ChargeStateCode.Off &&
-                    (scData.PvPower < 0.5 || dailyInit ||
+                    (scData.PvPower < 1.5 || dailyInit ||
                     (scData.PvCurrent < 0.5 && (scData.PvVoltage > 40 || scData.DifferenceVoltage < 3.5) && scData.PvPower < 1.5)
                     ))
                 {
