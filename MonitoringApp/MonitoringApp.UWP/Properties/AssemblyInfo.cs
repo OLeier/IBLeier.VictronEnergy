@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MonitoringApp.UWP")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IBLeier")]
+[assembly: AssemblyCompany("IB-Leier.net")]
 [assembly: AssemblyProduct("MonitoringApp.UWP")]
-[assembly: AssemblyCopyright("Copyright ©  2021-2025")]
+[assembly: AssemblyCopyright("Copyright © IB-Leier.net 2021-2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
