@@ -50,3 +50,5 @@ Dafür musste auch das Modbus Paket auf NModbus (https://github.com/NModbus/NMod
 https://github.com/OLeier/IBLeier.VictronEnergy
 
 ## Fortsetzung folgt
+
+## Upgrade von Xamarin auf .NET MAUI
