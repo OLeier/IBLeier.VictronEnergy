@@ -5,17 +5,13 @@
 	  <SccProvider></SccProvider>
 	  <SccAuxPath></SccAuxPath>
 	  <SccLocalPath></SccLocalPath>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<!--<ProduceReferenceAssembly>true</ProduceReferenceAssembly>-->
-		<AssemblyName>IBLeier.VictronEnergy.ModbusTcp</AssemblyName>
-		<RootNamespace>IBLeier.VictronEnergy.ModbusTcp</RootNamespace>
-		<Version>2.0.3.5</Version>
-		<Authors>IBLeier</Authors>
-		<Copyright>MIT - IBLeier - 2021-2025</Copyright>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <AssemblyName>IBLeier.VictronEnergy.ModbusTcp</AssemblyName>
+	  <RootNamespace>IBLeier.VictronEnergy.ModbusTcp</RootNamespace>
+	  <Version>2.0.3.5</Version>
+	  <Authors>IBLeier</Authors>
+	  <Copyright>MIT - IBLeier - 2021-2025</Copyright>
+	  <EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,8 +24,6 @@
 
   <ItemGroup>
     <PackageReference Include="NModbus" Version="3.0.81" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
   </ItemGroup>
 
 </Project>
