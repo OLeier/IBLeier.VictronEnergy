@@ -52,3 +52,6 @@ https://github.com/OLeier/IBLeier.VictronEnergy
 ## Fortsetzung folgt
 
 ## Upgrade von Xamarin auf .NET MAUI
+
+- ModbusTcp
+- ModbusTcpTests
