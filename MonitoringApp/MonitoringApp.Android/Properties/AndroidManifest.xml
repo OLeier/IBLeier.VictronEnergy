@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="2.0.3.5" package="com.IBLeier.monitoringapp" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="30" />
-	<application android:label="MonitoringApp.Android" android:theme="@style/MainTheme"></application>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <application android:label="MonitoringApp.Android" android:theme="@style/MainTheme">
+  </application>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
