@@ -55,3 +55,12 @@ https://github.com/OLeier/IBLeier.VictronEnergy
 
 - ModbusTcp
 - ModbusTcpTests
+
+- MonitoringApp
+NU1201: Das Projekt MonitoringApp ist nicht mit xamarinios10 (Xamarin.iOS,Version=v1.0) kompatibel. Das Projekt MonitoringApp unterstützt Folgendes:
+  - net9.0 (.NETCoreApp,Version=v9.0)
+  - net9.0-android35.0 (.NETCoreApp,Version=v9.0)
+  - net9.0-ios18.0 (.NETCoreApp,Version=v9.0)
+  - net9.0-windows10.0.19041 (.NETCoreApp,Version=v9.0)
+
+C:\Program Files\dotnet\packs\Microsoft.Maui.Sdk\9.0.51\Sdk\BundledVersions.targets(85,5): warning MA002: Starting with .NET 8, setting  <UseMaui>true</UseMaui>  does not automatically include NuGet package references in your project.  Update your project by including this item:  <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.51" />.  You can skip this warning by setting  <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>  in your project file.
