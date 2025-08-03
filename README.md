@@ -66,3 +66,6 @@ NU1201: Das Projekt MonitoringApp ist nicht mit xamarinios10 (Xamarin.iOS,Versio
 C:\Program Files\dotnet\packs\Microsoft.Maui.Sdk\9.0.51\Sdk\BundledVersions.targets(85,5): warning MA002: Starting with .NET 8, setting  <UseMaui>true</UseMaui>  does not automatically include NuGet package references in your project.  Update your project by including this item:  <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.51" />.  You can skip this warning by setting  <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>  in your project file.
 
 - MonitoringApp.UWP
+
+- MonitoringApp.iOS
+	Warnung: Installieren Sie fehlende Workloads, indem Sie „dotnet workload install maui-ios„ ausführen.
