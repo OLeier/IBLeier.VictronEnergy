@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace MonitoringApp.ViewModels
 {

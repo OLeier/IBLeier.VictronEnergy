@@ -3,7 +3,9 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace MonitoringApp.ViewModels
 {
@@ -25,6 +27,7 @@ namespace MonitoringApp.ViewModels
 			this.BatteryCurrent = 2;
 			this.BatteryPower = this.BatteryVoltage * this.BatteryCurrent;
 
+			// TODO Xamarin.Forms.Device.StartTimer wird nicht mehr unterstützt. Verwenden Sie stattdessen Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer. Weitere Informationen finden Sie unter: https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			Device.StartTimer(TimeSpan.FromSeconds(2), () =>
 			{
 				Debug.WriteLine("*** " + Task.CurrentId + ": loadChargerDataTask: " + this.loadChargerDataTask?.Status);
