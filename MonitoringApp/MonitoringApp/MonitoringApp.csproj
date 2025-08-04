@@ -1,15 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup Label="Globals">
-    <SccProjectName></SccProjectName>
-    <SccProvider></SccProvider>
-    <SccAuxPath></SccAuxPath>
-    <SccLocalPath></SccLocalPath>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <SccProjectName>
+    </SccProjectName>
+    <SccProvider>
+    </SccProvider>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+    <TargetFrameworks>net9.0-ios;net9.0-android;net9.0</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+    <UseMaui>True</UseMaui>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    <OutputType>Library</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SingleProject>true</SingleProject>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <Version>2.0.3.5</Version>
     <Authors>IBLeier</Authors>
@@ -17,16 +26,9 @@
     <NeutralLanguage>de-DE</NeutralLanguage>
     <FileVersion>2.0.3.5</FileVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\ModbusTcp\ModbusTcp.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Update="Views\GridSolarPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

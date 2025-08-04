@@ -73,4 +73,5 @@ C:\Program Files\dotnet\packs\Microsoft.Maui.Sdk\9.0.51\Sdk\BundledVersions.targ
 - MonitoringApp.Android
   Warnung: Installieren Sie fehlende Workloads, indem Sie „dotnet workload install maui-android„ ausführen.
   Bei Resource.designer.cs hängen geblieben.
-  
+
+- MonitoringApp

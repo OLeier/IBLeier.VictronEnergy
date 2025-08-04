@@ -2,11 +2,13 @@
 using MonitoringApp.Views;
 using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace MonitoringApp
 {
-	public partial class AppShell : Xamarin.Forms.Shell
+	public partial class AppShell : Microsoft.Maui.Controls.Shell
 	{
 		public AppShell()
 		{
