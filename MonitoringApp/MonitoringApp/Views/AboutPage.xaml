@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonitoringApp.Views.AboutPage"
              xmlns:vm="clr-namespace:MonitoringApp.ViewModels"
+             x:DataType="vm:AboutViewModel"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>

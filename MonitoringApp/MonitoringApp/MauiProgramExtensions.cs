@@ -1,5 +1,3 @@
-using MonitoringApp.Views;
-
 namespace MonitoringApp;
 
 public static class MauiProgramExtensions

@@ -1,17 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using Microsoft.Maui.Controls.Xaml;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
-
-namespace MonitoringApp.Views
+﻿namespace MonitoringApp.Views
 {
-	public partial class AboutPage : ContentPage
-	{
-		public AboutPage()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class AboutPage : ContentPage
+    {
+        public AboutPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

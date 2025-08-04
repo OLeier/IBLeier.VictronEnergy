@@ -1,20 +1,15 @@
-﻿using System;
-using System.Windows.Input;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui;
-using Microsoft.Maui.ApplicationModel;
+﻿using System.Windows.Input;
 
 namespace MonitoringApp.ViewModels
 {
-	public class AboutViewModel : BaseViewModel
-	{
-		public AboutViewModel()
-		{
-			Title = "About";
-			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
-		}
+    public class AboutViewModel : BaseViewModel
+    {
+        public AboutViewModel()
+        {
+            Title = "About";
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+        }
 
-		public ICommand OpenWebCommand { get; }
-	}
+        public ICommand OpenWebCommand { get; }
+    }
 }

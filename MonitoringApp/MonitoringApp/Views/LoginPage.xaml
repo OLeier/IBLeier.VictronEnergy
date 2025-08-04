@@ -5,6 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MonitoringApp.Views.LoginPage"
+             xmlns:vm="clr-namespace:MonitoringApp.ViewModels"
+             x:DataType="vm:LoginViewModel"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">

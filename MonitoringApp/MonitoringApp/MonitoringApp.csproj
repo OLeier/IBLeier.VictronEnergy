@@ -26,8 +26,12 @@
     <NeutralLanguage>de-DE</NeutralLanguage>
     <FileVersion>2.0.3.5</FileVersion>
   </PropertyGroup>
+  <!-- <PropertyGroup>
+    <MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
+  </PropertyGroup> -->
   <ItemGroup>
     <ProjectReference Include="..\..\ModbusTcp\ModbusTcp.csproj" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.51" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\GridSolarPage.xaml">

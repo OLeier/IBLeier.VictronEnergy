@@ -63,6 +63,23 @@ NU1201: Das Projekt MonitoringApp ist nicht mit xamarinios10 (Xamarin.iOS,Versio
   - net9.0-ios18.0 (.NETCoreApp,Version=v9.0)
   - net9.0-windows10.0.19041 (.NETCoreApp,Version=v9.0)
 
-C:\Program Files\dotnet\packs\Microsoft.Maui.Sdk\9.0.51\Sdk\BundledVersions.targets(85,5): warning MA002: Starting with .NET 8, setting  <UseMaui>true</UseMaui>  does not automatically include NuGet package references in your project.  Update your project by including this item:  <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.51" />.  You can skip this warning by setting  <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>  in your project file.
+C:\Program Files\dotnet\packs\Microsoft.Maui.Sdk\9.0.51\Sdk\BundledVersions.targets(85,5):
+  warning MA002: Starting with .NET 8, setting  <UseMaui>true</UseMaui>  does not automatically include
+  NuGet package references in your project.  Update your project by including this item:
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.51" />.
+  You can skip this warning by setting
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+  in your project file.
 
 - MonitoringApp: 26 sek
+  TODO Xamarin.Forms.Device.StartTimer wird nicht mehr unterstützt.
+  warning CS0618: "Application.MainPage.set" ist veraltet:
+    "This property is deprecated. Initialize your application by overriding Application.CreateWindow rather than setting MainPage.
+    To modify the root page in an active application, use Windows[0].Page for applications with a single window.
+    For applications with multiple windows, use Application.Windows to identify and update the root page on the correct window.
+     Additionally, each element features a Window property, accessible when it's part of the current window."
+  warning XC0025: Binding was not compiled because it has an explicitly set Source property and
+    compilation of bindings with Source is not enabled. Consider enabling this optimization by setting the
+      <MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
+    in your project file and make sure the correct x:DataType is specified for this binding.
+    See https://learn.microsoft.com/dotnet/maui/fundamentals/data-binding/compiled-bindings for more information.
