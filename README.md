@@ -83,3 +83,5 @@ C:\Program Files\dotnet\packs\Microsoft.Maui.Sdk\9.0.51\Sdk\BundledVersions.targ
       <MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
     in your project file and make sure the correct x:DataType is specified for this binding.
     See https://learn.microsoft.com/dotnet/maui/fundamentals/data-binding/compiled-bindings for more information.
+
+- MonitoringApp.UWP
