@@ -28,6 +28,8 @@ namespace IBLeier.VictronEnergy.Monitor
                     Password = Settings.Default.Password
                 };
                 Response loginOKResponse = await client.LoginAsync(credential);
+                //->
+                //https://vrmapi.victronenergy.com/v2/users/me provides the UserID, relate to then token.
                 //Console.WriteLine("Login: " + loginOKResponse.Token);
 
                 string xAuthorization = "Bearer " + loginOKResponse.Token;
