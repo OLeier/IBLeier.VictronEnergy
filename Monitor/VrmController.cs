@@ -31,6 +31,7 @@ namespace IBLeier.VictronEnergy.Monitor
                 //Console.WriteLine("Login: " + loginOKResponse.Token);
 
                 string xAuthorization = "Bearer " + loginOKResponse.Token;
+                //string xAuthorization = "Token " + Settings.Default.AccessToken;
 
                 Response2 installationsOKResponse = await client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1);
                 //Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
