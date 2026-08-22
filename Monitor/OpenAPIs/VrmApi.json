@@ -88,6 +88,80 @@
                 }
             }
         },
+        "/users/me": {
+            "get": {
+                "operationId": "users/me",
+                "summary": "Basic information about logged in user",
+                "description": "Retrieves id, name, email and country of the user that is currently logged in.",
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "X-Authorization",
+                        "required": true,
+                        "description": "X-Authorization: Token {token_valu}.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK, Succesfully retrieved information.",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "success",
+                                "user"
+                            ],
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "user": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "NotOK, User is not logged in.",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "success",
+                                "errors",
+                                "error_code"
+                            ],
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "errors": {
+                                    "type": "string"
+                                },
+                                "error_code": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/users/{idUser}/installations": {
             "get": {
                 "operationId": "installations",
