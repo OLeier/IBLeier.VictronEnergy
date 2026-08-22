@@ -36,4 +36,6 @@ https://roger13.github.io/SwagDefGen/ - Swagger Definition Objects Generator
 - uses integer + int32 -> int
 - w/o required
 
-## Using AccessToken - Start
+## Using AccessToken
+- keine Login/Logout notwendig
+- dafür user/me zum Lesen der UserId

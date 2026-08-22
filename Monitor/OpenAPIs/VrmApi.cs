@@ -234,6 +234,108 @@ namespace Monitor.VrmApi
         }
 
         /// <summary>
+        /// Basic information about logged in user
+        /// </summary>
+        /// <remarks>
+        /// Retrieves id, name, email and country of the user that is currently logged in.
+        /// </remarks>
+        /// <param name="x_Authorization">X-Authorization: Token {token_valu}.</param>
+        /// <returns>OK, Succesfully retrieved information.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<Response2> Users_meAsync(string x_Authorization)
+        {
+            return Users_meAsync(x_Authorization, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Basic information about logged in user
+        /// </summary>
+        /// <remarks>
+        /// Retrieves id, name, email and country of the user that is currently logged in.
+        /// </remarks>
+        /// <param name="x_Authorization">X-Authorization: Token {token_valu}.</param>
+        /// <returns>OK, Succesfully retrieved information.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<Response2> Users_meAsync(string x_Authorization, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users/me");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+
+                    if (x_Authorization == null)
+                        throw new System.ArgumentNullException("x_Authorization");
+                    request_.Headers.TryAddWithoutValidation("X-Authorization", ConvertToString(x_Authorization, System.Globalization.CultureInfo.InvariantCulture));
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Response2>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<Response3>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<Response3>("NotOK, User is not logged in.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
         /// Get all installations/sites of a given user.
         /// </summary>
         /// <remarks>
@@ -244,7 +346,7 @@ namespace Monitor.VrmApi
         /// <param name="extended">for extended values</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Response2> InstallationsAsync(string x_Authorization, int idUser, int? extended)
+        public virtual System.Threading.Tasks.Task<Response4> InstallationsAsync(string x_Authorization, int idUser, int? extended)
         {
             return InstallationsAsync(x_Authorization, idUser, extended, System.Threading.CancellationToken.None);
         }
@@ -261,7 +363,7 @@ namespace Monitor.VrmApi
         /// <param name="extended">for extended values</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Response2> InstallationsAsync(string x_Authorization, int idUser, int? extended, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<Response4> InstallationsAsync(string x_Authorization, int idUser, int? extended, System.Threading.CancellationToken cancellationToken)
         {
             if (idUser == null)
                 throw new System.ArgumentNullException("idUser");
@@ -311,7 +413,7 @@ namespace Monitor.VrmApi
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response2>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Response4>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -348,7 +450,7 @@ namespace Monitor.VrmApi
         /// <param name="idSite">The id of the site.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Response3> SystemOverviewAsync(string x_Authorization, int idSite)
+        public virtual System.Threading.Tasks.Task<Response5> SystemOverviewAsync(string x_Authorization, int idSite)
         {
             return SystemOverviewAsync(x_Authorization, idSite, System.Threading.CancellationToken.None);
         }
@@ -364,7 +466,7 @@ namespace Monitor.VrmApi
         /// <param name="idSite">The id of the site.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Response3> SystemOverviewAsync(string x_Authorization, int idSite, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<Response5> SystemOverviewAsync(string x_Authorization, int idSite, System.Threading.CancellationToken cancellationToken)
         {
             if (idSite == null)
                 throw new System.ArgumentNullException("idSite");
@@ -409,7 +511,7 @@ namespace Monitor.VrmApi
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response3>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Response5>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -447,7 +549,7 @@ namespace Monitor.VrmApi
         /// <param name="instance">The id of the instance.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Response4> SolarChargerSummaryAsync(string x_Authorization, int idSite, int instance)
+        public virtual System.Threading.Tasks.Task<Response6> SolarChargerSummaryAsync(string x_Authorization, int idSite, int instance)
         {
             return SolarChargerSummaryAsync(x_Authorization, idSite, instance, System.Threading.CancellationToken.None);
         }
@@ -464,7 +566,7 @@ namespace Monitor.VrmApi
         /// <param name="instance">The id of the instance.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Response4> SolarChargerSummaryAsync(string x_Authorization, int idSite, int instance, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<Response6> SolarChargerSummaryAsync(string x_Authorization, int idSite, int instance, System.Threading.CancellationToken cancellationToken)
         {
             if (idSite == null)
                 throw new System.ArgumentNullException("idSite");
@@ -514,7 +616,7 @@ namespace Monitor.VrmApi
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Response4>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Response6>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -673,6 +775,34 @@ namespace Monitor.VrmApi
         [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
         public bool Success { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public User User { get; set; } = new User();
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial class Response3
+    {
+        [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
+        public bool Success { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("errors", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Errors { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("error_code", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public string Error_code { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial class Response4
+    {
+        [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
+        public bool Success { get; set; }
+
         [Newtonsoft.Json.JsonProperty("records", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Records> Records { get; set; } = new System.Collections.ObjectModel.Collection<Records>();
@@ -680,7 +810,7 @@ namespace Monitor.VrmApi
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class Response3
+    public partial class Response5
     {
         [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Success { get; set; }
@@ -691,13 +821,30 @@ namespace Monitor.VrmApi
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class Response4
+    public partial class Response6
     {
         [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? Success { get; set; }
 
         [Newtonsoft.Json.JsonProperty("records", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Records3 Records { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial class User
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Country { get; set; }
 
     }
 

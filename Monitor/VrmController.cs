@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Rest;
 using Monitor;
@@ -10,9 +9,9 @@ namespace IBLeier.VictronEnergy.Monitor
 {
     public class VrmController
     {
-        static HttpClient httpClient = new HttpClient();
+        static readonly HttpClient httpClient = new HttpClient();
 
-        public static async Task<Response2> GetInstallationsAsync()
+        public static async Task<Response4> GetInstallationsAsync()
         {
             Logging.Log("VrmController_GetInstallations", "Begin");
             //ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
@@ -22,20 +21,17 @@ namespace IBLeier.VictronEnergy.Monitor
                 ServiceClientTracing.IsEnabled = false;
                 ServiceClientTracing.AddTracingInterceptor(new DebugTracer());
 
-                Credential credential = new Credential()
-                {
-                    Username = Settings.Default.Username,
-                    Password = Settings.Default.Password
-                };
-                Response loginOKResponse = await client.LoginAsync(credential);
-                //->
+                string xAuthorization = "Token " + Settings.Default.AccessToken;
+
                 //https://vrmapi.victronenergy.com/v2/users/me provides the UserID, relate to then token.
+                Response2 loginOKResponse = await client.Users_meAsync(xAuthorization);
+                //->
                 //Console.WriteLine("Login: " + loginOKResponse.Token);
-
-                string xAuthorization = "Bearer " + loginOKResponse.Token;
-                //string xAuthorization = "Token " + Settings.Default.AccessToken;
-
-                Response2 installationsOKResponse = await client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1);
+                if (loginOKResponse == null || !loginOKResponse.Success || loginOKResponse.User == null || !loginOKResponse.User.Id.HasValue)
+                {
+                    throw new ValidationException("loginOKResponse.User.Id not found.");
+                }
+                Response4 installationsOKResponse = await client.InstallationsAsync(xAuthorization, loginOKResponse.User.Id.Value, extended: 1);
                 //Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
 
                 //var site = installationsOKResponse.Records.First();
@@ -55,7 +51,7 @@ namespace IBLeier.VictronEnergy.Monitor
                 //SolarChargerSummaryOKResponse solarChargerSummaryOKResponse = client.SolarChargerSummary(xAuthorization, idSite, instance);
                 //Console.WriteLine("solarChargerSummaryOKResponse: " + solarChargerSummaryOKResponse.Success.Value + ", " + solarChargerSummaryOKResponse.Records.Meta.Count);
 
-                await client.LogoutAsync(xAuthorization);
+                //await client.LogoutAsync(xAuthorization);
                 //Console.WriteLine("Logout");
 
                 Logging.Log("VrmController_GetInstallations", "End");
