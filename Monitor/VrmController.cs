@@ -12,7 +12,7 @@ namespace IBLeier.VictronEnergy.Monitor
     {
         static HttpClient httpClient = new HttpClient();
 
-        public static async Task<Response2> GetInstallationsAsync()
+        public static async Task<Response4> GetInstallationsAsync()
         {
             Logging.Log("VrmController_GetInstallations", "Begin");
             //ServiceClientCredentials credentials = new BasicAuthenticationCredentials();
@@ -35,7 +35,7 @@ namespace IBLeier.VictronEnergy.Monitor
                 string xAuthorization = "Bearer " + loginOKResponse.Token;
                 //string xAuthorization = "Token " + Settings.Default.AccessToken;
 
-                Response2 installationsOKResponse = await client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1);
+                Response4 installationsOKResponse = await client.InstallationsAsync(xAuthorization, loginOKResponse.IdUser, extended: 1);
                 //Console.WriteLine("Installations: " + installationsOKResponse.Success + ", " + installationsOKResponse.Records.Count);
 
                 //var site = installationsOKResponse.Records.First();

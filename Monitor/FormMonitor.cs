@@ -51,7 +51,7 @@ namespace Monitor
         {
             timer1.Stop();
 
-            Response2 installationsOKResponse;
+            Response4 installationsOKResponse;
             try
             {
                 installationsOKResponse = await VrmController.GetInstallationsAsync();
@@ -123,7 +123,7 @@ namespace Monitor
             Logging.Log("Fill-Exception", "End");
         }
 
-        private double Fill(Response2 installationsOKResponse)
+        private double Fill(Response4 installationsOKResponse)
         {
             Logging.Log("Fill-InstallationsOKResponse", "Begin");
             double bv = 0;
